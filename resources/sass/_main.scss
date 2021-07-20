@@ -1,0 +1,61 @@
+body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+main{
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    background-image: url('https://platform.docplanner.com/img/it/homepage/homepage-bg-it.jpg?v=2');
+    background-size: cover;
+    background-position: center ;
+}
+
+header{
+    nav{
+        justify-content: space-between;
+        padding: 25px;
+        align-items: center;
+    }
+    .logo{
+        max-width: 200px;
+    }
+}
+.navbar-brand.my-navbar-brand{
+    width: 200px;
+}
+h1{
+    font-weight:600;
+}
+.my-select{
+    margin-right: 10px;
+    border:0px;
+    outline:0px;
+    border: 1px solid $primary-color;
+    border-radius: 5px;
+    height: 33px;
+}
+.suggested-doctors{
+    .card{
+        margin: 25px;
+        width: calc(25% - 50px);
+    }
+}
+.suggested-doctors{
+    .btn-primary{
+        background-color: $primary-color;
+        border: 1px solid $primary-color;
+    }
+}
+.card-header{
+    background-color: $primary-color!important;
+    color: white;
+}
+footer{
+    color: white;
+    ul{
+        list-style-type: none;
+        li{
+            padding: 20px;
+        }
+    }
+}
