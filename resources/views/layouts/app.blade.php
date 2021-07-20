@@ -57,7 +57,7 @@
                                     {{ __('Logout') }}
                                 </a>
                                 <a class="dropdown-item" href="{{ route('admin.home') }}">
-                                    Profilo dottore
+                                    Amministratore <i class="fa fa-user-md" aria-hidden="true"></i>
                                 </a>
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                     @csrf
