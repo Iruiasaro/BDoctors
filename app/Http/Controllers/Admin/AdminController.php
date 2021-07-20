@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Message;
 use Illuminate\Http\Request;
+use App\User;
 
 class AdminController extends Controller
 {
@@ -21,6 +23,18 @@ class AdminController extends Controller
         //
     }
 
+    public function messages($id)
+    {
+        if (auth()->user()->id == $id) {
+            $user = User::findOrFail($id);
+            $data = [
+               "messages" => $user->messages()->get()
+            ];
+            return view("admin.messages",$data);
+        } else {
+            abort('403', 'Azione non autorizzata');
+        }
+    }
     /**
      * Show the form for creating a new resource.
      *

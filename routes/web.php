@@ -34,4 +34,5 @@ Route::prefix('admin')
     ->group(function () {
         Route::get('/home', 'HomeController@index')->name('home');
         Route::get('/edit/{id}', 'AdminController@edit')->name('edit');
+        Route::get("/messages/{id}","AdminController@messages")->name('messages');
     });
