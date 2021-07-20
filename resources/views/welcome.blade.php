@@ -33,7 +33,8 @@
     <h2 class="mb-4"> Dottori consigliati </h2>
     <p> Prenota una visita da un dottore consigliato da <span class="color-primary">BDoctors</span> .</p>
     <div class="suggested-doctors d-flex flex-wrap ">
-        {{-- @foreach($doctors as $doctor)
+
+        @foreach($doctors as $doctor)
         <div class="card" style="">
             <img class="card-img-top" src="imgs/avatar.png" alt="Card image cap">
             <div class="card-body">
@@ -42,7 +43,7 @@
                 <a href="#" class="btn btn-primary" style="width:100%">Prenota</a>
             </div>
         </div>
-        @endforeach --}}
+        @endforeach
     </div>
 </section>
 @endsection

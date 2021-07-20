@@ -73,15 +73,6 @@
             </div>
         </nav>
         <div>
-            <aside>
-                <ul>
-                    <li> <a href=""> Profilo </a> </li>
-                    <li> <a href=""> Messaggi </a> </li>
-                    <li> <a href=""> Statistiche</a> </li>
-                     <li> <a href=""> Recensioni </a> </li>
-                </ul>
-            </aside>
-
             @yield('content')
             <footer class="p-4 mt-5 bg-color-primary d-flex justify-content-center">
                 <ul>
