@@ -12,8 +12,10 @@
             </h1>
             <select class="my-select" name="specializzazione" id="">
                 <option disabled>Scegli una specializzazione</option>
-                <option value="psicologia">Psicologia</option>
-                <option value="psichitria">Psichitria</option>
+                @foreach($specializations as $specialization)
+                     <option value="{{$specialization->specs_type}}">{{$specialization->specs_type}}</option>
+                @endforeach
+               
             </select>
             <select class="my-select" name="citta" id="">
                 <option disabled>Scegli una città</option>
