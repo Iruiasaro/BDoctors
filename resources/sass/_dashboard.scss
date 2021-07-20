@@ -1,0 +1,27 @@
+aside{
+    margin: 10px;
+    padding: 20px;
+    background-color: $primary-color;
+    border-radius: 15px;
+    h4{
+        color: white;
+    }
+    a{
+        color: white;
+    }
+}
+.dashboard{
+    i{
+        font-size: 25px;
+    }
+    a {
+        width: 100px;
+        white-space:nowrap;
+        overflow:hidden;
+        text-overflow:ellipsis;
+    }
+}
+.text-dashboard{
+    display: inline-block;
+    padding: 10px;
+}

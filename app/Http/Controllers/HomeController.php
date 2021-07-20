@@ -22,6 +22,6 @@ class HomeController extends Controller
     public function index()
     {
         $doctors = User::all();
-        return view('welcome',compact("doctors"));
+        return view('admin.home',compact("doctors"));
     }
 }

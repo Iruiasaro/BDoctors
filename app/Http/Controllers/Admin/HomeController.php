@@ -3,14 +3,17 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\User;
 use Illuminate\Http\Request;
 
-class AdminController extends Controller
+class HomeController extends Controller
 {
+
     public function __construct()
     {
         $this->middleware('auth');
     }
+
     /**
      * Display a listing of the resource.
      *
@@ -18,9 +21,9 @@ class AdminController extends Controller
      */
     public function index()
     {
-        //
+        $doctors = User::all();
+        return view('admin.home', compact("doctors"));
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -48,8 +51,10 @@ class AdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    
     public function show($id)
     {
+        //
     }
 
     /**
@@ -58,15 +63,7 @@ class AdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
-        if (auth()->user()->id == $id) {
-            return view("admin.edit");
-        } else {
-            abort('403', 'Azione non autorizzata');
-        }
-    }
-
+    
     /**
      * Update the specified resource in storage.
      *

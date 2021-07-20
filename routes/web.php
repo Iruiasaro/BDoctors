@@ -21,14 +21,17 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-// Route::get('/home', 'HomeController@index')->name('home');
+
 
 Route::get('/','GuestController@index')->name('welcome');
+
+
 
 Route::prefix('admin')
     ->namespace('Admin')
     ->middleware('auth')
     ->name("admin.")
     ->group(function () {
-        
+        Route::get('/home', 'HomeController@index')->name('home');
+        Route::get('/edit/{id}', 'AdminController@edit')->name('edit');
     });

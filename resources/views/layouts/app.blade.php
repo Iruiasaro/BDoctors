@@ -3,25 +3,20 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
     <title>{{ config('app.name', 'Laravel') }}</title>
-
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
-
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-
     <!-- Styles -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-    <div id="app">
+    <div class="d-flex flex-column min-vh-100" id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-color-primary">
             <div class="container">
                 <a class="navbar-brand my-navbar-brand" href="{{ url('/') }}">
@@ -61,7 +56,9 @@
                                                      document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}
                                 </a>
-
+                                <a class="dropdown-item" href="{{ route('admin.home') }}">
+                                    Profilo dottore
+                                </a>
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                     @csrf
                                 </form>
@@ -74,25 +71,8 @@
         </nav>
         <div>
             @yield('content')
-            <footer class="p-4 mt-5 bg-color-primary d-flex justify-content-center">
-                <ul>
-                    <li><a href=""></a>Chi siamo</li>
-                    <li><a href=""></a>Dottori</li>
-                    <li><a href=""></a>Sponsorizzati</li>
-                    <li><a href=""></a>Registrati</li>
-                    <li><a href=""></a>Login</li>
-                </ul>
-                <ul>
-
-                    <li><a href=""></a>Contatti</li>
-                    <li><a href=""></a>Ricerca Avanzata</li>
-                    <li><a href=""></a>Segnala un problema</li>
-                    <li><a href=""></a>Sicurezza</li>
-                    <li><a href=""></a>Accessibilità</li>
-
-                </ul>
         </div>
-        </footer>
+        @include('components.footer')
     </div>
 </body>
 </html>

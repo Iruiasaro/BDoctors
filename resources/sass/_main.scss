@@ -51,12 +51,8 @@ h1{
     background-color: $primary-color!important;
     color: white;
 }
-footer{
-    color: white;
-    ul{
-        list-style-type: none;
-        li{
-            padding: 20px;
-        }
+.form-group{
+    label{
+        max-width: 900px;
     }
 }

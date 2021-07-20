@@ -6,10 +6,12 @@
 
 @import 'utilities';
 
+@import 'dashboard';
+
 @import 'main';
 
 @import 'responsiveness';
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
-
+@import 'footer';

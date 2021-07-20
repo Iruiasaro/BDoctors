@@ -13,6 +13,41 @@
   color: #00C3A5;
 }
 
+.justify-self-start {
+  justify-self: flex-start;
+}
+
+aside {
+  margin: 10px;
+  padding: 20px;
+  background-color: #00C3A5;
+  border-radius: 15px;
+}
+
+aside h4 {
+  color: white;
+}
+
+aside a {
+  color: white;
+}
+
+.dashboard i {
+  font-size: 25px;
+}
+
+.dashboard a {
+  width: 100px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.text-dashboard {
+  display: inline-block;
+  padding: 10px;
+}
+
 body {
   font-family: "Poppins", Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -69,16 +104,8 @@ h1 {
   color: white;
 }
 
-footer {
-  color: white;
-}
-
-footer ul {
-  list-style-type: none;
-}
-
-footer ul li {
-  padding: 20px;
+.form-group label {
+  max-width: 900px;
 }
 
 @media screen and (max-width: 1100px) {
@@ -88,6 +115,10 @@ footer ul li {
 }
 
 @media screen and (max-width: 700px) {
+  .text-dashboard {
+    display: none;
+  }
+
   div.suggested-doctors .card {
     width: calc(50% - 50px);
   }
@@ -11038,5 +11069,18 @@ a.text-dark:focus {
     color: inherit;
     border-color: #dee2e6;
   }
+}
+
+footer {
+  border-top: 1px solid #e0e0e0;
+  justify-self: flex-end;
+}
+
+footer ul {
+  list-style-type: none;
+}
+
+footer ul li {
+  padding: 20px;
 }
 
