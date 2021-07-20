@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Specialization;
 use App\User;
 use Illuminate\Http\Request;
 
@@ -13,8 +15,12 @@ class GuestController extends Controller
      */
     public function index()
     {
-        $doctors = User::all();
-        return view('welcome',compact('doctors'));
+        $data = [
+            'doctors' => User::all(),
+            'specializations' => Specialization::all()
+        ];
+     
+        return view('welcome',$data);
     }
 
     /**
