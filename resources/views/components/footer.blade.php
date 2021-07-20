@@ -1,4 +1,4 @@
- <footer class="p-4 mt-5 d-flex justify-content-center">
+ <footer class="p-4 mt-auto d-flex justify-content-center">
      <ul>
          <li><a href="">Chi siamo</a></li>
          <li><a href="">Dottori</a></li>
