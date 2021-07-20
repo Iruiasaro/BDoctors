@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 <div class="d-flex mt-5 mb-5">
-    <div>
+    <div class="dashboard-container">
         @include('components.dashboard')
     </div>
     <div class="container">
