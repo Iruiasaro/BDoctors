@@ -134,6 +134,12 @@ h1 {
   }
 }
 
+@media screen and (max-width: 500px) {
+  div.suggested-doctors .card {
+    width: 100%;
+  }
+}
+
 /*!
  * Bootstrap v4.6.0 (https://getbootstrap.com/)
  * Copyright 2011-2021 The Bootstrap Authors
