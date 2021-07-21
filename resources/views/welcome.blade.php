@@ -9,6 +9,7 @@
             </label> --}}
             <h1 class="text-white mb-5">
                 Cerca un dottore nella tua zona.
+               
             </h1>
             <select class="my-select" name="specializzazione" id="">
                 <option disabled>Scegli una specializzazione</option>
@@ -38,7 +39,7 @@
 
         @foreach($doctors as $doctor)
         <div class="card" style="">
-            <img class="card-img-top" src="imgs/avatar.png" alt="Card image cap">
+            <img class="card-img-top" :src="randomImg()" alt="Card image cap">
             <div class="card-body">
                 <h5 class="card-title">{{$doctor->name}}</h5>
                 <p class="card-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Praesentium deserunt nobis iure quasi debitis magnam.</p>
