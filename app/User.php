@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','lastname','address','phone_number','curriculum','prestazione','remember_token',
+        'name', 'email', 'password', 'lastname', 'address', 'phone_number', 'curriculum', 'prestazione', 'remember_token',
     ];
 
     /**
@@ -37,16 +37,20 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function sponsors(){
+    public function sponsors()
+    {
         return $this->belongsToMany("App\Sponsor");
     }
-    public function specializzations(){
-        return $this->belongsToMany("App\Specializzation");
+    public function specializations()
+    {
+        return $this->belongsToMany("App\Specialization");
     }
-    public function messages(){
+    public function messages()
+    {
         return $this->hasMany("App\Message");
     }
-    public function reviews(){
+    public function reviews()
+    {
         return $this->hasMany("App\Review");
     }
 }

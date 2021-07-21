@@ -92,13 +92,13 @@ class AdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request,$id)
+    public function update(Request $request, $id)
     {
         $user = User::findOrFail($id);
         $formData = $request->all();
         $request->validate(
             [
-                
+
                 "name" => 'max:50',
                 "lastname" => 'max:50',
                 "email" => "email:rfc,dns|max:255|",
