@@ -28,9 +28,9 @@ class AdminController extends Controller
         if (auth()->user()->id == $id) {
             $user = User::findOrFail($id);
             $data = [
-               "messages" => $user->messages()->get()
+                "messages" => $user->messages()->get()
             ];
-            return view("admin.messages",$data);
+            return view("admin.messages", $data);
         } else {
             abort('403', 'Azione non autorizzata');
         }
@@ -75,7 +75,10 @@ class AdminController extends Controller
     public function edit($id)
     {
         if (auth()->user()->id == $id) {
-            return view("admin.edit");
+            $data = [
+                'user' => User::findOrFail($id)
+            ];
+            return view("admin.edit", $data);
         } else {
             abort('403', 'Azione non autorizzata');
         }
@@ -88,9 +91,20 @@ class AdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request,$id)
     {
-        //
+        $user = User::findOrFail($id);
+        $formData = $request->all();
+        $request->validate(
+            [
+                "name" => 'max:50',
+                "lastname" => 'max:50',
+                "email" => "email:rfc,dns|max:255|",
+                "password" => "min:8|alpha_num"
+            ]
+        );
+        $user->update($formData);
+        return redirect()->route("admin.home");
     }
 
     /**
