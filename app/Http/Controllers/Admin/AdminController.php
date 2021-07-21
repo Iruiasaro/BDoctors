@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Message;
 use Illuminate\Http\Request;
 use App\User;
+use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller
 {
@@ -101,7 +102,6 @@ class AdminController extends Controller
                 "name" => 'max:50',
                 "lastname" => 'max:50',
                 "email" => "email:rfc,dns|max:255|",
-                "password" => "min:8|alpha_num"
             ]
         );
         $user->update($formData);

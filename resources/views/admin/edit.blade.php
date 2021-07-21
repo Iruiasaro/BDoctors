@@ -43,10 +43,6 @@
                     <input class="form-control" type="text" id="lastname" name="lastname" value="{{$user->lastname}}">
                 </div>
                 <div class="form-group">
-                    <label for="password"> Password </label>
-                    <input class="form-control" type="password" id="password" name="password" value="">
-                </div>
-                <div class="form-group">
                     <label for="phone"> Telefono </label>
                     <input class="form-control" type="text" id="phone" name="phone_number" value="{{$user->phone_number}}">
                 </div>
