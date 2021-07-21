@@ -7,7 +7,7 @@
 
 
     {{-- <img src="{{$user->image}}" class="img-fluid rounded-circle" alt=""> --}}
-    <img src="{{asset('imgs/avatar.png')}}" class="img-fluid rounded-circle" alt="">
+    <img src="{{$user->image}}" class="img-fluid rounded-circle" alt="">
     <li>NOME:{{$user->name}} </li>
     <li>COGNOME:{{$user->lastname}} </li>
     <li>EMAIL:{{$user->email}}</li>

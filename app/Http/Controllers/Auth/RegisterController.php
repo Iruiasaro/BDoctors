@@ -65,11 +65,13 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $genre = ["men","women"];
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'remember_token' => Str::random(10),
+            'image' => "https://randomuser.me/api/portraits/".$genre[rand(0,1)]."/". rand(1,100) .".jpg",
         ]);
     }
 }

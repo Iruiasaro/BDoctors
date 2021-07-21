@@ -5,7 +5,6 @@
 use App\User;
 use Faker\Generator as Faker;
 use Illuminate\Support\Str;
-
 /*
 |--------------------------------------------------------------------------
 | Model Factories
@@ -17,9 +16,10 @@ use Illuminate\Support\Str;
 |
 */
 
+
 $factory->define(User::class, function (Faker $faker) {
+    $genre = ["men","women"];
     return [
-        'image' => $faker->imageUrl(),
         'name' => $faker->name,
         'lastname' => $faker->lastName,
         'address' => $faker->address,
@@ -29,6 +29,7 @@ $factory->define(User::class, function (Faker $faker) {
         'password' => $faker->password(), // password
         'remember_token' => Str::random(10),
         'curriculum' => $faker->realText(100),
-        'prestazione' => $faker->realText(20)
+        'prestazione' => $faker->realText(20),
+        'image' => "https://randomuser.me/api/portraits/".$genre[rand(0,1)]."/". rand(1,100) .".jpg",
     ];
 });
