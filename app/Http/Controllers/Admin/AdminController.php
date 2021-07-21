@@ -102,10 +102,8 @@ class AdminController extends Controller
                 "name" => 'max:50',
                 "lastname" => 'max:50',
                 "email" => "email:rfc,dns|max:255|",
-                "password" => "min:8|alpha_num"
             ]
         );
-        $formData['password'] = Hash::make($formData['password']);
         $user->update($formData);
         return redirect()->route("admin.home");
     }
