@@ -42,7 +42,7 @@
             <div class="card-body">
                 <h5 class="card-title">{{$doctor->name}}</h5>
                 <p class="card-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Praesentium deserunt nobis iure quasi debitis magnam.</p>
-                <a href="#" class="btn btn-primary" style="width:100%">Prenota</a>
+                <a href="{{route('doctor.show',$doctor->id)}} " class="btn btn-primary" style="width:100%">Visualizza Profilo</a>
             </div>
         </div>
         @endforeach
