@@ -15,5 +15,8 @@
         <li class="pt-3">
             <a href=""> <i class="fa fa-star-half-o" aria-hidden="true"></i> <span class="text-dashboard"> Recensioni </span> </a>
         </li>
+        <li class="pt-3">
+           <a href="{{route('password.reset',Auth::user()->remember_token)}}">  <i class="fa fa-key" aria-hidden="true"></i> Modifica password </a>
+        </li>
     </ul>
 </aside>
