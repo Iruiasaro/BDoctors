@@ -97,6 +97,7 @@ class AdminController extends Controller
         $formData = $request->all();
         $request->validate(
             [
+                
                 "name" => 'max:50',
                 "lastname" => 'max:50',
                 "email" => "email:rfc,dns|max:255|",

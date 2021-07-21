@@ -8,6 +8,15 @@
         <h3 class="mt-5 mb-3">
             Modifica i tuoi dati
         </h3>
+        @if (count($errors->all()) > 0)
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+        @endif
         <div>
             <form action="{{route('admin.update',$user->id)}}" method="post">
                 @csrf
@@ -27,23 +36,23 @@
                 </div>
                 <div class="form-group">
                     <label for="name"> Nome</label>
-                    <input class="form-control" type="text" id="name" name="name" value="">
+                    <input class="form-control" type="text" id="name" name="name" value="{{$user->name}}">
                 </div>
                 <div class="form-group">
                     <label for="lastname"> Cognome </label>
-                    <input class="form-control" type="text" id="lastname" name="lastname" value="">
+                    <input class="form-control" type="text" id="lastname" name="lastname" value="{{$user->lastname}}">
                 </div>
-                 <div class="form-group">
+                <div class="form-group">
                     <label for="password"> Password </label>
-                    <input class="form-control" type="password" id="lastname" name="lastname" value="">
+                    <input class="form-control" type="password" id="password" name="password" value="">
                 </div>
                 <div class="form-group">
                     <label for="phone"> Telefono </label>
-                    <input class="form-control" type="text" id="phone" name="telefono" value="">
+                    <input class="form-control" type="text" id="phone" name="phone_number" value="{{$user->phone_number}}">
                 </div>
                 <div class="form-group">
                     <label for=""> Indirizzo </label>
-                    <input class="form-control" type="text" id="address" name="address" value="">
+                    <input class="form-control" type="text" id="address" name="address" value="{{$user->address}}">
                 </div>
                 <div class="form-group">
                     <label for="file">
