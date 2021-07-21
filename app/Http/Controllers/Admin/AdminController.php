@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Message;
 use Illuminate\Http\Request;
 use App\User;
+use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller
 {
@@ -104,6 +105,7 @@ class AdminController extends Controller
                 "password" => "min:8|alpha_num"
             ]
         );
+        $formData['password'] = Hash::make($formData['password']);
         $user->update($formData);
         return redirect()->route("admin.home");
     }
