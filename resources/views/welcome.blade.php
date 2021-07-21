@@ -38,7 +38,7 @@
 
         @foreach($doctors as $doctor)
         <div class="card" style="">
-            <img class="card-img-top" src="{{$doctor->image}}" alt="Card image cap">
+            <img class="card-img-top" src="{{$doctor->image ? $doctor->image : asset('imgs/avatar.png')}}" alt="Card image cap">
             <div class="card-body">
                 <h5 class="card-title">{{$doctor->name}}</h5>
                 <p class="card-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Praesentium deserunt nobis iure quasi debitis magnam.</p>
