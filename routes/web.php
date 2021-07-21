@@ -23,7 +23,7 @@ Auth::routes();
 
 
 
-Route::get('/','GuestController@index')->name('welcome');
+Route::get('/', 'GuestController@index')->name('welcome');
 
 
 
@@ -34,6 +34,9 @@ Route::prefix('admin')
     ->group(function () {
         Route::get('/home', 'HomeController@index')->name('home');
         Route::get('/edit/{id}', 'AdminController@edit')->name('edit');
-        Route::match(["PUT","PATCH"],'/update/{id}', 'AdminController@update')->name('update');
-        Route::get("/messages/{id}","AdminController@messages")->name('messages');
+        Route::match(["PUT", "PATCH"], '/update/{id}', 'Controller@update')->name('update');
+        Route::get("/messages/{id}", "AdminController@messages")->name('messages');
     });
+
+
+Route::get('/show/{id}', 'DoctorController@show')->name('doctor.show');
