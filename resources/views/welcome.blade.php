@@ -31,7 +31,6 @@
         </form>
     </div>
 </main>
-
 <section class="my-wrap p-5">
     <h2 class="mb-4"> Dottori consigliati </h2>
     <p> Prenota una visita da un dottore consigliato da <span class="color-primary">BDoctors</span> .</p>
