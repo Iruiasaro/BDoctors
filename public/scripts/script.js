@@ -12,15 +12,15 @@ window.addEventListener("load",() =>{
            
         },
         methods:{
-           randomImg(){
-            let toReturn;
+        //    randomImg(){
+        //     let toReturn;
             
-            axios.get('http://randomuser.me/api').then((resp)=>{ 
-             toReturn = resp.results[0].picture["medium"];
+        //     axios.get('http://randomuser.me/api').then((resp)=>{ 
+        //      toReturn = resp.results[0].picture["medium"];
 
-            })
-            return toReturn;
-           }
+        //     })
+        //     return toReturn;
+        //    }
         }
     })
 })
