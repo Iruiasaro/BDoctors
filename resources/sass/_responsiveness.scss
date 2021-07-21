@@ -20,3 +20,10 @@
 
     }
 }
+@media screen and (max-width:500px) {
+    div.suggested-doctors{
+        .card{
+            width: 100%;
+        }
+    }
+}
