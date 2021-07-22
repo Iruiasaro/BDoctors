@@ -7,7 +7,6 @@ use App\Message;
 use Illuminate\Http\Request;
 use App\User;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Storage;
 
 class AdminController extends Controller
 {
@@ -105,7 +104,6 @@ class AdminController extends Controller
                 "email" => "email:rfc,dns|max:255|",
             ]
         );
-
         $user->update($formData);
         return redirect()->route("admin.home");
     }
