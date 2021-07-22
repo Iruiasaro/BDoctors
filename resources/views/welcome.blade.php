@@ -11,6 +11,10 @@
                 Cerca un dottore nella tua zona.
                
             </h1>
+
+            <div v-for="i in 10" :key="i">
+            <span v-text="'TestoVue ' +i"></span>
+            </div>
             <select class="my-select" name="specializzazione" id="">
                 <option disabled>Scegli una specializzazione</option>
                 @foreach($specializations as $specialization)
