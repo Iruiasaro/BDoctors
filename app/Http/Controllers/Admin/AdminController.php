@@ -7,6 +7,7 @@ use App\Message;
 use Illuminate\Http\Request;
 use App\User;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 
 class AdminController extends Controller
 {
@@ -104,8 +105,18 @@ class AdminController extends Controller
                 "email" => "email:rfc,dns|max:255|",
             ]
         );
+        // $img_path = Storage::put('uploads', $formData['image']);
+        if (key_exists("image", $formData)) {
+            $img_path = Storage::put("uploads", $formData["image"]);
+            @dump($img_path);
+            $user->image = $img_path;
+        }
+        // $path = $request->file('avatar')->store('avatars');
+
+        // return $path;
         $user->update($formData);
-        return redirect()->route("admin.home");
+        // return redirect()->route("admin.home");
+        return;
     }
 
     /**
