@@ -56,9 +56,7 @@ h1{
         max-width: 900px;
     }
 }
-.dottor-specs{
-    i{
-        min-width:40px;
-    }
-
+.scroll-layout{
+    overflow-y: scroll;
+    height: 50vh;
 }
