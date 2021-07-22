@@ -18,7 +18,7 @@
         </div>
         @endif
         <div>
-            <form action="{{route('admin.update',$user->id)}}" method="post">
+            <form action="{{route('admin.update',$user->id)}}" method="post" enctype="multipart/form-data">
                 @csrf
                 @method('patch')
                 <div class="form-group">
@@ -44,7 +44,8 @@
                 </div>
                 <div class="form-group">
                     <label for="phone"> Telefono </label>
-                    <input class="form-control" type="text" id="phone" name="phone_number" value="{{$user->phone_number}}">
+                    <input class="form-control" type="text" id="phone" name="phone_number"
+                        value="{{$user->phone_number}}">
                 </div>
                 <div class="form-group">
                     <label for=""> Indirizzo </label>
@@ -57,18 +58,17 @@
                     <input class="" type="file" name="cv" id="cv">
                 </div>
                 <div class="form-group">
+                    <label for=""> Prestazione </label>
+                    <input class="form-control" type="text" id="prestazione" name="prestazione"
+                        value="{{$user->prestazione}}">
+                </div>
+                <div class="form-group">
                     <label for=""></label>
                     <H3 class="alert-danger"> VUE SPECIALIZATION </H3>
                 </div>
                 <div><button class="btn btn-primary"> Modifica </button></div>
             </form>
-            <div class="form-group">
-                <label for=""> Prestazione </label>
-                <input class="form-control" type="text" id="address" name="address" value="">
-            </div>
-
         </div>
-
     </div>
 </div>
 
