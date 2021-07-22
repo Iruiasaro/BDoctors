@@ -60,12 +60,17 @@
                     <label for=""></label>
                     <H3 class="alert-danger"> VUE SPECIALIZATION </H3>
                 </div>
-                <div><button class="btn btn-primary"> Modifica </button></div>
+
+                <div class="form-group">
+                    <label for=""> Prestazione </label>
+                    <input class="form-control" type="text" id="prestazione" name="prestazione" value="{{$user->prestazione}}">
+                </div>
+
+                <div><button type="submit" class="btn btn-primary"> Modifica </button></div>
+
+
             </form>
-            <div class="form-group">
-                <label for=""> Prestazione </label>
-                <input class="form-control" type="text" id="address" name="address" value="">
-            </div>
+
 
         </div>
 
