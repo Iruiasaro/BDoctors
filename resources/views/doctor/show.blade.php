@@ -14,6 +14,7 @@
                     @endfor
             </div>
             <div class="mt-3">
+            
                 @guest
                 <button class="btn btn-primary">Invia un messaggio</button>
                 @endguest
