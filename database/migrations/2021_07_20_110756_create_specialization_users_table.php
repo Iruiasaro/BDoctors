@@ -24,8 +24,6 @@ class CreateSpecializationUsersTable extends Migration
             $table->foreign("user_id")
                 ->references("id")
                 ->on("users");
-
-            $table->primary(["specialization_id", "user_id"]);
             $table->timestamps();
         });
     }
