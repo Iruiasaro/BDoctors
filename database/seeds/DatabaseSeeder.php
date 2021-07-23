@@ -18,7 +18,8 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             SpecializationSeeder::class,
             SponsorSeeder::class,
-            MessageSeeder::class
+            MessageSeeder::class,
+            SpecializationUserSeeder::class,
         ]);
         DB::statement('SET FOREIGN_KEY_CHECKS=1;');
     }
