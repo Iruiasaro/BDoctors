@@ -36,6 +36,7 @@ Route::prefix('admin')
         Route::get('/edit/{id}', 'AdminController@edit')->name('edit');
         Route::match(["PUT", "PATCH"], '/update/{id}', 'AdminController@update')->name('update');
         Route::get("/messages/{id}", "AdminController@messages")->name('messages');
+        Route::delete("/delete/{user}", "AdminController@destroy")->name('destroy');
     });
 
 
