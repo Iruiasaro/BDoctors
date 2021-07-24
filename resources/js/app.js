@@ -21,6 +21,7 @@ window.Vue = require('vue');
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('home-doctor-card', require('./components/HomeDoctorCard.vue').default);
+Vue.component('search-input', require('./components/SearchInput.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

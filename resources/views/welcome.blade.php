@@ -2,33 +2,7 @@
 @section('content')
 <main class="d-flex p-4">
     <div class="container">
-        <form action="" method="post">
-            {{-- <label for="">
-                Cerca un dottore
-                <input type="text">
-            </label> --}}
-            <h1 class="text-white mb-5">
-                Cerca un dottore nella tua zona.
-
-            </h1>
-            <select class="my-select" name="specializzazione" id="">
-                <option disabled>Scegli una specializzazione</option>
-                @foreach($specializations as $specialization)
-                <option value="{{$specialization->specs_type}}">{{$specialization->specs_type}}</option>
-                @endforeach
-
-            </select>
-            <select class="my-select" name="citta" id="">
-                <option disabled>Scegli una città</option>
-                <option value="roma">Roma</option>
-                <option value="milano">Milano</option>
-                <option value="milano">Carlopoli</option>
-                <option value="milano">Siracusa</option>
-                <option value="milano">Senigallia</option>
-                <option value="milano">Vicenza</option>
-            </select>
-            <input type="submit" class="btn btn-primary" value="Cerca">
-        </form>
+        <search-input></search-input>
     </div>
 </main>
 
@@ -41,7 +15,6 @@
             img="{{$doctor->image}}"
             name="{{$doctor->name }}" 
             link="{{route('doctor.show',$doctor->id)}}">
-
         </home-doctor-card>
         @endforeach
         {{-- @foreach($doctors as $doctor)

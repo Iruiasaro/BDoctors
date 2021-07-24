@@ -10,9 +10,8 @@ use App\User;
 class SpecializationUserController extends Controller
 {
     public function index(Request $request)
-    {
+    {   
         $user_ids = SpecializationUser::where("specialization_id", $request->specialization_id)->get("user_id");
-
         foreach ($user_ids as $user_id) {
             $users[] = User::find($user_id);
         }
