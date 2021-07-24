@@ -5,7 +5,6 @@
  */
 
 require('./bootstrap');
-
 window.Vue = require('vue');
 
 /**
@@ -46,6 +45,7 @@ const app = new Vue({
             });
     },
     data: {
+        isSearched: false,
         searchResult: [],
         specializations: [],
         selectedSpec: '',
@@ -61,6 +61,7 @@ const app = new Vue({
                 .then((resp) => {
                     console.log(resp.data.results)
                     this.searchResult = resp.data.results;
+                    this.isSearched = true;
                 })
                 .catch((er) => {
                     console.error(er);
