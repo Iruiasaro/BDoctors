@@ -48167,6 +48167,7 @@ var app = new Vue({
     });
   },
   data: {
+    isSearched: false,
     searchResult: [],
     specializations: [],
     selectedSpec: '',
@@ -48181,6 +48182,7 @@ var app = new Vue({
       axios.get("http://127.0.0.1:8000/api/specialization_user?specialization_id=".concat(this.selectedSpec)).then(function (resp) {
         console.log(resp.data.results);
         _this2.searchResult = resp.data.results;
+        _this2.isSearched = true;
       })["catch"](function (er) {
         console.error(er);
         alert("Errore in fase di filtraggio dati.");

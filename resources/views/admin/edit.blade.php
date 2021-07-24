@@ -72,10 +72,10 @@
                     <button type="submit" class="btn btn-primary"> Modifica</button>
                 </div>
             </form>
-            <form action="{{ route('admin.destroy', $user->id) }}" class="d-inline-block" method="post">
+            <form action="{{ route('admin.destroy', $user->id) }}" class="d-inline-block mt-2" method="post">
                 @csrf
                 @method('DELETE')
-                <input type="submit" class="btn btn-danger" value="Elimina profilo">
+                <input type="submit" class="btn btn-danger" id="delete" value="Elimina profilo">
             </form>
         </div>
     </div>

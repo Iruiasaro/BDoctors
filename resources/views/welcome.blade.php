@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-<main class="d-flex p-4">
+<main class="d-flex p-4" :class="isSearched ? 'no-height' : ''">
     <div class="container">
         <form action="" @submit.prevent="onSubmit">
             <h1 class="text-white mb-5">Cerca un dottore nella tua zona.</h1>
