@@ -61,11 +61,7 @@ const app = new Vue({
                 .then((resp) => {
                     console.log(resp.data.results)
                     this.searchResult = resp.data.results;
-<<<<<<< HEAD
                     this.isSearched=true;
-=======
-                    this.isSearched = true;
->>>>>>> d6f2011e775274a66117ea511195af67e97615c4
                 })
                 .catch((er) => {
                     console.error(er);
