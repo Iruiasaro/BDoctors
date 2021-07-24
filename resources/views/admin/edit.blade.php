@@ -44,7 +44,8 @@
                 </div>
                 <div class="form-group">
                     <label for="phone"> Telefono </label>
-                    <input class="form-control" type="text" id="phone" name="phone_number" value="{{$user->phone_number}}">
+                    <input class="form-control" type="text" id="phone" name="phone_number"
+                        value="{{$user->phone_number}}">
                 </div>
                 <div class="form-group">
                     <label for=""> Indirizzo </label>
@@ -63,17 +64,20 @@
 
                 <div class="form-group">
                     <label for=""> Prestazione </label>
-                    <input class="form-control" type="text" id="prestazione" name="prestazione" value="{{$user->prestazione}}">
+                    <input class="form-control" type="text" id="prestazione" name="prestazione"
+                        value="{{$user->prestazione}}">
                 </div>
 
-                <div><button type="submit" class="btn btn-primary"> Modifica </button></div>
-
-
+                <div>
+                    <button type="submit" class="btn btn-primary"> Modifica</button>
+                </div>
             </form>
-
-
+            <form action="{{ route('admin.destroy', $user->id) }}" class="d-inline-block" method="post">
+                @csrf
+                @method('DELETE')
+                <input type="submit" class="btn btn-danger" value="Elimina profilo">
+            </form>
         </div>
-
     </div>
 </div>
 
