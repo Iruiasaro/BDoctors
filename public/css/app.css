@@ -26,6 +26,10 @@
   background-color: #e7e7e777;
 }
 
+.no-height {
+  min-height: 0px;
+}
+
 aside {
   margin: 10px;
   padding: 20px;
@@ -69,6 +73,7 @@ main {
   background-image: url("https://platform.docplanner.com/img/it/homepage/homepage-bg-it.jpg?v=2");
   background-size: cover;
   background-position: center;
+  transition: all 0.5s ease-in-out;
 }
 
 header nav {
