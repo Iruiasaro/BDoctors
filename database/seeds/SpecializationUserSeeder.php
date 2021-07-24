@@ -13,7 +13,7 @@ class SpecializationUserSeeder extends Seeder
     {
         // App\User::truncate();
 
-        factory(App\SpecializationUser::class, 20)->create();
+        factory(App\SpecializationUser::class, 750)->create();
         
     }
 }

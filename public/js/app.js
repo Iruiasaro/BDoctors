@@ -132,13 +132,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "HomeDoctorCard",
   props: {
@@ -166,59 +159,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "SearchInput",
-  mounted: function mounted() {
-    var _this = this;
-
-    console.log("Component mounted.");
-    axios.get("http://127.0.0.1:8000/api/specializations").then(function (resp) {
-      console.log(resp.data.results);
-      _this.specializations = resp.data.results;
-    })["catch"](function (er) {
-      console.error(er);
-      alert("Non posso recuperare i tag");
-    });
-  },
-  data: function data() {
-    return {
-      specializations: [],
-      selectedSpec: ''
-    };
-  },
-  methods: {
-    onSubmit: function onSubmit() {
-      axios.get("http://127.0.0.1:8000/api/specialization_user?specialization_id=".concat(this.selectedSpec)).then(function (resp) {
-        console.log(resp);
-      })["catch"](function (er) {
-        console.error(er);
-        alert("Errore in fase di filtraggio dati.");
-      });
-    }
-  }
+  name: "SearchInput"
 });
 
 /***/ }),
@@ -35931,32 +35873,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "card" }, [
-    _c("img", {
-      staticClass: "card-img-top",
-      attrs: { src: _vm.img, alt: "Card image cap" }
-    }),
-    _vm._v(" "),
-    _c("div", { staticClass: "card-body" }, [
-      _c("h5", { staticClass: "card-title" }, [_vm._v(_vm._s(_vm.name))]),
-      _vm._v(" "),
-      _c("p", { staticClass: "card-text" }, [
-        _vm._v(
-          "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Praesentium deserunt nobis iure quasi debitis magnam."
-        )
-      ]),
-      _vm._v(" "),
-      _c(
-        "a",
-        {
-          staticClass: "btn btn-primary",
-          staticStyle: { width: "100%" },
-          attrs: { href: _vm.link }
-        },
-        [_vm._v("Visualizza Profilo")]
-      )
-    ])
-  ])
+  return _c("div")
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -35980,114 +35897,9 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c(
-      "form",
-      {
-        attrs: { action: "" },
-        on: {
-          submit: function($event) {
-            $event.preventDefault()
-            return _vm.onSubmit.apply(null, arguments)
-          }
-        }
-      },
-      [
-        _c("h1", { staticClass: "text-white mb-5" }, [
-          _vm._v("Cerca un dottore nella tua zona.")
-        ]),
-        _vm._v(" "),
-        _c(
-          "select",
-          {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.selectedSpec,
-                expression: "selectedSpec"
-              }
-            ],
-            staticClass: "my-select",
-            attrs: { name: "specialization", id: "" },
-            on: {
-              change: function($event) {
-                var $$selectedVal = Array.prototype.filter
-                  .call($event.target.options, function(o) {
-                    return o.selected
-                  })
-                  .map(function(o) {
-                    var val = "_value" in o ? o._value : o.value
-                    return val
-                  })
-                _vm.selectedSpec = $event.target.multiple
-                  ? $$selectedVal
-                  : $$selectedVal[0]
-              }
-            }
-          },
-          [
-            _c("option", { attrs: { disabled: "" } }, [
-              _vm._v("Scegli una specializzazione")
-            ]),
-            _vm._v(" "),
-            _vm._l(_vm.specializations, function(specialization) {
-              return _c(
-                "option",
-                {
-                  key: specialization.id,
-                  domProps: { value: specialization.id }
-                },
-                [
-                  _vm._v(
-                    "\n        " +
-                      _vm._s(specialization.specs_type) +
-                      "\n      "
-                  )
-                ]
-              )
-            })
-          ],
-          2
-        ),
-        _vm._v(" "),
-        _vm._m(0),
-        _vm._v(" "),
-        _c(
-          "button",
-          { staticClass: "btn btn-primary", attrs: { type: "submit" } },
-          [_vm._v("Cerca")]
-        )
-      ]
-    )
-  ])
+  return _c("div")
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "select",
-      { staticClass: "my-select", attrs: { name: "citta", id: "" } },
-      [
-        _c("option", { attrs: { disabled: "" } }, [_vm._v("Scegli una città")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "roma" } }, [_vm._v("Roma")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "milano" } }, [_vm._v("Milano")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "milano" } }, [_vm._v("Carlopoli")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "milano" } }, [_vm._v("Siracusa")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "milano" } }, [_vm._v("Senigallia")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "milano" } }, [_vm._v("Vicenza")])
-      ]
-    )
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -48331,6 +48143,7 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 Vue.component('example-component', __webpack_require__(/*! ./components/ExampleComponent.vue */ "./resources/js/components/ExampleComponent.vue")["default"]);
+Vue.component('home-component', __webpack_require__(/*! ./components/HomeComponent.vue */ "./resources/js/components/HomeComponent.vue")["default"]);
 Vue.component('home-doctor-card', __webpack_require__(/*! ./components/HomeDoctorCard.vue */ "./resources/js/components/HomeDoctorCard.vue")["default"]);
 Vue.component('search-input', __webpack_require__(/*! ./components/SearchInput.vue */ "./resources/js/components/SearchInput.vue")["default"]);
 /**
@@ -48340,7 +48153,43 @@ Vue.component('search-input', __webpack_require__(/*! ./components/SearchInput.v
  */
 
 var app = new Vue({
-  el: '#app'
+  el: '#app',
+  mounted: function mounted() {
+    var _this = this;
+
+    console.log("Component mounted.");
+    axios.get("http://127.0.0.1:8000/api/specializations").then(function (resp) {
+      console.log(resp.data.results);
+      _this.specializations = resp.data.results;
+    })["catch"](function (er) {
+      console.error(er);
+      alert("Non posso recuperare i tag");
+    });
+  },
+  data: {
+    searchResult: [],
+    specializations: [],
+    selectedSpec: '',
+    image: '',
+    name: '',
+    link: ''
+  },
+  methods: {
+    onSubmit: function onSubmit() {
+      var _this2 = this;
+
+      axios.get("http://127.0.0.1:8000/api/specialization_user?specialization_id=".concat(this.selectedSpec)).then(function (resp) {
+        console.log(resp.data.results);
+        _this2.searchResult = resp.data.results;
+      })["catch"](function (er) {
+        console.error(er);
+        alert("Errore in fase di filtraggio dati.");
+      });
+    },
+    show: function show(doctorId) {
+      return "/show/".concat(doctorId);
+    }
+  }
 });
 
 /***/ }),
@@ -48456,6 +48305,38 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ExampleComponent_vue_vue_type_template_id_299e239e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
+
+/***/ }),
+
+/***/ "./resources/js/components/HomeComponent.vue":
+/*!***************************************************!*\
+  !*** ./resources/js/components/HomeComponent.vue ***!
+  \***************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+var render, staticRenderFns
+var script = {}
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_0__["default"])(
+  script,
+  render,
+  staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+component.options.__file = "resources/js/components/HomeComponent.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 
