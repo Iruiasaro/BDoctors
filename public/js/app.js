@@ -211,10 +211,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     onSubmit: function onSubmit() {
-      axios.get("http://127.0.0.1:8000/api/specialization_user?spcialization_id=".concat(this.selectedSpec), {
-        params: {//tags: this.searchTag
-        }
-      }).then(function (resp) {
+      axios.get("http://127.0.0.1:8000/api/specialization_user?specialization_id=".concat(this.selectedSpec)).then(function (resp) {
         console.log(resp);
       })["catch"](function (er) {
         console.error(er);

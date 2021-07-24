@@ -52,11 +52,7 @@ export default {
   methods: {
     onSubmit() {
       axios
-        .get(`http://127.0.0.1:8000/api/specialization_user?spcialization_id=${this.selectedSpec}`, {
-          params: {
-            //tags: this.searchTag
-          },
-        })
+        .get(`http://127.0.0.1:8000/api/specialization_user?specialization_id=${this.selectedSpec}`)
         .then((resp) => {
           console.log(resp)
         })
