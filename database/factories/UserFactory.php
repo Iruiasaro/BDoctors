@@ -18,11 +18,13 @@ use Illuminate\Support\Str;
 
 
 $factory->define(User::class, function (Faker $faker) {
-    $genre = ["men","women"];
+    $genre = ["men", "women"];
+    $city = config("cities");
     return [
         'name' => $faker->name,
         'lastname' => $faker->lastName,
         'address' => $faker->address,
+        'city' => rand(0, count($city) - 1),
         'phone_number' => $faker->phoneNumber,
         'email' => $faker->unique()->safeEmail,
         'email_verified_at' => now(),
@@ -30,6 +32,6 @@ $factory->define(User::class, function (Faker $faker) {
         'remember_token' => Str::random(10),
         'curriculum' => $faker->realText(100),
         'prestazione' => $faker->realText(20),
-        'image' => "https://randomuser.me/api/portraits/".$genre[rand(0,1)]."/". rand(1,100) .".jpg",
+        'image' => "https://randomuser.me/api/portraits/" . $genre[rand(0, 1)] . "/" . rand(1, 100) . ".jpg",
     ];
 });
