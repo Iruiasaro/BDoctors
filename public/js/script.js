@@ -113,7 +113,7 @@ window.addEventListener("load", function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\salva\Desktop\Boleean\BDoctors\resources\js\script.js */"./resources/js/script.js");
+module.exports = __webpack_require__(/*! C:\Users\salva\Desktop\Boolean\BDoctors\resources\js\script.js */"./resources/js/script.js");
 
 
 /***/ })

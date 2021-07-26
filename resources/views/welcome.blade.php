@@ -28,15 +28,15 @@
 <section class="my-wrap p-5">
     <div class="d-flex  justify-content-between ">
         <div>
-            <h2 class="mb-4"> Dottori consigliati </h2>
+            <h2 class="mb-4"> Risultati Ricerca </h2>
         </div>
         <div>
-            <form action="">
-                <div v-for="index in 5" class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" v-model="selectedStar" :id=" 'inlineCheckbox'. index " :value="index">
-                    <label class="form-check-label" :for="'inlineCheckbox'. index "><span v-for="item in index"><i class="fa fa-star color-primary" aria-hidden="true"></i> </span> </label>
+            <form action="" >
+                <div v-for="index in 5" class="form-check form-check-inline" v-on:change="onChangeStar()" >
+                    <input class="form-check-input" type="checkbox" v-model="selectedStar"  :id="index" :value="index">
+                    <label class="form-check-label" :for="index"><span v-for="item in index"><i class="fa fa-star color-primary" aria-hidden="true"></i> </span> </label>
                 </div>
-                
+
             </form>
 
         </div>
@@ -58,4 +58,17 @@
         </div>
     </div>
 </section>
+
+
+<section class="my-wrap p-5">
+    <div class="d-flex  justify-content-between ">
+        <div>
+            <h2 class="mb-4"> Dottori consigliati </h2>
+        </div>
+    </div>
+    <p> Prenota una visita da un dottore consigliato da <span class="color-primary">BDoctors</span> .</p>
+    <div class="suggested-doctors d-flex flex-wrap ">
+    </div>
+</section>
+
 @endsection

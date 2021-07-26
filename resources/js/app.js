@@ -45,14 +45,15 @@ const app = new Vue({
             });
     },
     data: {
-        isSearched : false,
-        searchResult: [],
+        isSearched: false,
+        searchResult: [
+        ],
         specializations: [],
         selectedSpec: '',
         image: '',
         name: '',
         link: '',
-        selectedStar:[],
+        selectedStar: [1, 2],
 
     },
     methods: {
@@ -60,17 +61,40 @@ const app = new Vue({
             axios
                 .get(`http://127.0.0.1:8000/api/specialization_user?specialization_id=${this.selectedSpec}`)
                 .then((resp) => {
-                    console.log(resp.data.results)
+
                     this.searchResult = resp.data.results;
-                    this.isSearched=true;
+                    this.isSearched = true;
                 })
                 .catch((er) => {
                     console.error(er);
                     alert("Errore in fase di filtraggio dati.");
                 });
         },
-        show(doctorId){
-            return `/show/${doctorId}` ;
+        show(doctorId) {
+            return `/show/${doctorId}`;
+        },
+        async onChangeStar() {
+
+            this.searchResult.forEach(user => {
+                axios
+                    .get(`http://127.0.0.1:8000/api/reviews?user_id=${user.id}`)
+                    .then((resp) => {
+                        user.vote = resp.data.results.vote;
+                        this.selectedStar.forEach(selectedStar => {
+                            this.searchResult.filter(user => {
+                                if (user.vote == selectedStar) {
+                                    console.log("RIEMPI!")
+                                    return true;
+                                }
+                            })
+                        })
+                    })
+                    .catch((er) => {
+                        console.error(er);
+                        alert("Errore in fase di filtraggio dati.");
+                    });
+            });
+
         }
     },
 });

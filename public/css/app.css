@@ -32,6 +32,15 @@
   background-color: #00C3A5;
 }
 
+.profile-img {
+  width: 100px;
+  height: 100px;
+  -o-object-fit: contain;
+     object-fit: contain;
+  -o-object-position: center;
+     object-position: center;
+}
+
 aside {
   margin: 10px;
   padding: 20px;
