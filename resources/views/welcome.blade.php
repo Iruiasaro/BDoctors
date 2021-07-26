@@ -31,9 +31,9 @@
             <h2 class="mb-4"> Risultati Ricerca </h2>
         </div>
         <div>
-            <form action="" >
-                <div v-for="index in 5" class="form-check form-check-inline" v-on:change="onChangeStar()" >
-                    <input class="form-check-input" type="checkbox" v-model="selectedStar"  :id="index" :value="index">
+            <form action="">
+                <div v-for="index in 5" class="form-check form-check-inline" v-on:change="onChangeStar()">
+                    <input class="form-check-input" type="checkbox" v-model="selectedStar" :id="index" :value="index">
                     <label class="form-check-label" :for="index"><span v-for="item in index"><i class="fa fa-star color-primary" aria-hidden="true"></i> </span> </label>
                 </div>
 
@@ -44,18 +44,22 @@
     </div>
 
     <p> Prenota una visita da un dottore consigliato da <span class="color-primary">BDoctors</span> .</p>
-    <div class="suggested-doctors d-flex flex-wrap ">
-        <div v-for="doctor in searchResult" class="card" style="">
-            <img class="card-img-top" :src="doctor.image" alt="Card image cap" />
-            <div class="card-body">
-                <h5 class="card-title">@{{doctor.name}}</h5>
-                <p class="card-text">
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                    <i></i>
-                </p>
-                <a :href='show(doctor.id)' class="btn btn-primary" style="width: 100%">Visualizza Profilo</a>
+    <div class="">
+        <div v-if="!isLoading" class="suggested-doctors d-flex flex-wrap">
+            <div v-for="doctor in filterResult" class="card" style="">
+                <img class="card-img-top" :src="doctor.image" alt="Card image cap" />
+                <div class="card-body">
+                    <h5 class="card-title">@{{doctor.name}}</h5>
+                    <p class="card-text">
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                        <i></i>
+                    </p>
+                    <div> @{{doctor.vote}} </div>
+                    <a :href='show(doctor.id)' class="btn btn-primary" style="width: 100%">Visualizza Profilo</a>
+                </div>
             </div>
         </div>
+        <div v-else class="d-flex justify-content-center align-items-center"><img class="loading" src="{{asset('/imgs/loading.gif')}}" alt=""></div>
     </div>
 </section>
 

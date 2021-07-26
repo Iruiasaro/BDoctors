@@ -45,9 +45,10 @@ const app = new Vue({
             });
     },
     data: {
+        isLoading: false,
         isSearched: false,
-        searchResult: [
-        ],
+        searchResult: [],
+        filterResult: [],
         specializations: [],
         selectedSpec: '',
         image: '',
@@ -57,44 +58,61 @@ const app = new Vue({
 
     },
     methods: {
+        resetFilters(data) {
+            this.filterResult = data;
+        },
         onSubmit() {
+            this.isLoading = true;
             axios
                 .get(`http://127.0.0.1:8000/api/specialization_user?specialization_id=${this.selectedSpec}`)
                 .then((resp) => {
-
                     this.searchResult = resp.data.results;
                     this.isSearched = true;
+                    this.resetFilters(resp.data.results);
+                    this.addVoteToDoctor(resp.data.results);
                 })
                 .catch((er) => {
                     console.error(er);
                     alert("Errore in fase di filtraggio dati.");
                 });
+
         },
         show(doctorId) {
             return `/show/${doctorId}`;
         },
-        async onChangeStar() {
-
-            this.searchResult.forEach(user => {
+        onChangeStar() {
+            this.filterSearchResult();
+        },
+        filterSearchResult() {
+            console.log("CHANGE!")
+            this.selectedStar.forEach(selectedStar => {
+                this.filterResult = this.searchResult.filter(user => {
+                    voteInt = Math.round(user.vote);
+                    if (voteInt == selectedStar) {
+                        console.log("FILTRA ORA!")
+                        return true;
+                    }
+                })
+            })
+        },
+        addVoteToDoctor(data) {
+            console.log(data);
+            this.searchResult.forEach((user, index) => {
                 axios
                     .get(`http://127.0.0.1:8000/api/reviews?user_id=${user.id}`)
                     .then((resp) => {
                         user.vote = resp.data.results.vote;
-                        this.selectedStar.forEach(selectedStar => {
-                            this.searchResult.filter(user => {
-                                if (user.vote == selectedStar) {
-                                    console.log("RIEMPI!")
-                                    return true;
-                                }
-                            })
-                        })
+                        console.log(user.vote);
+                        if (index == this.searchResult.length-1) {
+                            this.isLoading = false;
+                        }
+
                     })
                     .catch((er) => {
                         console.error(er);
                         alert("Errore in fase di filtraggio dati.");
                     });
             });
-
         }
     },
 });

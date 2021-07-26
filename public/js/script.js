@@ -96,12 +96,14 @@
 window.addEventListener("load", function () {
   console.log("LOADED");
   deleteButton = document.getElementById('delete');
-  console.log(deleteButton);
-  deleteButton.addEventListener("click", function (event) {
-    if (!confirm('Sei sicuro di voler eliminare il profilo?')) {
-      event.preventDefault();
-    }
-  });
+
+  if (deleteButton) {
+    deleteButton.addEventListener("click", function (event) {
+      if (!confirm('Sei sicuro di voler eliminare il profilo?')) {
+        event.preventDefault();
+      }
+    });
+  }
 });
 
 /***/ }),
