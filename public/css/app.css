@@ -62,6 +62,12 @@
   background-color: #28B0D0;
 }
 
+@media screen and (max-width: 900px) {
+  .responsive-flex {
+    flex-direction: column;
+  }
+}
+
 aside {
   margin: 10px;
   padding: 20px;
