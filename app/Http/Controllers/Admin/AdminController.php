@@ -105,7 +105,7 @@ class AdminController extends Controller
                 "email" => "email:rfc,dns|max:255|",
             ]
         );
-        $storageResult = Storage::put("public/storage", $formData["image"]);
+        $storageResult = Storage::put("public", $formData["image"]);
         @dump($storageResult);
         $user->image = $storageResult;
         $user->update($formData);
