@@ -85,15 +85,15 @@ const app = new Vue({
         },
         filterSearchResult() {
             console.log("CHANGE!")
-            this.selectedStar.forEach(selectedStar => {
-                this.filterResult = this.searchResult.filter(user => {
-                    voteInt = Math.round(user.vote);
-                    if (voteInt == selectedStar) {
-                        console.log("FILTRA ORA!")
-                        return true;
-                    }
-                })
+
+            this.filterResult = this.searchResult.filter(user => {
+                voteInt = Math.round(user.vote);
+                if (voteInt == this.selectedStar) {
+                    console.log("FILTRA ORA!")
+                    return true;
+                }
             })
+
         },
         addVoteToDoctor(data) {
             console.log(data);
@@ -103,7 +103,7 @@ const app = new Vue({
                     .then((resp) => {
                         user.vote = resp.data.results.vote;
                         console.log(user.vote);
-                        if (index == this.searchResult.length-1) {
+                        if (index == this.searchResult.length - 1) {
                             this.isLoading = false;
                         }
 

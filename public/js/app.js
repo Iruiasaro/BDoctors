@@ -48208,15 +48208,13 @@ var app = new Vue({
       var _this3 = this;
 
       console.log("CHANGE!");
-      this.selectedStar.forEach(function (selectedStar) {
-        _this3.filterResult = _this3.searchResult.filter(function (user) {
-          voteInt = Math.round(user.vote);
+      this.filterResult = this.searchResult.filter(function (user) {
+        voteInt = Math.round(user.vote);
 
-          if (voteInt == selectedStar) {
-            console.log("FILTRA ORA!");
-            return true;
-          }
-        });
+        if (voteInt == _this3.selectedStar) {
+          console.log("FILTRA ORA!");
+          return true;
+        }
       });
     },
     addVoteToDoctor: function addVoteToDoctor(data) {

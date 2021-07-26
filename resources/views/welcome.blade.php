@@ -33,7 +33,7 @@
         <div>
             <form action="">
                 <div v-for="index in 5" class="form-check form-check-inline" v-on:change="onChangeStar()">
-                    <input class="form-check-input" type="checkbox" v-model="selectedStar" :id="index" :value="index">
+                    <input class="form-check-input" type="radio" v-model="selectedStar" :id="index" :value="index">
                     <label class="form-check-label" :for="index"><span v-for="item in index"><i class="fa fa-star color-primary" aria-hidden="true"></i> </span> </label>
                 </div>
 
