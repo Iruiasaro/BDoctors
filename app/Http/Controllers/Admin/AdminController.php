@@ -7,6 +7,7 @@ use App\Message;
 use Illuminate\Http\Request;
 use App\User;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 
 class AdminController extends Controller
 {
@@ -105,6 +106,9 @@ class AdminController extends Controller
             ]
         );
         $user->update($formData);
+        $storageResult = Storage::put("public/storage", $formData["image"]);
+        @dump($storageResult);
+        $user->image = $storageResult;
         return redirect()->route("admin.home");
     }
 

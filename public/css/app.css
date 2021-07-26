@@ -28,6 +28,8 @@
 
 .no-height {
   min-height: 0px;
+  background-image: none;
+  background-color: #00C3A5;
 }
 
 aside {

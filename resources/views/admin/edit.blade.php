@@ -18,17 +18,18 @@
         </div>
         @endif
         <div>
-            <form action="{{route('admin.update',$user->id)}}" method="post">
+            <form action="{{route('admin.update',$user->id)}}" enctype="multipart/form-data" method="post">
                 @csrf
                 @method('patch')
                 <div class="form-group">
-                    <label for="file">
+                    <label for="image">
                         <div class="profile-img-container">
                             <img src="{{$user->image}}" class="img-fluid rounded-circle" alt="">
                             <div>Modifica immagine:</div>
+                            <input type="file" name="image" id="image">
                         </div>
                     </label> <br>
-                    <input class="" type="file" name="image" id="image">
+
                 </div>
                 <div class="form-group">
                     <label for="email"> email</label>
@@ -44,8 +45,7 @@
                 </div>
                 <div class="form-group">
                     <label for="phone"> Telefono </label>
-                    <input class="form-control" type="text" id="phone" name="phone_number"
-                        value="{{$user->phone_number}}">
+                    <input class="form-control" type="text" id="phone" name="phone_number" value="{{$user->phone_number}}">
                 </div>
                 <div class="form-group">
                     <label for=""> Indirizzo </label>
@@ -64,8 +64,7 @@
 
                 <div class="form-group">
                     <label for=""> Prestazione </label>
-                    <input class="form-control" type="text" id="prestazione" name="prestazione"
-                        value="{{$user->prestazione}}">
+                    <input class="form-control" type="text" id="prestazione" name="prestazione" value="{{$user->prestazione}}">
                 </div>
 
                 <div>

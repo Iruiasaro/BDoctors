@@ -17,7 +17,7 @@ class AddColumnsToUsersTable extends Migration
             $table->string("image");
             $table->string("lastname");
             $table->string("address");
-            $table->string("city");
+            $table->string("city")->nullable();
             $table->string("phone_number")->nullable();
             $table->string("curriculum")->nullable();
             $table->string("prestazione")->nullable();

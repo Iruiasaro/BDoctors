@@ -34,8 +34,8 @@
             <div class="card-body">
                 <h5 class="card-title">@{{doctor.name}}</h5>
                 <p class="card-text">
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Praesentium
-                    deserunt nobis iure quasi debitis magnam.
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
+                    <i></i>
                 </p>
                 <a :href='show(doctor.id)' class="btn btn-primary" style="width: 100%">Visualizza Profilo</a>
             </div>
