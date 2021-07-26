@@ -54,7 +54,7 @@ const app = new Vue({
         image: '',
         name: '',
         link: '',
-        selectedStar: [1, 2],
+        selectedStar: 'all',
 
     },
     methods: {
@@ -81,6 +81,7 @@ const app = new Vue({
             return `/show/${doctorId}`;
         },
         onChangeStar() {
+            
             this.filterSearchResult();
         },
         filterSearchResult() {
@@ -88,7 +89,7 @@ const app = new Vue({
 
             this.filterResult = this.searchResult.filter(user => {
                 voteInt = Math.round(user.vote);
-                if (voteInt == this.selectedStar) {
+                if (voteInt == this.selectedStar || this.selectedStar == "all") {
                     console.log("FILTRA ORA!")
                     return true;
                 }

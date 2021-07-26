@@ -32,7 +32,13 @@
         </div>
         <div>
             <form action="">
+                <div class="mb-3">Filtra per media recensioni: </div>
                 <div v-for="index in 5" class="form-check form-check-inline" v-on:change="onChangeStar()">
+
+                    <div v-if="index==1" class="mr-4">
+                        <input class="form-check-input" type="radio" v-model="selectedStar" id="all" value="all">
+                        <label class="form-check-label" for="all"> Tutti i Dottori </label>
+                    </div>
                     <input class="form-check-input" type="radio" v-model="selectedStar" :id="index" :value="index">
                     <label class="form-check-label" :for="index"><span v-for="item in index"><i class="fa fa-star color-primary" aria-hidden="true"></i> </span> </label>
                 </div>
@@ -54,7 +60,7 @@
                         Lorem ipsum dolor sit, amet consectetur adipisicing elit.
                         <i></i>
                     </p>
-                    <div> @{{doctor.vote}} </div>
+                    <div> <i v-for="index in Math.round(doctor.vote)" class="fa fa-star third-color"> </i></div>
                     <a :href='show(doctor.id)' class="btn btn-primary" style="width: 100%">Visualizza Profilo</a>
                 </div>
             </div>

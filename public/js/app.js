@@ -48176,7 +48176,7 @@ var app = new Vue({
     image: '',
     name: '',
     link: '',
-    selectedStar: [1, 2]
+    selectedStar: 'all'
   },
   methods: {
     resetFilters: function resetFilters(data) {
@@ -48211,7 +48211,7 @@ var app = new Vue({
       this.filterResult = this.searchResult.filter(function (user) {
         voteInt = Math.round(user.vote);
 
-        if (voteInt == _this3.selectedStar) {
+        if (voteInt == _this3.selectedStar || _this3.selectedStar == "all") {
           console.log("FILTRA ORA!");
           return true;
         }

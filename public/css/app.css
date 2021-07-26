@@ -46,6 +46,22 @@
   height: 50px;
 }
 
+.secondary-color {
+  color: #347DDE;
+}
+
+.third-color {
+  color: #28B0D0;
+}
+
+.bg-secondary-color {
+  background-color: #347DDE;
+}
+
+.bg-third-color {
+  background-color: #28B0D0;
+}
+
 aside {
   margin: 10px;
   padding: 20px;
