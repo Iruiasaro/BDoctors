@@ -36,7 +36,6 @@ const app = new Vue({
         axios
             .get("http://127.0.0.1:8000/api/specializations")
             .then((resp) => {
-                console.log(resp.data.results);
                 this.specializations = resp.data.results;
             })
             .catch((er) => {
@@ -62,6 +61,7 @@ const app = new Vue({
             this.filterResult = data;
         },
         onSubmit() {
+            this.selectedStar="all"
             this.isLoading = true;
             axios
                 .get(`http://127.0.0.1:8000/api/specialization_user?specialization_id=${this.selectedSpec}`)
@@ -85,25 +85,20 @@ const app = new Vue({
             this.filterSearchResult();
         },
         filterSearchResult() {
-            console.log("CHANGE!")
-
             this.filterResult = this.searchResult.filter(user => {
                 voteInt = Math.round(user.vote);
                 if (voteInt == this.selectedStar || this.selectedStar == "all") {
-                    console.log("FILTRA ORA!")
                     return true;
                 }
             })
 
         },
         addVoteToDoctor(data) {
-            console.log(data);
             this.searchResult.forEach((user, index) => {
                 axios
                     .get(`http://127.0.0.1:8000/api/reviews?user_id=${user.id}`)
                     .then((resp) => {
                         user.vote = resp.data.results.vote;
-                        console.log(user.vote);
                         if (index == this.searchResult.length - 1) {
                             this.isLoading = false;
                         }
