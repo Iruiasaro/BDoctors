@@ -52,6 +52,7 @@ const app = new Vue({
         image: '',
         name: '',
         link: '',
+        selectedStar:[],
 
     },
     methods: {

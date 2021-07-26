@@ -26,15 +26,31 @@
 </main>
 
 <section class="my-wrap p-5">
-    <h2 class="mb-4"> Dottori consigliati </h2>
+    <div class="d-flex  justify-content-between ">
+        <div>
+            <h2 class="mb-4"> Dottori consigliati </h2>
+        </div>
+        <div>
+            <form action="">
+                <div v-for="index in 5" class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" v-model="selectedStar" :id=" 'inlineCheckbox'. index " :value="index">
+                    <label class="form-check-label" :for="'inlineCheckbox'. index "><span v-for="item in index"><i class="fa fa-star color-primary" aria-hidden="true"></i> </span> </label>
+                </div>
+                
+            </form>
+
+        </div>
+
+    </div>
+
     <p> Prenota una visita da un dottore consigliato da <span class="color-primary">BDoctors</span> .</p>
     <div class="suggested-doctors d-flex flex-wrap ">
         <div v-for="doctor in searchResult" class="card" style="">
-            <img class="card-img-top" :src="doctor.image" alt="Card image cap"/>
+            <img class="card-img-top" :src="doctor.image" alt="Card image cap" />
             <div class="card-body">
                 <h5 class="card-title">@{{doctor.name}}</h5>
                 <p class="card-text">
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
                     <i></i>
                 </p>
                 <a :href='show(doctor.id)' class="btn btn-primary" style="width: 100%">Visualizza Profilo</a>
