@@ -24,9 +24,9 @@
                 <div class="form-group">
                     <label for="image">
                         <div class="profile-img-container">
-                            <img src="{{$user->image}}" class="img-fluid rounded-circle" alt="">
+                            <img src="{{  $user->image }}" class="img-fluid rounded-circle" alt="">
                             <div>Modifica immagine:</div>
-                            <input type="file" name="image" id="image">
+                            <input type="file" name="image" id="image" accept=".jpg, .svg, .png, .jpeg">
                         </div>
                     </label> <br>
 

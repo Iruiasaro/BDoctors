@@ -5,6 +5,7 @@
 
 <div class="container mb-5">
     <div class="bg-light-gray p-2 rounded mt-5 d-flex">
+    @dump($user->image)
         <div> <img src="{{$user->image}}" class="img-fluid rounded" alt=""></div>
         <div class="ml-4 p-2">
             <h3>{{$user->name}}</h3>
