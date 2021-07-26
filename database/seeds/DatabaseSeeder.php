@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
             SponsorSeeder::class,
             MessageSeeder::class,
             SpecializationUserSeeder::class,
+            ReviewSeeder::class,
         ]);
         DB::statement('SET FOREIGN_KEY_CHECKS=1;');
     }
