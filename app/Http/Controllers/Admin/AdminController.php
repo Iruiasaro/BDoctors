@@ -110,7 +110,7 @@ class AdminController extends Controller
             $user->image = $storageResult;
         }
         $user->update($formData);
-        return redirect()->route("admin.home");
+        return redirect()->route("doctor.show", $user->id);
     }
 
     /**
