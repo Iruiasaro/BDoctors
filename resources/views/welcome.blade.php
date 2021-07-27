@@ -25,8 +25,8 @@
     </div>
 </main>
 
-<section v-if="!isLoading && isSearched==true" class="my-wrap p-5">
-    <div class="d-flex justify-content-between responsive-flex">
+<section class="my-wrap p-5">
+    <div class="d-flex  justify-content-between ">
         <div>
             <h2 class="mb-4"> Risultati Ricerca </h2>
         </div>
@@ -34,7 +34,6 @@
             <form action="">
                 <div class="mb-3">Filtra per media recensioni: </div>
                 <div v-for="index in 5" class="form-check form-check-inline" v-on:change="onChangeStar()">
-
                     <div v-if="index==1" class="mr-4">
                         <input class="form-check-input" type="radio" v-model="selectedStar" id="all" value="all">
                         <label class="form-check-label" for="all"> Tutti i Dottori </label>
@@ -42,13 +41,13 @@
                     <input class="form-check-input" type="radio" v-model="selectedStar" :id="index" :value="index">
                     <label class="form-check-label" :for="index"><span v-for="item in index"><i class="fa fa-star color-primary" aria-hidden="true"></i> </span> </label>
                 </div>
-
             </form>
 
         </div>
 
     </div>
 
+    <p> Prenota una visita da un dottore consigliato da <span class="color-primary">BDoctors</span> .</p>
     <div class="">
         <div v-if="!isLoading" class="suggested-doctors d-flex flex-wrap">
             <div v-for="doctor in filterResult" class="card" style="">
@@ -64,11 +63,7 @@
                 </div>
             </div>
         </div>
-    </div>
-</section>
-<section v-else-if="isLoading" class="p-5 d-flex justify-content-center align-items-center">
-    <div>
-        <img class="loading" src="{{asset('/imgs/loading.gif')}}" alt="">
+        <div v-else class="d-flex justify-content-center align-items-center"><img class="loading" src="{{asset('/imgs/loading.gif')}}" alt=""></div>
     </div>
 </section>
 
