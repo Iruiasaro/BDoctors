@@ -22,4 +22,8 @@ class PaymentsController extends Controller
 
         return response()->json($status);
     }
+    public function payment()
+    {
+        return view('admin.payment');
+    }
 }
