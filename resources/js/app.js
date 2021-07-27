@@ -34,6 +34,18 @@ const app = new Vue({
     mounted() {
         console.log("Component mounted.");
         axios
+            .get(`http://127.0.0.1:8000/api/users`)
+            .then((resp) => {
+                this.searchResult = resp.data.results;
+                this.isSearched = true;
+                this.resetFilters(resp.data.results);
+                this.addVoteToDoctor(resp.data.results);
+            })
+            .catch((er) => {
+                console.error(er);
+                alert("Errore in fase di filtraggio dati.");
+            });
+        axios
             .get("http://127.0.0.1:8000/api/specializations")
             .then((resp) => {
                 this.specializations = resp.data.results;
@@ -61,7 +73,7 @@ const app = new Vue({
             this.filterResult = data;
         },
         onSubmit() {
-            this.selectedStar="all"
+            this.selectedStar = "all"
             this.isLoading = true;
             axios
                 .get(`http://127.0.0.1:8000/api/specialization_user?specialization_id=${this.selectedSpec}`)
@@ -81,7 +93,7 @@ const app = new Vue({
             return `/show/${doctorId}`;
         },
         onChangeStar() {
-            
+
             this.filterSearchResult();
         },
         filterSearchResult() {

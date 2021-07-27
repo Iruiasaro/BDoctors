@@ -22,3 +22,4 @@ Route::get('specialization_user', 'api\SpecializationUserController@index');
 
 Route::get('specializations', 'api\SpecializationController@index');
 Route::get('reviews/', 'api\ReviewController@getReviewsByUser');
+Route::get('users/', 'api\UserController@getUsers');

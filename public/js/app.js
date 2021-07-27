@@ -48158,6 +48158,17 @@ var app = new Vue({
     var _this = this;
 
     console.log("Component mounted.");
+    axios.get("http://127.0.0.1:8000/api/users").then(function (resp) {
+      _this.searchResult = resp.data.results;
+      _this.isSearched = true;
+
+      _this.resetFilters(resp.data.results);
+
+      _this.addVoteToDoctor(resp.data.results);
+    })["catch"](function (er) {
+      console.error(er);
+      alert("Errore in fase di filtraggio dati.");
+    });
     axios.get("http://127.0.0.1:8000/api/specializations").then(function (resp) {
       _this.specializations = resp.data.results;
     })["catch"](function (er) {
