@@ -105,8 +105,10 @@ class AdminController extends Controller
                 "email" => "email:rfc,dns|max:255|",
             ]
         );
-        $storageResult = Storage::put("images", $formData["image"]);
-        $user->image = $storageResult;
+        if(key_exists('image',$formData)){
+            $storageResult = Storage::put("images", $formData["image"]);
+            $user->image = $storageResult;
+        }
         $user->update($formData);
         return redirect()->route("admin.home");
     }
