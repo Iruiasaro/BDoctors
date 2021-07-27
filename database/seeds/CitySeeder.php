@@ -7,6 +7,14 @@ use Illuminate\Database\Seeder;
 
 class CitySeeder extends Seeder
 {
+    public static $cities = [
+        "Roma",
+        "Milano",
+        "Napoli",
+        "Torino",
+        "Palermo",
+
+    ];
     /**
      * Run the database seeds.
      *
@@ -14,17 +22,10 @@ class CitySeeder extends Seeder
      */
     public function run()
     {
-        $cities = [
-            "Roma",
-            "Milano",
-            "Napoli",
-            "Torino",
-            "Palermo",
     
-        ];
 
         App\City::truncate();
-        foreach ($cities as $city) {
+        foreach (CitySeeder::$cities as $city) {
             $cityInstance = new City();
             $cityInstance->name = $city;
             $cityInstance->save();
