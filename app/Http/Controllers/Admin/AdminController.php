@@ -106,7 +106,6 @@ class AdminController extends Controller
             ]
         );
         $storageResult = Storage::put("images", $formData["image"]);
-        @dump($storageResult);
         $user->image = $storageResult;
         $user->update($formData);
         return redirect()->route("admin.home");
