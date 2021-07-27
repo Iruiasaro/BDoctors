@@ -27,5 +27,9 @@
         <li class="pt-3">
             <a href="{{route('password.request')}}"> <i class="fa fa-key" aria-hidden="true"></i> Modifica password </a>
         </li>
+        <li class="pt-3">
+            <a href="{{route('admin.payment')}}"> <i class="fa fa-key" aria-hidden="true"></i> Pagamento (Da
+                implementare) </a>
+        </li>
     </ul>
 </aside>

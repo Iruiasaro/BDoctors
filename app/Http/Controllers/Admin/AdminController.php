@@ -106,16 +106,16 @@ class AdminController extends Controller
                 "email" => "email:rfc,dns|max:255|",
             ]
         );
-        if(key_exists('image',$formData)){
+        if (key_exists('image', $formData)) {
             $storageResult = Storage::put("images", $formData["image"]);
             $user->image = $storageResult;
         }
-        
+
         $user->specializations()->attach($request->specialization_id);
 
         $user->update($formData);
-        
-        
+
+
         return redirect()->route("doctor.show", $user->id);
     }
 
@@ -131,5 +131,10 @@ class AdminController extends Controller
         $user->delete();
 
         return redirect()->route("welcome");
+    }
+
+    public function payment()
+    {
+        return view('admin.payment');
     }
 }
