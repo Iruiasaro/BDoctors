@@ -57,8 +57,13 @@
                     <input class="" type="file" name="cv" id="cv">
                 </div>
                 <div class="form-group">
-                    <label for=""></label>
-                    <H3 class="alert-danger"> VUE SPECIALIZATION </H3>
+                    <label for="selectSpec"></label>
+                    <select v-model="selectedSpec" class="my-select" name="specialization" id="selectSpec">
+                        <option disabled>Scegli una specializzazione</option>
+                        <option v-for="specialization in specializations" :key="specialization.id" :value="specialization.id">
+                            @{{ specialization.specs_type }}
+                        </option>
+                    </select>
                 </div>
 
                 <div class="form-group">

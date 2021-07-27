@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Message;
+use App\SpecializationUser;
 use Illuminate\Http\Request;
 use App\User;
 use Illuminate\Support\Facades\Hash;
@@ -109,7 +110,12 @@ class AdminController extends Controller
             $storageResult = Storage::put("images", $formData["image"]);
             $user->image = $storageResult;
         }
+        
+        $user->specializations()->attach($request->specialization_id);
+
         $user->update($formData);
+        
+        
         return redirect()->route("doctor.show", $user->id);
     }
 
