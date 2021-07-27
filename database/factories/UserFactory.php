@@ -32,7 +32,7 @@ $factory->define(User::class, function (Faker $faker) {
         'remember_token' => Str::random(10),
         'curriculum' => $faker->realText(100),
         'prestazione' => $faker->realText(20),
-        'city_id' => rand(1,141),
+        'city_id' => rand(1,5),
         'image' => "https://randomuser.me/api/portraits/" . $genre[rand(0, 1)] . "/" . rand(1, 100) . ".jpg",
     ];
 });
