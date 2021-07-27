@@ -31,7 +31,7 @@
     }, function (createErr, instance) {
         button.addEventListener('click', function () {
             instance.requestPaymentMethod(function (err, payload) {
-                $.get('{{ route('admin.payment.process') }}', {payload}, function (response) {
+                $.get('{{ route('payment.process') }}', {payload}, function (response) {
                     if (response.success) {
                         alert('Payment successfull!');
                     } else {

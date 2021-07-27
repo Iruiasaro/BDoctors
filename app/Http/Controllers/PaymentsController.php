@@ -1,16 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers;
 
-use Braintree;
-
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Braintree;
 
 class PaymentsController extends Controller
 {
-
-
     public function process(Request $request)
     {
         $payload = $request->input('payload', false);
