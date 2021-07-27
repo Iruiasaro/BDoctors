@@ -185,6 +185,12 @@ h1 {
   }
 }
 
+@media screen and (max-width: 900px) {
+  .responsive-flex {
+    flex-direction: column;
+  }
+}
+
 /*!
  * Bootstrap v4.6.0 (https://getbootstrap.com/)
  * Copyright 2011-2021 The Bootstrap Authors

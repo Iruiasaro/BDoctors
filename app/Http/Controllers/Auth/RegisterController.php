@@ -69,6 +69,9 @@ class RegisterController extends Controller
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
+            'lastname' => $data['lastname'],
+            'address' => $data['address'],
+            'phone_number'=> $data['phone_number'],
             'password' => Hash::make($data['password']),
             'remember_token' => Str::random(10),
             'image' => "https://randomuser.me/api/portraits/".$genre[rand(0,1)]."/". rand(1,100) .".jpg",
