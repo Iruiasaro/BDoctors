@@ -48170,6 +48170,7 @@ var app = new Vue({
       alert("Errore in fase di filtraggio dati.");
     });
     axios.get("http://127.0.0.1:8000/api/specializations").then(function (resp) {
+      console.log(resp.data.results);
       _this.specializations = resp.data.results;
     })["catch"](function (er) {
       console.error(er);
@@ -48195,7 +48196,6 @@ var app = new Vue({
     onSubmit: function onSubmit() {
       var _this2 = this;
 
-      this.selectedStar = "all";
       this.isLoading = true;
       axios.get("http://127.0.0.1:8000/api/specialization_user?specialization_id=".concat(this.selectedSpec)).then(function (resp) {
         _this2.searchResult = resp.data.results;
@@ -48218,10 +48218,12 @@ var app = new Vue({
     filterSearchResult: function filterSearchResult() {
       var _this3 = this;
 
+      console.log("CHANGE!");
       this.filterResult = this.searchResult.filter(function (user) {
         voteInt = Math.round(user.vote);
 
         if (voteInt == _this3.selectedStar || _this3.selectedStar == "all") {
+          console.log("FILTRA ORA!");
           return true;
         }
       });
@@ -48229,9 +48231,11 @@ var app = new Vue({
     addVoteToDoctor: function addVoteToDoctor(data) {
       var _this4 = this;
 
+      console.log(data);
       this.searchResult.forEach(function (user, index) {
         axios.get("http://127.0.0.1:8000/api/reviews?user_id=".concat(user.id)).then(function (resp) {
           user.vote = resp.data.results.vote;
+          console.log(user.vote);
 
           if (index == _this4.searchResult.length - 1) {
             _this4.isLoading = false;

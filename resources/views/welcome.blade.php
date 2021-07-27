@@ -25,8 +25,8 @@
     </div>
 </main>
 
-<section v-if="!isLoading && isSearched==true" class="my-wrap p-5">
-    <div class="d-flex justify-content-between responsive-flex">
+<section class="my-wrap p-5">
+    <div class="d-flex  justify-content-between ">
         <div>
             <h2 class="mb-4"> Risultati Ricerca </h2>
         </div>
@@ -47,6 +47,7 @@
 
     </div>
 
+    <p> Prenota una visita da un dottore consigliato da <span class="color-primary">BDoctors</span> .</p>
     <div class="">
         <div v-if="!isLoading" class="suggested-doctors d-flex flex-wrap">
             <div v-for="doctor in filterResult" class="card" style="">
@@ -62,11 +63,7 @@
                 </div>
             </div>
         </div>
-    </div>
-</section>
-<section v-else-if="isLoading" class="p-5 d-flex justify-content-center align-items-center">
-    <div>
-        <img class="loading" src="{{asset('/imgs/loading.gif')}}" alt="">
+        <div v-else class="d-flex justify-content-center align-items-center"><img class="loading" src="{{asset('/imgs/loading.gif')}}" alt=""></div>
     </div>
 </section>
 
