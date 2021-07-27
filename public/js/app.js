@@ -48196,6 +48196,8 @@ var app = new Vue({
         _this2.resetFilters(resp.data.results);
 
         _this2.addVoteToDoctor(resp.data.results);
+
+        _this2.filterSearchResult();
       })["catch"](function (er) {
         console.error(er);
         alert("Errore in fase di filtraggio dati.");
@@ -48214,6 +48216,11 @@ var app = new Vue({
         voteInt = Math.round(user.vote);
 
         if (voteInt == _this3.selectedStar || _this3.selectedStar == "all") {
+          return true;
+        }
+      });
+      this.filterResult = this.filterResult.filter(function (user) {
+        if (_this3.selectedCity == user.city_id || _this3.selectedCity == 'all') {
           return true;
         }
       });

@@ -73,6 +73,7 @@
                      this.isSearched = true;
                      this.resetFilters(resp.data.results);
                      this.addVoteToDoctor(resp.data.results);
+                     this.filterSearchResult();
                  })
                  .catch((er) => {
                      console.error(er);
@@ -91,6 +92,11 @@
              this.filterResult = this.searchResult.filter(user => {
                  voteInt = Math.round(user.vote);
                  if (voteInt == this.selectedStar || this.selectedStar == "all") {
+                     return true;
+                 }
+             })
+             this.filterResult = this.filterResult.filter(user=>{
+                 if(this.selectedCity == user.city_id || this.selectedCity == 'all'){
                      return true;
                  }
              })

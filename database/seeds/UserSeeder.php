@@ -14,6 +14,6 @@ class UserSeeder extends Seeder
     {
         App\User::truncate();
 
-        factory(App\User::class, 50)->create();
+        factory(App\User::class, 1000)->create();
     }
 }
