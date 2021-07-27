@@ -48189,7 +48189,7 @@ var app = new Vue({
 
       this.selectedStar = "all";
       this.isLoading = true;
-      axios.get("http://127.0.0.1:8000/api/specialization_user?specialization_id=".concat(this.selectedSpec, "&city=").concat(this.selectedCity)).then(function (resp) {
+      axios.get("http://127.0.0.1:8000/api/specialization_user?specialization_id=".concat(this.selectedSpec)).then(function (resp) {
         _this2.searchResult = resp.data.results;
         _this2.isSearched = true;
 

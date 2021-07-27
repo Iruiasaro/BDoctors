@@ -14,10 +14,6 @@ class SpecializationUserController extends Controller
         $user_ids = SpecializationUser::where("specialization_id", $request->specialization_id)->get("user_id");
         $users = User::findMany($user_ids);
 
-        if($request->city_id){
-            $users = User::findMany($user_ids)->where('city_id',$request->city_id);
-        }
-        
         return response()->json([
             // "success" => false,
             "results" => $users

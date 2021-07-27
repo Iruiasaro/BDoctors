@@ -67,7 +67,7 @@
              this.selectedStar="all"
              this.isLoading = true;
              axios
-                 .get(`http://127.0.0.1:8000/api/specialization_user?specialization_id=${this.selectedSpec}&city=${this.selectedCity}`)
+                 .get(`http://127.0.0.1:8000/api/specialization_user?specialization_id=${this.selectedSpec}`)
                  .then((resp) => {
                      this.searchResult = resp.data.results;
                      this.isSearched = true;
