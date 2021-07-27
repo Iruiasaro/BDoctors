@@ -34,7 +34,8 @@
                         <label class="form-check-label" for="all"> Tutti i Dottori </label>
                     </div>
                     <input class="form-check-input" type="radio" v-model="selectedStar" :id="index" :value="index">
-                    <label class="form-check-label" :for="index"><span v-for="item in index"><i class="fa fa-star color-primary" aria-hidden="true"></i> </span> </label>
+                    <label class="form-check-label" :for="index"><span v-for="item in index"><i
+                                class="fa fa-star color-primary" aria-hidden="true"></i> </span> </label>
                 </div>
             </form>
 
@@ -75,6 +76,13 @@
     <p> Prenota una visita da un dottore consigliato da <span class="color-primary">BDoctors</span> .</p>
     <div class="suggested-doctors d-flex flex-wrap ">
     </div>
+    <ul style="list-style: none">
+        <li class="pt-3">
+            <a href="{{route('payment')}}"> <i class="fa fa-key" aria-hidden="true"></i>
+                Pagamento (Da
+                implementare) </a>
+        </li>
+    </ul>
 </section>
 
 @endsection

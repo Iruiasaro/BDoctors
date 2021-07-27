@@ -19,8 +19,8 @@ class GuestController extends Controller
             'doctors' => User::all(),
             'specializations' => Specialization::all()
         ];
-     
-        return view('welcome',$data);
+
+        return view('welcome', $data);
     }
 
     /**
@@ -87,5 +87,10 @@ class GuestController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function payment()
+    {
+        return view('payment');
     }
 }

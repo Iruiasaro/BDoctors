@@ -132,9 +132,4 @@ class AdminController extends Controller
 
         return redirect()->route("welcome");
     }
-
-    public function payment()
-    {
-        return view('admin.payment');
-    }
 }

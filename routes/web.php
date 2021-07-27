@@ -25,7 +25,8 @@ Auth::routes();
 
 Route::get('/', 'GuestController@index')->name('welcome');
 
-
+Route::get('/payment', 'GuestController@payment')->name('payment');
+Route::get('/payment/process', 'PaymentsController@process')->name('payment.process');
 
 Route::prefix('admin')
     ->namespace('Admin')
@@ -37,9 +38,6 @@ Route::prefix('admin')
         Route::match(["PUT", "PATCH"], '/update/{id}', 'AdminController@update')->name('update');
         Route::get("/messages/{id}", "AdminController@messages")->name('messages');
         Route::delete("/delete/{user}", "AdminController@destroy")->name('destroy');
-        Route::get('/payment', 'AdminController@payment')->name('payment');
-        Route::get('/payment/process', 'PaymentsController@process')->name('payment.process');
     });
-
 
 Route::get('/show/{id}', 'DoctorController@show')->name('doctor.show');
