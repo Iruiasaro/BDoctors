@@ -11,14 +11,9 @@
                 </option>
             </select>
 
-            <select class="my-select" name="citta" id="">
-                <option disabled>Scegli una città</option>
-                <option value="roma">Roma</option>
-                <option value="milano">Milano</option>
-                <option value="milano">Carlopoli</option>
-                <option value="milano">Siracusa</option>
-                <option value="milano">Senigallia</option>
-                <option value="milano">Vicenza</option>
+            <select v-model="selectedCity" class="my-select" name="citta" id="">
+                <option value="all">Tutta Italia</option>
+                <option v-for="city in cities" :value="city.id">@{{city.name}}</option>
             </select>
             <button class="btn btn-primary" type="submit">Cerca</button>
         </form>

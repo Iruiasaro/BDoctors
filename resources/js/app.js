@@ -42,6 +42,7 @@
                  console.error(er);
                  alert("Non posso recuperare i tag");
              });
+             this.getCities();
      },
      data: {
          isLoading: false,
@@ -49,11 +50,13 @@
          searchResult: [],
          filterResult: [],
          specializations: [],
+         cities: [],
          selectedSpec: '',
          image: '',
          name: '',
          link: '',
          selectedStar: 'all',
+         selectedCity: 'all'
  
      },
      methods: {
@@ -109,6 +112,18 @@
                          alert("Errore in fase di filtraggio dati.");
                      });
              });
+         },
+         getCities(){
+            axios
+            .get(`http://127.0.0.1:8000/api/cities`)
+            .then((resp) => {
+                console.log(resp.data.results[0]);
+                this.cities = resp.data.results[0];
+            })
+            .catch((er) => {
+                console.error(er);
+                alert("Errore in fase di filtraggio dati.");
+            });
          }
      },
  });

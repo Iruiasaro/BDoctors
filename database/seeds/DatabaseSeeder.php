@@ -15,12 +15,13 @@ class DatabaseSeeder extends Seeder
         DB::statement('SET FOREIGN_KEY_CHECKS=0;');
         App\User::truncate();
         $this->call([
-            UserSeeder::class,
+            CitySeeder::class,
             SpecializationSeeder::class,
             SponsorSeeder::class,
             MessageSeeder::class,
             SpecializationUserSeeder::class,
             ReviewSeeder::class,
+            UserSeeder::class,
         ]);
         DB::statement('SET FOREIGN_KEY_CHECKS=1;');
     }

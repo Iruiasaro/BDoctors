@@ -48164,6 +48164,7 @@ var app = new Vue({
       console.error(er);
       alert("Non posso recuperare i tag");
     });
+    this.getCities();
   },
   data: {
     isLoading: false,
@@ -48171,11 +48172,13 @@ var app = new Vue({
     searchResult: [],
     filterResult: [],
     specializations: [],
+    cities: [],
     selectedSpec: '',
     image: '',
     name: '',
     link: '',
-    selectedStar: 'all'
+    selectedStar: 'all',
+    selectedCity: 'all'
   },
   methods: {
     resetFilters: function resetFilters(data) {
@@ -48229,6 +48232,17 @@ var app = new Vue({
           console.error(er);
           alert("Errore in fase di filtraggio dati.");
         });
+      });
+    },
+    getCities: function getCities() {
+      var _this5 = this;
+
+      axios.get("http://127.0.0.1:8000/api/cities").then(function (resp) {
+        console.log(resp.data.results[0]);
+        _this5.cities = resp.data.results[0];
+      })["catch"](function (er) {
+        console.error(er);
+        alert("Errore in fase di filtraggio dati.");
       });
     }
   }
