@@ -158,6 +158,13 @@ h1 {
   min-width: 40px;
 }
 
+.img-preview {
+  width: 150px;
+  height: 150px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
 @media screen and (max-width: 1100px) {
   div.suggested-doctors .card {
     width: calc(33% - 50px);

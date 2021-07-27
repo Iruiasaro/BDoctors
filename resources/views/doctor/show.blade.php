@@ -5,7 +5,7 @@
 
 <div class="container mb-5">
     <div class="bg-light-gray p-2 rounded mt-5 d-flex">
-        <div class="profile-img overflow-hidden"> <img src="{{ str_contains(asset('storage/' . $user->image),"random") ? $user->image : asset('storage/' . $user->image) }}" class="img-fluid rounded " alt=""></div>
+        <div class="profile-img overflow-hidden h-100"> <img src="{{ str_contains(asset('storage/' . $user->image),"random") ? $user->image : asset('storage/' . $user->image) }}" class="img-fluid rounded" alt=""></div>
         <div class="ml-4 p-2">
             <h3>{{$user->name}}</h3>
             <div><i>specializzazione</i></div>

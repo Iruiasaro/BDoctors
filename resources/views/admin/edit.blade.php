@@ -24,12 +24,11 @@
                 <div class="form-group">
                     <label for="image">
                         <div class="profile-img-container">
-                            <img src="{{$user->image }}" class="img-fluid rounded-circle" alt="">
+                            <img src="{{ str_contains(asset('storage/' . $user->image),"random") ? $user->image : asset('storage/' . $user->image) }}" class="img-fluid rounded img-preview" alt="">
                             <div>Modifica immagine:</div>
                             <input type="file" name="image" id="image" accept=".jpg, .svg, .png, .jpeg">
                         </div>
                     </label> <br>
-
                 </div>
                 <div class="form-group">
                     <label for="email"> email</label>
