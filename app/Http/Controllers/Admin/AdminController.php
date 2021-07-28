@@ -96,8 +96,10 @@ class AdminController extends Controller
      */
     public function update(Request $request, $id)
     {
+
         $user = User::findOrFail($id);
         $formData = $request->all();
+
         $request->validate(
             [
 
@@ -110,12 +112,11 @@ class AdminController extends Controller
             $storageResult = Storage::put("images", $formData["image"]);
             $user->image = $storageResult;
         }
-
-        $user->specializations()->attach($request->specialization_id);
-
+        foreach ($formData['specializations'] as $specializationId) {
+               $user->specializations()->attach($specializationId);
+        }
+     
         $user->update($formData);
-
-
         return redirect()->route("doctor.show", $user->id);
     }
 
