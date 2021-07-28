@@ -57,13 +57,18 @@
                     <input class="" type="file" name="cv" id="cv">
                 </div>
                 <div class="form-group">
-                    <label for="selectSpec"></label>
-                    <select v-model="selectedSpec" class="my-select" name="specialization" id="selectSpec">
+                    <div class="mt-2 mb-2">Seleziona una o più specializzazioni:</div>
+                    <div v-for="specialization in specializations" :key="specialization.id" class="form-check form-check-inline">
+                        <input class="form-check-input" name="specializations[]" type="checkbox" :id="specialization.id" :value="specialization.id">
+                        <label class="form-check-label" :for="specialization.id">@{{ specialization.specs_type }} </label>
+                    </div>
+                    {{-- <label for="selectSpec"></label>
+                    <select v-model="selectedSpec" class="my-select" name="specialization" id="selectSpec" v-on:change="specializationChange(selectedSpec)">
                         <option disabled>Scegli una specializzazione</option>
                         <option v-for="specialization in specializations" :key="specialization.id" :value="specialization.id">
                             @{{ specialization.specs_type }}
-                        </option>
-                    </select>
+                    </option>
+                    </select> --}}
                 </div>
 
                 <div class="form-group">

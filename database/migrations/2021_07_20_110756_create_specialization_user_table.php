@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSpecializationUsersTable extends Migration
+class CreateSpecializationUserTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateSpecializationUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('specialization_users', function (Blueprint $table) {
+        Schema::create('specialization_user', function (Blueprint $table) {
 
             $table->unsignedBigInteger("specialization_id");
             $table->foreign("specialization_id")
@@ -38,6 +38,6 @@ class CreateSpecializationUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('specialization_users');
+        Schema::dropIfExists('specialization_user');
     }
 }

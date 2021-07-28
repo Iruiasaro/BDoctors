@@ -91,6 +91,6 @@ class GuestController extends Controller
 
     public function payment()
     {
-        return view('payment');
+        return view('admin.payment');
     }
 }

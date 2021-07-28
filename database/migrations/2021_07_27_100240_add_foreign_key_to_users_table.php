@@ -29,7 +29,7 @@ class AddForeignKeyToUsersTable extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->dropForeign('cities_city_id_foreign');
+            $table->dropForeign('users_city_id_foreign');
             $table->dropColumn('city_id');
         });
     }

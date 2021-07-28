@@ -76,13 +76,6 @@
     <p> Prenota una visita da un dottore consigliato da <span class="color-primary">BDoctors</span> .</p>
     <div class="suggested-doctors d-flex flex-wrap ">
     </div>
-    <ul style="list-style: none">
-        <li class="pt-3">
-            <a href="{{route('payment')}}"> <i class="fa fa-key" aria-hidden="true"></i>
-                Pagamento (Da
-                implementare) </a>
-        </li>
-    </ul>
 </section>
 
 @endsection
