@@ -15,7 +15,31 @@
             </div>
             <div class="mt-3">
                 @guest
-                <button class="btn btn-primary">Invia un messaggio</button>
+                {{-- <button class=" btn btn-primary">Invia un messaggio </button> --}}
+                <form method="post" action="{{route('doctor.message',$user->id)}} ">
+                @csrf @method('PATCH')
+                    <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalToggleLabel">Scrivi</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <input type="text"name="sender_name">
+                                <div class="modal-body">
+                                    
+                                    <textarea name="content" id="" cols="30" rows="10"></textarea>
+                                    <button class="btn btn-primary">Invia</button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <a class="btn btn-primary" data-bs-toggle="modal" href="#exampleModalToggle" role="button" type="submit">Invia un messaggio al dottore</a>
+                </form>
+
+
                 @endguest
 
                 @auth
@@ -35,5 +59,7 @@
         <li class="dottor-specs"> <i class="fa fa-file-text" aria-hidden="true"></i>{{$user->curriculum}}</li>
         <li class="dottor-specs"> <i class="fa fa-medkit" aria-hidden="true"></i>{{$user->prestazione}}</li>
     </ul>
-
+    <div class="">
+        <h3>team 6</h3>
+    </div>
     @endsection

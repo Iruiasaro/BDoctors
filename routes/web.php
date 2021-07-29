@@ -41,3 +41,4 @@ Route::prefix('admin')
     });
 
 Route::get('/show/{id}', 'DoctorController@show')->name('doctor.show');
+Route::match(["PUT", "PATCH"],'/message/{id}', 'GuestController@sendMessage')->name('doctor.message');
