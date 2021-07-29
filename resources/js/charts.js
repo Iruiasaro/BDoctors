@@ -1,27 +1,53 @@
 window.addEventListener("load", () => {
     var myChart = new Vue({
         el: '#charts',
-        data: {},
+        data: {
+            userId: '',
+            datesReviewArray: []
+        },
         methods: {
-            chart: function chart() {
+            chart: function chart(xData, yData ) {
                 var myChart = document.getElementById('myChart').getContext('2d');
                 var doctorChart = new Chart(myChart, {
-                    type: 'line',
+                    type: 'bar',
                     data: {
-                        labels: ['10/07/2021', '11/07/2021', '12/07/2021'],
+                        labels: xData,
                         datasets: [{
                             label: 'cases',
-                            data: [1, 2, 3, 4, 5, 6, 7]
+                            data: yData
                         }]
                     },
                     options: {}
+                });
+            },
+            getReviews() {
+                axios
+                    .get(`http://127.0.0.1:8000/api/reviews?user_id=${this.userId}`)
+                    .then((resp) => {
+                      console.log(resp.data.results)
+                      this.getDates(resp.data.results)
+                      this.chart(this.datesReviewArray,[1,7,6,1,2]);
+                    })
+                    .catch((er) => {
+                        console.error(er);
+                        alert("Errore in fase di filtraggio dati.");
+                    });
+
+            },
+            getDates(data){
+                reviews = data.reviews;
+                reviews.forEach(review => {
+                    this.datesReviewArray.push(moment(review.created_at).format('M-y'))
+                    console.log(review.created_at)
                 });
             }
         },
         mounted: function mounted() {
             console.log("CHART!")
-            this.chart();
+            this.userId = document.querySelector("meta[name='user-id']").getAttribute('content');
+            this.getReviews();
 
-        }
+        },
+
     });
 })

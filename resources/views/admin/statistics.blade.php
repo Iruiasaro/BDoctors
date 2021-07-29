@@ -77,6 +77,7 @@
           @include('components.dashboard')
       </div>
       <div class="flex-grow-1">
+          <meta name="user-id" content="{{ Auth::user()->id }}">
           <div id="charts">
               <div>
                   <canvas id="myChart"></canvas>

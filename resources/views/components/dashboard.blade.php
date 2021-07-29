@@ -28,8 +28,7 @@
             <ul class="p-0" style="list-style: none">
                 <li class="pt-3">
                     <a href="{{route('payment')}}">
-                        <i class="fa fa-handshake-o" aria-hidden="true"></i> <span class="text-dashboard"> Pagamento (Da
-                            implementare) </span>
+                        <i class="fa fa-handshake-o" aria-hidden="true"></i> <span class="text-dashboard"> Pagamento sponsorizzazioni </span>
                     </a>
                 </li>
             </ul>
