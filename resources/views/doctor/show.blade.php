@@ -17,7 +17,7 @@
                 @guest
                 {{-- <button class=" btn btn-primary">Invia un messaggio </button> --}}
                 <form method="post" action="{{route('doctor.message',$user->id)}} ">
-                @csrf @method('PATCH')
+                    @csrf @method('PATCH')
                     <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
                         <div class="modal-dialog modal-dialog-centered">
                             <div class="modal-content">
@@ -25,9 +25,9 @@
                                     <h5 class="modal-title" id="exampleModalToggleLabel">Scrivi</h5>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
-                                <input type="text"name="sender_name">
+                                <input type="text" name="sender_name">
                                 <div class="modal-body">
-                                    
+
                                     <textarea name="content" id="" cols="30" rows="10"></textarea>
                                     <button class="btn btn-primary">Invia</button>
                                 </div>
@@ -36,7 +36,15 @@
                         </div>
                     </div>
 
-                    <a class="btn btn-primary" data-bs-toggle="modal" href="#exampleModalToggle" role="button" type="submit">Invia un messaggio al dottore</a>
+                    <a class="btn btn-primary" data-bs-toggle="modal" href="#exampleModalToggle" role="button" type="submit" id="send-message">Invia un messaggio al dottore</a>
+                    <script type="application/javascript">
+                        let button = document.getElementById('send-message');
+                        button.addEventListener('click', () => {
+                            ev.preventDefault()
+                            alert("Messaggio inviato");
+                        });
+
+                    </script>
                 </form>
 
 
