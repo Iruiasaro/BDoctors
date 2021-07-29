@@ -13,8 +13,9 @@ window.addEventListener("load", () => {
                     data: {
                         labels: xData,
                         datasets: [{
-                            label: 'cases',
-                            data: yData
+                            label: 'reviews',
+                            data: yData,
+                            backgroundColor: ["#347ede90"], 
                         }]
                     },
                     options: {}
