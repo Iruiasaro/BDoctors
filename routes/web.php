@@ -35,6 +35,7 @@ Route::prefix('admin')
     ->group(function () {
         Route::get('/home', 'HomeController@index')->name('home');
         Route::get('/edit/{id}', 'AdminController@edit')->name('edit');
+        Route::get('/chart/{id}', 'AdminController@charts')->name('charts');
         Route::match(["PUT", "PATCH"], '/update/{id}', 'AdminController@update')->name('update');
         Route::get("/messages/{id}", "AdminController@messages")->name('messages');
         Route::delete("/delete/{user}", "AdminController@destroy")->name('destroy');
@@ -42,3 +43,4 @@ Route::prefix('admin')
 
 Route::get('/show/{id}', 'DoctorController@show')->name('doctor.show');
 Route::match(["PUT", "PATCH"],'/message/{id}', 'GuestController@sendMessage')->name('doctor.message');
+Route::match(["PUT", "PATCH"],'/sponsorization/{id}', 'SponsorizationController@payment')->name('sponsorization.payment');

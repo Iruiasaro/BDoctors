@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Sponsor;
 use Illuminate\Http\Request;
 use Braintree;
 
@@ -11,7 +12,7 @@ class PaymentsController extends Controller
     {
         $payload = $request->input('payload', false);
         $nonce = $payload['nonce'];
-
+     
         $status = Braintree\Transaction::sale([
             'amount' => '10.00',
             'paymentMethodNonce' => $nonce,
@@ -24,6 +25,10 @@ class PaymentsController extends Controller
     }
     public function payment()
     {
-        return view('admin.payment');
+        $sponsorizations = Sponsor::all();
+        $data = [
+            'sponsorizations' => $sponsorizations,
+        ];
+        return view('admin.payment',$data);
     }
 }

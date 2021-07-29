@@ -81,41 +81,55 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 1);
+/******/ 	return __webpack_require__(__webpack_require__.s = 2);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./resources/js/script.js":
+/***/ "./resources/js/charts.js":
 /*!********************************!*\
-  !*** ./resources/js/script.js ***!
+  !*** ./resources/js/charts.js ***!
   \********************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
 window.addEventListener("load", function () {
-  console.log("LOADED");
-  deleteButton = document.getElementById('delete');
-
-  if (deleteButton) {
-    deleteButton.addEventListener("click", function (event) {
-      if (!confirm('Sei sicuro di voler eliminare il profilo?')) {
-        event.preventDefault();
+  var myChart = new Vue({
+    el: '#charts',
+    data: {},
+    methods: {
+      chart: function chart() {
+        var myChart = document.getElementById('myChart').getContext('2d');
+        var doctorChart = new Chart(myChart, {
+          type: 'line',
+          data: {
+            labels: ['10/07/2021', '11/07/2021', '12/07/2021'],
+            datasets: [{
+              label: 'cases',
+              data: [1, 2, 3, 4, 5, 6, 7]
+            }]
+          },
+          options: {}
+        });
       }
-    });
-  }
+    },
+    mounted: function mounted() {
+      console.log("CHART!");
+      this.chart();
+    }
+  });
 });
 
 /***/ }),
 
-/***/ 1:
+/***/ 2:
 /*!**************************************!*\
-  !*** multi ./resources/js/script.js ***!
+  !*** multi ./resources/js/charts.js ***!
   \**************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\salva\Desktop\Boolean\BDoctors\resources\js\script.js */"./resources/js/script.js");
+module.exports = __webpack_require__(/*! C:\Users\salva\Desktop\Boolean\BDoctors\resources\js\charts.js */"./resources/js/charts.js");
 
 
 /***/ })
