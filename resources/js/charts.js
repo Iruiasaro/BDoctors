@@ -78,7 +78,7 @@ window.addEventListener("load", () => {
                             count++;
                         }
                     }
-                    if (!this.dataY_1.includes(count)) {
+                    if (!this.dataX_1.includes(this.datesReviewArray[i])){
                         this.dataY_1.push(count)
                         this.dataX_1.push(this.datesReviewArray[i]);
                     }
