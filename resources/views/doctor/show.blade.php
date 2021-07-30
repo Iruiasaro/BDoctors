@@ -16,7 +16,8 @@
             <div class="mt-3">
                 @guest
                 {{-- <button class=" btn btn-primary">Invia un messaggio </button> --}}
-                <form method="post" action="{{route('doctor.message',$user->id)}} ">
+                <form v-on:submit.prevent method="post" action="{{route('doctor.message',$user->id)}} ">
+                @dump($user->id)
                     @csrf @method('PATCH')
                     <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
                         <div class="modal-dialog modal-dialog-centered">
