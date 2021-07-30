@@ -58,6 +58,7 @@
                                 <li v-for="specialization in doctor.specializationsArray"><i> @{{specialization.specs_type}} </i></li>
                             </ul>
                         </div>
+                        <h6> <i class="fa fa-map-marker" aria-hidden="true"></i> @{{doctor.cityName}} </h6>
                     </p>
                     <div> <i v-for="index in Math.round(doctor.voteAverage)" class="fa fa-star third-color"> </i></div>
                     <a :href='show(doctor.id)' class="btn btn-primary" style="width: 100%">Visualizza Profilo</a>
