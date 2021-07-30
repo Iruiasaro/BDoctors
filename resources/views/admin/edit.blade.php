@@ -56,6 +56,19 @@
                     </label> <br>
                     <input class="" type="file" name="cv" id="cv">
                 </div>
+                <div class="form-group row">
+                    <label for="city" class="col-md-4 col-form-label text-md-right">{{ __('Città')  }} </label>
+                    <div class="col-md-6">
+                        <select id="city" type="text" class="form-control @error('city') is-invalid @enderror" name="city_id" value="{{ old('city_id') }}" required autocomplete="city">
+                            <option v-for="city in cities" :value="city.id">@{{city.name}}</option>
+                        </select>
+                        @error('city')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                    </div>
+                </div>
                 <div class="form-group">
                     <div class="mt-2 mb-2">Seleziona una o più specializzazioni:</div>
                     <div v-for="specialization in specializations" :key="specialization.id" class="form-check form-check-inline">
@@ -70,12 +83,10 @@
                     </option>
                     </select> --}}
                 </div>
-
                 <div class="form-group">
                     <label for=""> Prestazione </label>
                     <input class="form-control" type="text" id="prestazione" name="prestazione" value="{{$user->prestazione}}">
                 </div>
-
                 <div>
                     <button type="submit" class="btn btn-primary"> Modifica</button>
                 </div>
@@ -88,5 +99,4 @@
         </div>
     </div>
 </div>
-
 @endsection
