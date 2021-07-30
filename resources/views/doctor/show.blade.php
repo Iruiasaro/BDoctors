@@ -4,7 +4,7 @@
 <meta name="user-id" content="{{ $user->id }}">
 
 <div class="container mb-5">
-    <div class="bg-light-gray p-2 rounded mt-5 d-flex">
+    <div class="bg-white show-card p-2 rounded mt-5 d-flex">
         <div class="profile-img overflow-hidden h-100" style="min-width:100px"> <img src="{{ str_contains(asset('storage/' . $user->image),"random") ? $user->image : asset('storage/' . $user->image) }}" class="img-fluid rounded" alt=""></div>
         <div class="ml-4 p-2">
             <h3>{{$user->name}}</h3>
@@ -64,7 +64,7 @@
         </div>
     </div>
     <section>
-        <ul class="bg-light-gray p-4 mt-2 rounded list-unstyled">
+        <ul class="bg-white show-card p-4 mt-2 rounded list-unstyled">
             <li class="dottor-specs"> <i class="fa fa-envelope" aria-hidden="true"></i> {{$user->email}}</li>
             <li class="dottor-specs"> <i class="fa fa-map-marker" aria-hidden="true"></i></i>{{$user->address}}</li>
             <li class="dottor-specs"> <i class="fa fa-phone" aria-hidden="true"></i> {{$user->phone_number}}</li>
@@ -73,14 +73,16 @@
         </ul>
     </section>
     <section>
-        <h2>Recensioni:</h2>
-        <div v-for="review in reviews" class="mt-3 mb-3">
-            <div>
-                <i>@{{review.reviewer}} </i>
-                <h5>@{{review.title}}</h5>
-                <p>@{{review.content}}</p>
-                <sub> @{{review.sender_name}}</sub>
-                <div> <i v-for="items in review.vote" class="fa fa-star color-primary" aria-hidden="true"></i></div>
+        <div class="bg-white show-card p-4">
+            <h2>Recensioni:</h2>
+            <div v-for="review in reviews" class="mt-3 mb-3">
+                <div>
+                    <i>@{{review.reviewer}} </i>
+                    <h5>@{{review.title}}</h5>
+                    <p>@{{review.content}}</p>
+                    <sub> @{{review.sender_name}}</sub>
+                    <div> <i v-for="items in review.vote" class="fa fa-star color-primary" aria-hidden="true"></i></div>
+                </div>
             </div>
         </div>
     </section>

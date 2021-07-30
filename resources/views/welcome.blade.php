@@ -50,10 +50,9 @@
                     <img v-if="!doctor.image" src="{{asset('imgs/avatar.png')}}" alt="" style="width:100%">
                     <img v-else :src="doctor.image.includes('random')?doctor.image:'storage/' + doctor.image" alt="Card image cap" style="width:100%">
                 </div>
-                <div class=" card-body">
+                <div class="card-body d-flex flex-column">
                     <h5 class="card-title">@{{doctor.name}}</h5>
                     <p class="card-text">
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit.
                         <div>
                             <ul style="list-style-position: inside">
                                 <li v-for="specialization in doctor.specializationsArray"><i> @{{specialization.specs_type}} </i></li>
@@ -62,8 +61,8 @@
                         <h6> <i class="fa fa-map-marker" aria-hidden="true"></i> @{{doctor.cityName}} </h6>
                         <h6> <i class="fa fa-star-half-o" aria-hidden="true"></i> Recensioni: (@{{doctor.reviews.length}}) </h6>
                     </p>
-                    <div> <i v-for="index in Math.round(doctor.voteAverage)" class="fa fa-star third-color"> </i></div>
-                    <a :href='show(doctor.id)' class="btn btn-primary" style="width: 100%">Visualizza Profilo</a>
+                    <div class="mt-2 mb-2"> <i v-for="index in Math.round(doctor.voteAverage)" class="fa fa-star third-color"> </i></div>
+                    <a :href='show(doctor.id)' class="btn btn-primary mt-auto" style="width: 100%">Visualizza Profilo</a>
                 </div>
             </div>
         </div>
