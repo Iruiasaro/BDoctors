@@ -171,9 +171,18 @@ h1 {
      object-fit: cover;
 }
 
+.charts-container {
+  min-width: 700px;
+  margin: auto;
+}
+
 @media screen and (max-width: 1100px) {
   div.suggested-doctors .card {
     width: calc(33% - 50px);
+  }
+
+  .charts-container {
+    min-width: 500px;
   }
 }
 
@@ -190,6 +199,11 @@ h1 {
     width: 100%;
     margin: 25px 0px;
   }
+
+  .charts-container {
+    min-width: 100%;
+    max-width: 100%;
+  }
 }
 
 @media screen and (max-width: 500px) {
@@ -201,6 +215,10 @@ h1 {
 @media screen and (max-width: 900px) {
   .responsive-flex {
     flex-direction: column;
+  }
+
+  .charts-container {
+    min-width: 400px;
   }
 }
 

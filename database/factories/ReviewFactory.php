@@ -12,6 +12,6 @@ $factory->define(Review::class, function (Faker $faker) {
         'content' => $faker->text(),
         'vote'=>rand(1,5),
         'title'=>$faker->text(50),
-        'created_at'=> $faker->dateTimeThisDecade($max = 'now', 'Europe/Berlin')
+        'created_at'=> $faker->dateTimeBetween('-90 days', $endDate = 'now', 'Europe/Berlin'),
     ];
 });

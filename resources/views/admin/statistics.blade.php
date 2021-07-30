@@ -4,6 +4,7 @@
       <meta charset="UTF-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="user-id" content="{{ Auth::user()->id }}">
       <title>Statistiche </title>
       <link rel="dns-prefetch" href="//fonts.gstatic.com">
       <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -25,6 +26,7 @@
       <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
       <script src="https://unpkg.com/vue-chartjs/dist/vue-chartjs.min.js"></script>
       <script type="" src="{{asset('js/charts.js')}}"></script>
+      <meta name="user-id" content="{{ Auth::user()->id }}">
   </head>
   <body>
   </body>
@@ -84,16 +86,17 @@
           </div>
       </div>
   </nav>
-  <div class="d-flex mt-5 mb-5">
+  <div class="d-flex flex-wrap mt-5 mb-5" id="charts">
       <div>
           @include('components.dashboard')
       </div>
-      <div class="flex-grow-1">
-          <meta name="user-id" content="{{ Auth::user()->id }}">
-          <div id="charts">
-              <div>
-                  <canvas id="myChart"></canvas>
-              </div>
+      <div class="charts-container">
+          <div class="">
+              <canvas id="voteMonths"></canvas>
+          </div>
+          <div>
+              <canvas id="reviewsMonths"></canvas>
           </div>
       </div>
+
   </div>

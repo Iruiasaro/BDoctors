@@ -22,14 +22,17 @@
                         <div class="modal-dialog modal-dialog-centered">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalToggleLabel">Scrivi</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    <h5 class="modal-title" id="exampleModalToggleLabel">Contatta il dr. {{$user->name}} </h5>
+                                    <button type="button" class="btn" data-bs-dismiss="modal" aria-label="Close"> <i class="fa fa-times fa-2x" aria-hidden="true"></i></button>
                                 </div>
-                                <input type="text" name="sender_name">
                                 <div class="modal-body">
-
-                                    <textarea name="content" id="" cols="30" rows="10"></textarea>
-                                    <button class="btn btn-primary">Invia</button>
+                                    <label class="w-100" for="">Nome e Cognome <input type="text" name="sender_name" class="w-100"></label>
+                                </div>
+                                <div class="modal-body">
+                                    <label for=""> Contenuto del messaggio da inviare al dottore:</label>
+                                    <textarea name="content" id="" class="w-100" cols="30" rows="10"></textarea>
+                                    <br>
+                                    <button class="btn btn-primary w-100 mt-4">Invia</button>
                                 </div>
 
                             </div>

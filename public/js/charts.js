@@ -98,19 +98,41 @@ window.addEventListener("load", function () {
     el: '#charts',
     data: {
       userId: '',
-      datesReviewArray: []
+      datesReviewArray: [],
+      dataX_1: [],
+      dataY_1: [],
+      dataX_2: [],
+      dataY_2: [],
+      reviewsCounts: []
     },
     methods: {
-      chart: function chart(xData, yData) {
-        var myChart = document.getElementById('myChart').getContext('2d');
+      chart1: function chart() {
+        var myChart = document.getElementById('reviewsMonths').getContext('2d');
         var doctorChart = new Chart(myChart, {
           type: 'bar',
           data: {
-            labels: xData,
+            labels: this.dataX_1.sort(),
             datasets: [{
               label: 'reviews',
-              data: yData,
-              backgroundColor: ["#347ede90"]
+              data: this.dataY_1,
+              backgroundColor: ["#347ede90"],
+              responsive: true,
+              maintainAspectRatio: false
+            }]
+          },
+          options: {}
+        });
+      },
+      chart2: function chart() {
+        var myChart = document.getElementById('voteMonths').getContext('2d');
+        var doctorChart = new Chart(myChart, {
+          type: 'bar',
+          data: {
+            labels: this.dataX_2.sort(),
+            datasets: [{
+              label: 'vote',
+              data: this.dataY_2,
+              backgroundColor: ["#28B0ee90"]
             }]
           },
           options: {}
@@ -124,7 +146,11 @@ window.addEventListener("load", function () {
 
           _this.getDates(resp.data.results);
 
-          _this.chart(_this.datesReviewArray, [1, 7, 6, 1, 2]);
+          _this.getDates2(resp.data.results);
+
+          _this.chart1(_this.dataX_1, _this.dataY_1);
+
+          _this.chart2(_this.dataX_2, _this.dataY_2);
         })["catch"](function (er) {
           console.error(er);
           alert("Errore in fase di filtraggio dati.");
@@ -135,9 +161,38 @@ window.addEventListener("load", function () {
 
         reviews = data.reviews;
         reviews.forEach(function (review) {
-          _this2.datesReviewArray.push(moment(review.created_at).format('M-y'));
+          data = moment(review.created_at).format('M-y');
 
-          console.log(review.created_at);
+          _this2.datesReviewArray.push(data);
+        });
+
+        for (var i = 0; i < this.datesReviewArray.length; i++) {
+          count = 0;
+
+          for (var j = 0; j < this.datesReviewArray.length; j++) {
+            if (this.datesReviewArray[i] == this.datesReviewArray[j]) {
+              count++;
+            }
+          }
+
+          if (!this.dataY_1.includes(count)) {
+            this.dataY_1.push(count);
+            this.dataX_1.push(this.datesReviewArray[i]);
+          }
+        }
+      },
+      getElementsCount: function getElementsCount(array, value) {
+        return array.filter(function (v) {
+          return v === value;
+        }).length;
+      },
+      getDates2: function getDates2(data) {
+        var _this3 = this;
+
+        data.reviews.forEach(function (element) {
+          _this3.dataX_2.push(moment(element.created_at).format('D-M-y'));
+
+          _this3.dataY_2.push(element.vote);
         });
       }
     },
