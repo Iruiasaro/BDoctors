@@ -70,7 +70,6 @@ class AdminController extends Controller
         foreach ($formData['specializations'] as $specializationId) {
                $user->specializations()->attach($specializationId);
         }
-     
         $user->update($formData);
         return redirect()->route("doctor.show", $user->id);
     }

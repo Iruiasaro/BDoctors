@@ -48158,6 +48158,11 @@ var app = new Vue({
     var _this = this;
 
     console.log("Component mounted.");
+
+    if (document.querySelector("meta[name='user-id']")) {
+      this.userId = document.querySelector("meta[name='user-id']").getAttribute('content');
+    }
+
     axios.get("http://127.0.0.1:8000/api/specializations").then(function (resp) {
       _this.specializations = resp.data.results;
     })["catch"](function (er) {
@@ -48165,8 +48170,11 @@ var app = new Vue({
       alert("Non posso recuperare i tag");
     });
     this.getCities();
+    this.getReviews();
   },
   data: {
+    reviews: '',
+    userId: '',
     isLoading: false,
     isSearched: false,
     searchResult: [],
@@ -48251,6 +48259,19 @@ var app = new Vue({
         console.error(er);
         alert("Errore in fase di filtraggio dati.");
       });
+    },
+    getReviews: function getReviews() {
+      var _this6 = this;
+
+      if (document.querySelector("meta[name='user-id']")) {
+        axios.get("http://127.0.0.1:8000/api/reviews?user_id=".concat(this.userId)).then(function (resp) {
+          console.log(resp.data.results);
+          _this6.reviews = resp.data.results.reviews;
+        })["catch"](function (er) {
+          console.error(er);
+          alert("Errore in fase di filtraggio dati.");
+        });
+      }
     }
   }
 });
@@ -48559,8 +48580,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\Saro\Desktop\Boolean\BDoctors\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\Saro\Desktop\Boolean\BDoctors\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\salva\Desktop\Boolean\BDoctors\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\salva\Desktop\Boolean\BDoctors\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

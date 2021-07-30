@@ -46,7 +46,8 @@
     <div class="">
         <div v-if="!isLoading" class="suggested-doctors d-flex flex-wrap">
             <div v-for="doctor in filterResult" class="card" style="">
-                <img class="card-img-top" :src="doctor.image.includes('random')?doctor.image:'storage/' + doctor.image" alt="Card image cap" />
+                <img v-if="!doctor.image" src="{{asset('imgs/avatarDoctor.jpg')}}" alt="">
+                <img v-else class="card-img-top" :src="doctor.image.includes('random')?doctor.image:'storage/' + doctor.image" alt="Card image cap" />
                 <div class="card-body">
                     <h5 class="card-title">@{{doctor.name}}</h5>
                     <p class="card-text">
