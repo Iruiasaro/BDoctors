@@ -22,11 +22,12 @@
                         <div class="modal-dialog modal-dialog-centered">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalToggleLabel">Contatta il dr. {{$user->name}} </h5>
+                                    <h5 class="modal-title" id="exampleModalToggleLabel">Contatta il Dr. {{$user->name}} </h5>
                                     <button type="button" class="btn" data-bs-dismiss="modal" aria-label="Close"> <i class="fa fa-times fa-2x" aria-hidden="true"></i></button>
                                 </div>
                                 <div class="modal-body">
-                                    <label class="w-100" for="">Nome e Cognome <input type="text" name="sender_name" class="w-100"></label>
+                                    <label class="w-100" for="">Nome e Cognome </label>
+                                    <input type="text" name="sender_name" class="w-100">
                                 </div>
                                 <div class="modal-body">
                                     <label for=""> Contenuto del messaggio da inviare al dottore:</label>
