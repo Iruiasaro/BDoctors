@@ -15,6 +15,7 @@ class SpecializationUserController extends Controller
         $users = User::findMany($user_ids);
         foreach ($users as $user) {
             $reviews = $user->reviews;
+            $specializations = $user->specializations;
             $sum = 0;
             if (count($reviews) != 0) {
                 foreach ($reviews as $review) {
@@ -25,6 +26,7 @@ class SpecializationUserController extends Controller
                 $vote = null;
             }
             $user->voteAverage = $vote;
+            $user->specializationsArray = $specializations;
         }
 
 

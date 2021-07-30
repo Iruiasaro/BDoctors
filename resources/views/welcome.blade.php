@@ -53,7 +53,11 @@
                     <h5 class="card-title">@{{doctor.name}}</h5>
                     <p class="card-text">
                         Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                        <i></i>
+                        <div>
+                            <ul style="list-style-position: inside">
+                                <li v-for="specialization in doctor.specializationsArray"><i> @{{specialization.specs_type}} </i></li>
+                            </ul>
+                        </div>
                     </p>
                     <div> <i v-for="index in Math.round(doctor.voteAverage)" class="fa fa-star third-color"> </i></div>
                     <a :href='show(doctor.id)' class="btn btn-primary" style="width: 100%">Visualizza Profilo</a>
