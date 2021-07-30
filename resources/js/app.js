@@ -99,7 +99,7 @@ const app = new Vue({
         },
         filterSearchResult() {
             this.filterResult = this.searchResult.filter(user => {
-                voteInt = Math.round(user.vote);
+                voteInt = Math.round(user.voteAverage);
                 if (voteInt == this.selectedStar || this.selectedStar == "all") {
                     return true;
                 }

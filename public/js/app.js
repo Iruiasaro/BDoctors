@@ -48223,7 +48223,7 @@ var app = new Vue({
       var _this3 = this;
 
       this.filterResult = this.searchResult.filter(function (user) {
-        voteInt = Math.round(user.vote);
+        voteInt = Math.round(user.voteAverage);
 
         if (voteInt == _this3.selectedStar || _this3.selectedStar == "all") {
           return true;
