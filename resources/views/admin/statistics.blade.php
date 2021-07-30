@@ -86,7 +86,7 @@
           </div>
       </div>
   </nav>
-  <div class="d-flex flex-wrap mt-5 mb-5" id="charts">
+  <div class="d-flex flex-wrap" id="charts">
       <div>
           @include('components.dashboard')
       </div>

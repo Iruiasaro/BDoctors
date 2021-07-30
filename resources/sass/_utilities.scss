@@ -13,7 +13,7 @@
 }
 .scroll-layout{
     overflow-y: scroll;
-    height: 50vh;
+    height: calc(100vh - 250px);
 }
 .bg-light-gray{
     background-color: #e7e7e777;
