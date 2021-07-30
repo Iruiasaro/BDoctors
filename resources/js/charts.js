@@ -98,6 +98,7 @@ window.addEventListener("load", () => {
             }
         },
         mounted: function mounted() {
+            console.log("CHART JS")
             console.log("CHART!")
             this.userId = document.querySelector("meta[name='user-id']").getAttribute('content');
             this.getReviews();

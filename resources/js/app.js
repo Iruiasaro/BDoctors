@@ -4,9 +4,6 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-require('./bootstrap');
-window.Vue = require('vue');
-
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -102,21 +99,21 @@ const app = new Vue({
 
         },
         addVoteToDoctor(data) {
-            this.searchResult.forEach((user, index) => {
-                axios
-                    .get(`http://127.0.0.1:8000/api/reviews?user_id=${user.id}`)
-                    .then((resp) => {
-                        user.vote = resp.data.results.vote;
-                        if (index == this.searchResult.length - 1) {
-                            this.isLoading = false;
-                        }
+            // this.searchResult.forEach((user, index) => {
+            //     axios
+            //         .get(`http://127.0.0.1:8000/api/reviews?user_id=${user.id}`)
+            //         .then((resp) => {
+            //             user.vote = resp.data.results.vote;
+            //             if (index == this.searchResult.length - 1) {
+            //                 this.isLoading = false;
+            //             }
 
-                    })
-                    .catch((er) => {
-                        console.error(er);
-                        alert("Errore in fase di filtraggio dati.");
-                    });
-            });
+            //         })
+            //         .catch((er) => {
+            //             console.error(er);
+            //             alert("Errore in fase di filtraggio dati.");
+            //         });
+            // });
         },
         getCities() {
             axios

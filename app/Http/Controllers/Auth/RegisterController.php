@@ -72,6 +72,7 @@ class RegisterController extends Controller
             'lastname' => $data['lastname'],
             'address' => $data['address'],
             'phone_number'=> $data['phone_number'],
+            'city_id'=> $data['city_id'],
             'password' => Hash::make($data['password']),
             'remember_token' => Str::random(10),
             'image' => "https://randomuser.me/api/portraits/".$genre[rand(0,1)]."/". rand(1,100) .".jpg",
