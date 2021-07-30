@@ -101,10 +101,12 @@ class GuestController extends Controller
         $message= new Message();
         $message->sender_name = $formData['sender_name'];
         $message->content = $formData['content'];
-        $message->user_id = $id;
+        $message->user_id = $user->id;
         $user->messages()->save($message);
         $data = [
-            'user' => User::findOrFail($id),
-        ];        return view('doctor.show', $data);
+            'user' => $user,
+        ];       
+        
+         return view('doctor.show', $data);
     }
 }
