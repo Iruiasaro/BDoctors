@@ -70,7 +70,4 @@
         <li class="dottor-specs"> <i class="fa fa-file-text" aria-hidden="true"></i>{{$user->curriculum}}</li>
         <li class="dottor-specs"> <i class="fa fa-medkit" aria-hidden="true"></i>{{$user->prestazione}}</li>
     </ul>
-    <div class="">
-        <h3>team 6</h3>
-    </div>
-    @endsection
+       @endsection
