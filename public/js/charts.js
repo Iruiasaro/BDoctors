@@ -111,7 +111,7 @@ window.addEventListener("load", function () {
         var doctorChart = new Chart(myChart, {
           type: 'bar',
           data: {
-            labels: this.dataX_1.sort(),
+            labels: this.dataX_1,
             datasets: [{
               label: 'reviews',
               data: this.dataY_1,
@@ -128,7 +128,7 @@ window.addEventListener("load", function () {
         var doctorChart = new Chart(myChart, {
           type: 'bar',
           data: {
-            labels: this.dataX_2.sort(),
+            labels: this.dataX_2,
             datasets: [{
               label: 'vote',
               data: this.dataY_2,
@@ -142,6 +142,9 @@ window.addEventListener("load", function () {
         var _this = this;
 
         axios.get("http://127.0.0.1:8000/api/reviews?user_id=".concat(this.userId)).then(function (resp) {
+          resp.data.results.reviews.sort(function (a, b) {
+            return moment(a.created_at).format('YYYYMMDD') - moment(b.created_at).format('YYYYMMDD');
+          });
           console.log(resp.data.results);
 
           _this.getDates(resp.data.results);

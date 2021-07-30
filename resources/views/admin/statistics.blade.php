@@ -90,11 +90,15 @@
       <div>
           @include('components.dashboard')
       </div>
+
       <div class="charts-container">
-          <div class="">
+
+          <div class="mb-3">
+              <h3> Voti ricevuti: </h3>
               <canvas id="voteMonths"></canvas>
           </div>
-          <div>
+          <div class="mb-3">
+              <h3> Recensioni per mese: </h3>
               <canvas id="reviewsMonths"></canvas>
           </div>
       </div>
