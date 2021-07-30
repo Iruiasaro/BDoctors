@@ -48174,6 +48174,7 @@ var app = new Vue({
     this.getUserSpecializations();
   },
   data: {
+    sortValue: false,
     userSpecializations: [],
     reviews: [],
     userId: '',
@@ -48201,6 +48202,7 @@ var app = new Vue({
       this.isLoading = true;
       axios.get("http://127.0.0.1:8000/api/specialization_user?specialization_id=".concat(this.selectedSpec)).then(function (resp) {
         _this2.searchResult = resp.data.results;
+        console.log(resp.data.results);
         _this2.isSearched = true;
 
         _this2.resetFilters(resp.data.results);
@@ -48269,6 +48271,19 @@ var app = new Vue({
         })["catch"](function (er) {
           console.error(er);
           alert("Errore in fase di filtraggio dati.");
+        });
+      }
+    },
+    sortByReviewsNumber: function sortByReviewsNumber() {
+      this.sortValue = !this.sortValue;
+
+      if (this.sortValue) {
+        this.filterResult = this.filterResult.sort(function (a, b) {
+          return a.reviews.length - b.reviews.length;
+        });
+      } else {
+        this.filterResult = this.filterResult.sort(function (a, b) {
+          return b.reviews.length - a.reviews.length;
         });
       }
     }

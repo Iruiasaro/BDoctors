@@ -15,17 +15,17 @@
                 <option value="all">Tutta Italia</option>
                 <option v-for="city in cities" :value="city.id">@{{city.name}}</option>
             </select>
-            <button class="btn btn-primary" type="submit">Cerca</button>
+            <button class="btn btn-primary" type="submit"> Cerca</button>
         </form>
     </div>
 </main>
 
 <section v-if="!isLoading && isSearched==true" class="my-wrap p-5">
     <div class="d-flex justify-content-between responsive-flex">
-        <div>
-            <h2 class="mb-4"> Risultati Ricerca </h2>
+        <div class="m-2">
+            <h2 class="mb-4 flex-shrink-0"> Risultati Ricerca </h2>
         </div>
-        <div>
+        <div class="m-2">
             <form action="">
                 <div class="mb-3">Filtra per media recensioni: </div>
                 <div v-for="index in 5" class="form-check form-check-inline" v-on:change="onChangeStar()">
@@ -37,15 +37,16 @@
                     <label class="form-check-label" :for="index"><span v-for="item in index"><i class="fa fa-star color-primary" aria-hidden="true"></i> </span> </label>
                 </div>
             </form>
-
         </div>
-
+        <div class="m-2">
+            <button class="btn" v-on:click="sortByReviewsNumber()"> <i class="fa m-2" :class="!sortValue ? 'fa-sort-amount-asc':'fa-sort-amount-desc'" aria-hidden="true"></i>Filtra per numero di recensioni</button>
+        </div>
     </div>
 
     <div class="">
         <div v-if="!isLoading" class="suggested-doctors d-flex flex-wrap">
             <div v-for="doctor in filterResult" class="card" style="">
-                <div class="card-img-top overflow-hidden">
+                <div class="card-img-top overflow-hidden" style="min-height:200px">
                     <img v-if="!doctor.image" src="{{asset('imgs/avatar.png')}}" alt="" style="width:100%">
                     <img v-else :src="doctor.image.includes('random')?doctor.image:'storage/' + doctor.image" alt="Card image cap" style="width:100%">
                 </div>
@@ -59,6 +60,7 @@
                             </ul>
                         </div>
                         <h6> <i class="fa fa-map-marker" aria-hidden="true"></i> @{{doctor.cityName}} </h6>
+                        <h6> <i class="fa fa-star-half-o" aria-hidden="true"></i> Recensioni: (@{{doctor.reviews.length}}) </h6>
                     </p>
                     <div> <i v-for="index in Math.round(doctor.voteAverage)" class="fa fa-star third-color"> </i></div>
                     <a :href='show(doctor.id)' class="btn btn-primary" style="width: 100%">Visualizza Profilo</a>

@@ -35,7 +35,7 @@ const app = new Vue({
         console.log("Component mounted.");
         if (document.querySelector("meta[name='user-id']")) {
             this.userId = document.querySelector("meta[name='user-id']").getAttribute('content');
- 
+
         }
 
         axios
@@ -52,6 +52,7 @@ const app = new Vue({
         this.getUserSpecializations();
     },
     data: {
+        sortValue: false,
         userSpecializations: [],
         reviews: [],
         userId: '',
@@ -79,6 +80,7 @@ const app = new Vue({
                 .get(`http://127.0.0.1:8000/api/specialization_user?specialization_id=${this.selectedSpec}`)
                 .then((resp) => {
                     this.searchResult = resp.data.results;
+                    console.log(resp.data.results)
                     this.isSearched = true;
                     this.resetFilters(resp.data.results);
                     this.filterSearchResult();
@@ -153,5 +155,14 @@ const app = new Vue({
             }
 
         },
+        sortByReviewsNumber() {
+            this.sortValue = !this.sortValue
+            if (this.sortValue) {
+                this.filterResult = this.filterResult.sort((a, b) => a.reviews.length - b.reviews.length);
+            }else{
+                this.filterResult = this.filterResult.sort((a, b) => b.reviews.length - a.reviews.length);
+            }
+
+        }
     },
 });
