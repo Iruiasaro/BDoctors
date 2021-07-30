@@ -35,6 +35,7 @@ const app = new Vue({
         console.log("Component mounted.");
         if (document.querySelector("meta[name='user-id']")) {
             this.userId = document.querySelector("meta[name='user-id']").getAttribute('content');
+ 
         }
 
         axios
@@ -48,9 +49,11 @@ const app = new Vue({
             });
         this.getCities();
         this.getReviews();
+        this.getUserSpecializations();
     },
     data: {
-        reviews: '',
+        userSpecializations: [],
+        reviews: [],
         userId: '',
         isLoading: false,
         isSearched: false,
@@ -78,8 +81,8 @@ const app = new Vue({
                     this.searchResult = resp.data.results;
                     this.isSearched = true;
                     this.resetFilters(resp.data.results);
-                    this.addVoteToDoctor(resp.data.results);
                     this.filterSearchResult();
+                    this.isLoading = false;
                 })
                 .catch((er) => {
                     console.error(er);
@@ -108,23 +111,6 @@ const app = new Vue({
             })
 
         },
-        addVoteToDoctor(data) {
-            this.searchResult.forEach((user, index) => {
-                axios
-                    .get(`http://127.0.0.1:8000/api/reviews?user_id=${user.id}`)
-                    .then((resp) => {
-                        user.vote = resp.data.results.vote;
-                        if (index == this.searchResult.length - 1) {
-                            this.isLoading = false;
-                        }
-
-                    })
-                    .catch((er) => {
-                        console.error(er);
-                        alert("Errore in fase di filtraggio dati.");
-                    });
-            });
-        },
         getCities() {
             axios
                 .get(`http://127.0.0.1:8000/api/cities`)
@@ -144,6 +130,21 @@ const app = new Vue({
                     .then((resp) => {
                         console.log(resp.data.results)
                         this.reviews = resp.data.results.reviews;
+                    })
+                    .catch((er) => {
+                        console.error(er);
+                        alert("Errore in fase di filtraggio dati.");
+                    });
+            }
+
+        },
+        getUserSpecializations() {
+            if (document.querySelector("meta[name='user-id']")) {
+                axios
+                    .get(`http://127.0.0.1:8000/api/user/specializations?user_id=${this.userId}`)
+                    .then((resp) => {
+                        console.log(resp.data.results)
+                        this.userSpecializations = resp.data.results;
                     })
                     .catch((er) => {
                         console.error(er);

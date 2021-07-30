@@ -55,7 +55,7 @@
                         Lorem ipsum dolor sit, amet consectetur adipisicing elit.
                         <i></i>
                     </p>
-                    <div> <i v-for="index in Math.round(doctor.vote)" class="fa fa-star third-color"> </i></div>
+                    <div> <i v-for="index in Math.round(doctor.voteAverage)" class="fa fa-star third-color"> </i></div>
                     <a :href='show(doctor.id)' class="btn btn-primary" style="width: 100%">Visualizza Profilo</a>
                 </div>
             </div>

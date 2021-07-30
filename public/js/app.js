@@ -48171,9 +48171,11 @@ var app = new Vue({
     });
     this.getCities();
     this.getReviews();
+    this.getUserSpecializations();
   },
   data: {
-    reviews: '',
+    userSpecializations: [],
+    reviews: [],
     userId: '',
     isLoading: false,
     isSearched: false,
@@ -48203,9 +48205,9 @@ var app = new Vue({
 
         _this2.resetFilters(resp.data.results);
 
-        _this2.addVoteToDoctor(resp.data.results);
-
         _this2.filterSearchResult();
+
+        _this2.isLoading = false;
       })["catch"](function (er) {
         console.error(er);
         alert("Errore in fase di filtraggio dati.");
@@ -48233,40 +48235,37 @@ var app = new Vue({
         }
       });
     },
-    addVoteToDoctor: function addVoteToDoctor(data) {
-      var _this4 = this;
-
-      this.searchResult.forEach(function (user, index) {
-        axios.get("http://127.0.0.1:8000/api/reviews?user_id=".concat(user.id)).then(function (resp) {
-          user.vote = resp.data.results.vote;
-
-          if (index == _this4.searchResult.length - 1) {
-            _this4.isLoading = false;
-          }
-        })["catch"](function (er) {
-          console.error(er);
-          alert("Errore in fase di filtraggio dati.");
-        });
-      });
-    },
     getCities: function getCities() {
-      var _this5 = this;
+      var _this4 = this;
 
       axios.get("http://127.0.0.1:8000/api/cities").then(function (resp) {
         console.log(resp.data.results[0]);
-        _this5.cities = resp.data.results[0];
+        _this4.cities = resp.data.results[0];
       })["catch"](function (er) {
         console.error(er);
         alert("Errore in fase di filtraggio dati.");
       });
     },
     getReviews: function getReviews() {
-      var _this6 = this;
+      var _this5 = this;
 
       if (document.querySelector("meta[name='user-id']")) {
         axios.get("http://127.0.0.1:8000/api/reviews?user_id=".concat(this.userId)).then(function (resp) {
           console.log(resp.data.results);
-          _this6.reviews = resp.data.results.reviews;
+          _this5.reviews = resp.data.results.reviews;
+        })["catch"](function (er) {
+          console.error(er);
+          alert("Errore in fase di filtraggio dati.");
+        });
+      }
+    },
+    getUserSpecializations: function getUserSpecializations() {
+      var _this6 = this;
+
+      if (document.querySelector("meta[name='user-id']")) {
+        axios.get("http://127.0.0.1:8000/api/user/specializations?user_id=".concat(this.userId)).then(function (resp) {
+          console.log(resp.data.results);
+          _this6.userSpecializations = resp.data.results;
         })["catch"](function (er) {
           console.error(er);
           alert("Errore in fase di filtraggio dati.");
@@ -48580,8 +48579,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\Saro\Desktop\Boolean\BDoctors\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\Saro\Desktop\Boolean\BDoctors\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\salva\Desktop\Boolean\BDoctors\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\salva\Desktop\Boolean\BDoctors\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

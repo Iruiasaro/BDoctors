@@ -61,6 +61,7 @@ class AdminController extends Controller
                 "name" => 'max:50',
                 "lastname" => 'max:50',
                 "email" => "email:rfc,dns|max:255|",
+                "specializations" => "required",
             ]
         );
         if (key_exists('image', $formData)) {

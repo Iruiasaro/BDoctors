@@ -20,6 +20,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::get('specialization_user', 'api\SpecializationUserController@index');
 
+Route::get('user/specializations', 'api\SpecializationController@getUserSpecializations');
+
 Route::get('specializations', 'api\SpecializationController@index');
 Route::get('reviews/', 'api\ReviewController@getReviewsByUser');
 Route::get('users/', 'api\UserController@getUsers');
