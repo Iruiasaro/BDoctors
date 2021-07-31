@@ -27,7 +27,7 @@
         <li class="p-0">
             <ul class="p-0" style="list-style: none">
                 <li class="pt-3">
-                    <a href="{{route('payment')}}">
+                    <a href="{{route('admin.sponsorPlan')}}">
                         <i class="fa fa-handshake-o" aria-hidden="true"></i> <span class="text-dashboard"> Pagamento sponsorizzazioni </span>
                     </a>
                 </li>

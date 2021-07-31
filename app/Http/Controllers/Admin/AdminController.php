@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Message;
 use App\SpecializationUser;
+use App\Sponsor;
 use Illuminate\Http\Request;
 use App\User;
 use Illuminate\Support\Facades\Hash;
@@ -56,7 +57,6 @@ class AdminController extends Controller
 
         $request->validate(
             [
-
                 "name" => 'max:50',
                 "lastname" => 'max:50',
                 "email" => "email:rfc,dns|max:255|",
@@ -91,8 +91,23 @@ class AdminController extends Controller
 
         return redirect()->route("welcome");
     }
+<<<<<<< HEAD
     public function charts($id)
     {
         return view('admin.statistics');
     }
+=======
+    public function charts($id){
+        return view('admin.statistics');
+    }
+
+    public function sponsorPlan()
+    {
+        $sponsorizations = Sponsor::all();
+        $data = [
+            'sponsorizations' => $sponsorizations,
+        ];
+        return view('admin.sponsorPlan', $data);
+    }
+>>>>>>> 13a7f0d36e3df1adf1ac882d67cb89c1ece47266
 }

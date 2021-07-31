@@ -12,24 +12,26 @@ class SponsorSeeder extends Seeder
      */
     public function run()
     {
-
         App\Sponsor::truncate();
 
         $sponsor_type = [
             [
                 "name" => "bronze",
                 "price" => 2.99,
-                "duration" => 24
+                "duration" => 24,
+                "color" => 'sandybrown'
             ],
             [
                 "name" => "silver",
                 "price" => 5.99,
-                "duration" => 72
+                "duration" => 72,
+                "color" => "silver"
             ],
             [
                 "name" => "gold",
                 "price" => 9.99,
-                "duration" => 144
+                "duration" => 144,
+                "color" => "gold"
             ]
         ];
 
@@ -38,7 +40,9 @@ class SponsorSeeder extends Seeder
             $sponsor_obj->name_plan = $sponsor['name'];
             $sponsor_obj->price = $sponsor['price'];
             $sponsor_obj->duration = $sponsor['duration'];
+            $sponsor_obj->color = $sponsor['color'];
             $sponsor_obj->save();
         }
     }
 }
+

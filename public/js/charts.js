@@ -178,7 +178,11 @@ window.addEventListener("load", function () {
             }
           }
 
+<<<<<<< HEAD
           if (!this.dataX_1.includes(this.datesReviewArray[i])) {
+=======
+          if (!this.dataY_1.includes(count)) {
+>>>>>>> 13a7f0d36e3df1adf1ac882d67cb89c1ece47266
             this.dataY_1.push(count);
             this.dataX_1.push(this.datesReviewArray[i]);
           }
@@ -216,7 +220,11 @@ window.addEventListener("load", function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+<<<<<<< HEAD
 module.exports = __webpack_require__(/*! C:\Users\Saro\Desktop\Boolean\BDoctors\resources\js\charts.js */"./resources/js/charts.js");
+=======
+module.exports = __webpack_require__(/*! /Users/ale/PhpstormProjects/BDoctors/resources/js/charts.js */"./resources/js/charts.js");
+>>>>>>> 13a7f0d36e3df1adf1ac882d67cb89c1ece47266
 
 
 /***/ })

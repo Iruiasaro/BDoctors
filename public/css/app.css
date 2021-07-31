@@ -108,6 +108,56 @@ aside a {
   padding: 10px;
 }
 
+.card-sponsorization {
+  width: 280px;
+  height: 350px;
+  box-shadow: 0 0 4px 0 lightgray;
+  transition-duration: 0.6s;
+  cursor: pointer;
+}
+
+.card-sponsorization:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.2);
+  transition-duration: 0.6s;
+}
+
+.card-sponsorization h1 {
+  padding: 20px 0;
+}
+
+.card-sponsorization h1 .decimal-nn {
+  font-size: 18px;
+}
+
+.card-sponsorization h1 .eur {
+  font-size: 30px;
+}
+
+.card-sponsorization h1 .plan {
+  font-size: 40px;
+  color: black;
+  font-style: normal;
+}
+
+.card-sponsorization .type-plan {
+  font-style: italic;
+}
+
+.card-sponsorization .price {
+  font-size: 50px;
+  font-style: italic;
+}
+
+.card-sponsorization h2 {
+  padding: 20px 0;
+}
+
+.card-sponsorization hr {
+  border: 0.5px solid lightgray;
+  width: 80%;
+}
+
 body {
   font-family: "Poppins", Tahoma, Geneva, Verdana, sans-serif;
 }

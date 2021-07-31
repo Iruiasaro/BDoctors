@@ -9,6 +9,6 @@ class SponsorizationController extends Controller
 {
     public function payment(Request $request){
         $request->sponsorization;
-        return view('admin.home');
+        return view('admin.sponsorPlan');
     }
 }
