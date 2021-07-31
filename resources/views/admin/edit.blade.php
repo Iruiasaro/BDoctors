@@ -50,11 +50,17 @@
                     <label for=""> Indirizzo </label>
                     <input class="form-control" type="text" id="address" name="address" value="{{$user->address}}">
                 </div>
-                <div class="form-group">
+                {{-- <div class="form-group">
                     <label for="file">
                         Curriculum vitae
                     </label> <br>
                     <input class="" type="file" name="cv" id="cv">
+                </div> --}}
+                <div class="form-group">
+                    <label for="file" class="control-label col-sm-3">Carica il tuo CV</label>
+                    <div class="col-sm-9">
+                        <input class="form-control" type="file" name="cv" id="cv" accept="application/pdf" />
+                    </div>
                 </div>
                 <div class="form-group row">
                     <label for="city" class="col-md-4 col-form-label text-md-right">{{ __('Città')  }} </label>

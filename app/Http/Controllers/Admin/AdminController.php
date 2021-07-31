@@ -51,9 +51,15 @@ class AdminController extends Controller
      */
     public function update(Request $request, $id)
     {
-
-        $user = User::findOrFail($id);
         $formData = $request->all();
+        $user = User::findOrFail($id);
+
+
+        if (key_exists('cv', $formData)) {
+            $storageResult = Storage::put("cv", $formData["cv"]);
+            $user->curriculum = $storageResult;
+        }
+
 
         $request->validate(
             [

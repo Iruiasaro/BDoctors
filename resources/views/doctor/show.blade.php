@@ -68,7 +68,10 @@
             <li class="dottor-specs"> <i class="fa fa-envelope" aria-hidden="true"></i> {{$user->email}}</li>
             <li class="dottor-specs"> <i class="fa fa-map-marker" aria-hidden="true"></i></i>{{$user->address}}</li>
             <li class="dottor-specs"> <i class="fa fa-phone" aria-hidden="true"></i> {{$user->phone_number}}</li>
-            <li class="dottor-specs"> <i class="fa fa-file-text" aria-hidden="true"></i>{{$user->curriculum}}</li>
+            
+
+            <li class="dottor-specs"> <i class="fa fa-file-text" aria-hidden="true"></i><a href={{asset("public/storage/".$user->curriculum)}} download>
+            Download CV</a></li>
             <li class="dottor-specs"> <i class="fa fa-medkit" aria-hidden="true"></i>{{$user->prestazione}}</li>
         </ul>
     </section>
