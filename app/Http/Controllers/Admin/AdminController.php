@@ -54,13 +54,6 @@ class AdminController extends Controller
         $formData = $request->all();
         $user = User::findOrFail($id);
 
-
-        if (key_exists('cv', $formData)) {
-            $storageResult = Storage::put("cv", $formData["cv"]);
-            $user->curriculum = $storageResult;
-        }
-
-
         $request->validate(
             [
 
@@ -70,12 +63,16 @@ class AdminController extends Controller
                 "specializations" => "required",
             ]
         );
+        if (key_exists('cv', $formData)) {
+            $storageResult = Storage::put("cv", $formData["cv"]);
+            $user->curriculum = $storageResult;
+        }
         if (key_exists('image', $formData)) {
             $storageResult = Storage::put("images", $formData["image"]);
             $user->image = $storageResult;
         }
         foreach ($formData['specializations'] as $specializationId) {
-               $user->specializations()->attach($specializationId);
+            $user->specializations()->attach($specializationId);
         }
         $user->update($formData);
         return redirect()->route("doctor.show", $user->id);
@@ -94,7 +91,8 @@ class AdminController extends Controller
 
         return redirect()->route("welcome");
     }
-    public function charts($id){
+    public function charts($id)
+    {
         return view('admin.statistics');
     }
 }

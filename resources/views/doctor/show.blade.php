@@ -70,8 +70,8 @@
             <li class="dottor-specs"> <i class="fa fa-phone" aria-hidden="true"></i> {{$user->phone_number}}</li>
             
 
-            <li class="dottor-specs"> <i class="fa fa-file-text" aria-hidden="true"></i><a href={{asset("public/storage/".$user->curriculum)}} download>
-            Download CV</a></li>
+            <li class="dottor-specs"> <i class="fa fa-file-text" aria-hidden="true"></i>
+            <a href={{asset("storage/".$user->curriculum)}} download>Download CV</a></li>
             <li class="dottor-specs"> <i class="fa fa-medkit" aria-hidden="true"></i>{{$user->prestazione}}</li>
         </ul>
     </section>
