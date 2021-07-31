@@ -16,7 +16,7 @@
                                     <h1 style="color: {{ $sponsorization->color }}" class="type-plan"><span class="plan">Piano</span> {{ $sponsorization->name_plan }}</h1>
                                     <hr>
                                     <h1 class="price"> {{ intval($sponsorization->price) }}<span class="decimal-nn">.99</span><span class="eur"> €</span></h1>
-                                    <button class="btn btn-primary" onclick="location.href='{{ route('payment', ['price' => $sponsorization->price ] ) }}'" type="button">Acquista</button>
+                                    <button class="btn btn-primary" onclick="location.href='{{ route('payment', $sponsorization->id ) }}'" type="button">Acquista</button>
                                  </div>
                             </form>
                         @endforeach

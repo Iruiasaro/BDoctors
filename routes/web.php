@@ -25,8 +25,8 @@ Auth::routes();
 
 Route::get('/', 'GuestController@index')->name('welcome');
 
-Route::get('/payment', 'PaymentsController@payment')->name('payment');
-Route::get('/payment/process', 'PaymentsController@process')->name('payment.process');
+Route::get('/payment/{price_id}', 'PaymentsController@payment')->name('payment');
+Route::get('/payment/process/{price_id}', 'PaymentsController@process')->name('payment.process');
 
 Route::prefix('admin')
     ->namespace('Admin')

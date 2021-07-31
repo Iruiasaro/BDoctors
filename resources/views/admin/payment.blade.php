@@ -16,34 +16,34 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-<nav class="navbar navbar-expand-md navbar-light bg-color-primary">
-    <div class="container">
-        <a class="animate__bounce navbar-brand my-navbar-brand" href="{{ url('/') }}">
-            <img src="{{asset('imgs/logo-white2.png')}}" class="logo img-fluid p-3" alt="">
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-            <i class="fa fa-bars text-white" aria-hidden="true"></i>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <!-- Left Side Of Navbar -->
-            @guest
+    <nav class="navbar navbar-expand-md navbar-light bg-color-primary">
+        <div class="container">
+            <a class="animate__bounce navbar-brand my-navbar-brand" href="{{ url('/') }}">
+                <img src="{{asset('imgs/logo-white2.png')}}" class="logo img-fluid p-3" alt="">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                <i class="fa fa-bars text-white" aria-hidden="true"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <!-- Left Side Of Navbar -->
+                @guest
                 <div class="navbar-nav flex-grow-1 justify-content-end text-white">
                     <span class="mr-3">Sei un dottore? <i class="fa fa-long-arrow-right" aria-hidden="true"></i> </span>
                 </div>
-        @endguest
-        <!-- Right Side Of Navbar -->
-            <ul class="navbar-nav ml-auto">
-                <!-- Authentication Links -->
-                @guest
+                @endguest
+                <!-- Right Side Of Navbar -->
+                <ul class="navbar-nav ml-auto">
+                    <!-- Authentication Links -->
+                    @guest
                     <li class="nav-item">
                         <a class="nav-link text-white" href="{{ route('login') }}">Login</a>
                     </li>
                     @if (Route::has('register'))
-                        <li class="nav-item">
-                            <a class="nav-link text-white" href="{{ route('register') }}"> Registrati </a>
-                        </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="{{ route('register') }}"> Registrati </a>
+                    </li>
                     @endif
-                @else
+                    @else
                     <li class="nav-item dropdown text-white">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle text-white" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             {{ Auth::user()->name }}
@@ -62,58 +62,60 @@
                             </form>
                         </div>
                     </li>
-                @endguest
-            </ul>
-        </div>
-    </div>
-</nav>
-<div class="d-flex">
-    <div>
-        @include('components.dashboard')
-    </div>
-    <div class="flex-grow-1 p-3">
-        <div>
-            <div class="row">
-                <div class="col-md-8 col-md-offset-2">
-                    <div id="dropin-container"></div>
-                    <button class="btn btn-primary" type="submit" id="submit-button">Request payment method</button>
-                </div>
+                    @endguest
+                </ul>
             </div>
         </div>
-        <meta name="price" content="{{ $price }}">
-        <script>
-            var button = document.querySelector('#submit-button');
-            braintree.dropin.create({
-                authorization: "{{ Braintree\ClientToken::generate() }}"
-                , container: '#dropin-container'
-            }, function(createErr, instance) {
-                button.addEventListener('click', function(event) {
-                    event.preventDefault();
-                    instance.requestPaymentMethod(function(err, payload) {
-                        {
-                            {
-                                $amount = document.querySelector("meta[name='price']").getAttribute('content');
-                            }
-                        }
-                        $.get('{{route('payment.process', ['price' => $price]) }}', {
-                                payload
-                            }
-                            , function(response) {
-                                console.log(response.amount);
-                                if (response.success && confirm('Sei sicuro di proseguire')) {
-                                    alert('Payment successfull!');
-                                    document.getElementById('formId').submit()
-                                } else {
-                                    alert('Payment failed');
-                                    document.getElementById('formId').submit()
+    </nav>
+    <div class="d-flex">
+        <div>
+            @include('components.dashboard')
+        </div>
+        <div class="flex-grow-1 p-3">
+            <div>
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2">
+                        <div id="dropin-container"></div>
+                        <button class="btn btn-primary" type="submit" id="submit-button">Request payment method</button>
+                    </div>
+                </div>
+            </div>
+            <form action="{{route('admin.home')}}" id="formId">
+                <script>
+                    var button = document.querySelector('#submit-button');
+                    braintree.dropin.create({
+                        authorization: "{{ Braintree\ClientToken::generate() }}"
+                        , container: '#dropin-container'
+                    }, function(createErr, instance) {
+                        button.addEventListener('click', function(event) {
+                            event.preventDefault();
+                            instance.requestPaymentMethod(function(err, payload) {
+                                {
+                                    {
+                                        //$amount = document.querySelector("meta[name='price']").getAttribute('content');
+                                    }
                                 }
-                            }, 'json');
+                                $.get('{{route('payment.process', $price_id )}}', {
+                                        payload
+                                    }
+                                    , function(response) {
+                                        console.log(response.amount);
+                                        if (response.success && confirm('Sei sicuro di proseguire')) {
+                                            alert('Payment successfull!');
+                                            document.getElementById('formId').submit()
+                                        } else {
+                                            alert('Payment failed');
+                                            document.getElementById('formId').submit()
+                                        }
+                                    }, 'json');
+                            });
+                        });
                     });
-                });
-            });
-        </script>
+
+                </script>
+            </form>
+        </div>
     </div>
-</div>
-@include('components.footer')
+    @include('components.footer')
 </body>
 </html>

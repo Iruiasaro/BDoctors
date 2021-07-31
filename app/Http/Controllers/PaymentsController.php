@@ -8,11 +8,11 @@ use Braintree;
 
 class PaymentsController extends Controller
 {
-    public function process(Request $request)
+    public function process(Request $request, $price_id)
     {
         $payload = $request->input('payload', false);
         $nonce = $payload['nonce'];
-        $price  = $request->input('price');
+        $price = Sponsor::where('id', $price_id)->first()->price;
 
         $status = Braintree\Transaction::sale([
             'amount' => $price,
@@ -21,18 +21,18 @@ class PaymentsController extends Controller
                 'submitForSettlement' => True
             ]
         ]);
-        
+
         return response()->json($status);
     }
-    public function payment(Request $request)
+    public function payment(Request $request, $price_id)
     {
         $sponsorizations = Sponsor::all();
-        $price = $request->input('price');
+
 
         $data = [
-            'price' => $price,
+            'price_id' => $price_id,
             'sponsorizations' => $sponsorizations,
         ];
-        return view('admin.payment',$data);
+        return view('admin.payment', $data);
     }
 }
