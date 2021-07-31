@@ -79,7 +79,8 @@
 
 aside {
   padding: 20px;
-  height: calc(100vh - 79px);
+  min-height: calc(100vh - 79px);
+  height: 100%;
   background-color: #00C3A5;
 }
 
@@ -189,6 +190,10 @@ header .logo {
 
 .navbar-brand.my-navbar-brand {
   width: 200px;
+}
+
+.layout-container {
+  max-height: calc(100vh - 100px);
 }
 
 h1 {

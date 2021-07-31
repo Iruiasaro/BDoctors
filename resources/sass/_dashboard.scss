@@ -1,6 +1,7 @@
 aside{
     padding: 20px;
-    height: calc(100vh - 79px);
+    min-height: calc(100vh - 79px);
+    height: 100%;
     background-color: $primary-color;
     h4{
         color: white;

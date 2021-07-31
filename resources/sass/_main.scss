@@ -28,6 +28,9 @@ header{
 .navbar-brand.my-navbar-brand{
     width: 200px;
 }
+.layout-container{
+    max-height: calc(100vh - 100px);
+}
 h1{
     font-weight:600;
 }

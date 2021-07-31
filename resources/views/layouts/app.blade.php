@@ -81,10 +81,9 @@
                 </div>
             </div>
         </nav>
-        <div>
+        <div class="layout-container">
             @yield('content')
         </div>
-        @include('components.footer')
     </div>
 </body>
 </html>
