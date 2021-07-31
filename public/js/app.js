@@ -48171,18 +48171,12 @@ var app = new Vue({
     });
     this.getCities();
     this.getReviews();
-<<<<<<< HEAD
     this.getUserSpecializations();
   },
   data: {
     sortValue: false,
     userSpecializations: [],
     reviews: [],
-=======
-  },
-  data: {
-    reviews: '',
->>>>>>> 13a7f0d36e3df1adf1ac882d67cb89c1ece47266
     userId: '',
     isLoading: false,
     isSearched: false,
@@ -48270,34 +48264,15 @@ var app = new Vue({
     getUserSpecializations: function getUserSpecializations() {
       var _this6 = this;
 
-<<<<<<< HEAD
       if (document.querySelector("meta[name='user-id']")) {
         axios.get("http://127.0.0.1:8000/api/user/specializations?user_id=".concat(this.userId)).then(function (resp) {
           console.log(resp.data.results);
           _this6.userSpecializations = resp.data.results;
-=======
-      axios.get("http://127.0.0.1:8000/api/cities").then(function (resp) {
-        console.log(resp.data.results[0]);
-        _this5.cities = resp.data.results[0];
-      })["catch"](function (er) {
-        console.error(er);
-        alert("Errore in fase di filtraggio dati.");
-      });
-    },
-    getReviews: function getReviews() {
-      var _this6 = this;
-
-      if (document.querySelector("meta[name='user-id']")) {
-        axios.get("http://127.0.0.1:8000/api/reviews?user_id=".concat(this.userId)).then(function (resp) {
-          console.log(resp.data.results);
-          _this6.reviews = resp.data.results.reviews;
->>>>>>> 13a7f0d36e3df1adf1ac882d67cb89c1ece47266
         })["catch"](function (er) {
           console.error(er);
           alert("Errore in fase di filtraggio dati.");
         });
       }
-<<<<<<< HEAD
     },
     sortByReviewsNumber: function sortByReviewsNumber() {
       this.sortValue = !this.sortValue;
@@ -48311,8 +48286,6 @@ var app = new Vue({
           return b.reviews.length - a.reviews.length;
         });
       }
-=======
->>>>>>> 13a7f0d36e3df1adf1ac882d67cb89c1ece47266
     }
   }
 });
@@ -48621,13 +48594,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-<<<<<<< HEAD
-__webpack_require__(/*! C:\Users\Saro\Desktop\Boolean\BDoctors\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\Saro\Desktop\Boolean\BDoctors\resources\sass\app.scss */"./resources/sass/app.scss");
-=======
-__webpack_require__(/*! /Users/ale/PhpstormProjects/BDoctors/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/ale/PhpstormProjects/BDoctors/resources/sass/app.scss */"./resources/sass/app.scss");
->>>>>>> 13a7f0d36e3df1adf1ac882d67cb89c1ece47266
+__webpack_require__(/*! C:\Users\salva\Desktop\Boolean\BDoctors\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\salva\Desktop\Boolean\BDoctors\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

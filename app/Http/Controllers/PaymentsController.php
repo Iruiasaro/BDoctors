@@ -21,7 +21,7 @@ class PaymentsController extends Controller
                 'submitForSettlement' => True
             ]
         ]);
-
+        
         return response()->json($status);
     }
     public function payment(Request $request)

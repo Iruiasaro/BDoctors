@@ -35,10 +35,6 @@ const app = new Vue({
         console.log("Component mounted.");
         if (document.querySelector("meta[name='user-id']")) {
             this.userId = document.querySelector("meta[name='user-id']").getAttribute('content');
-<<<<<<< HEAD
-
-=======
->>>>>>> 13a7f0d36e3df1adf1ac882d67cb89c1ece47266
         }
 
         axios
@@ -143,7 +139,6 @@ const app = new Vue({
             }
 
         },
-<<<<<<< HEAD
         getUserSpecializations() {
             if (document.querySelector("meta[name='user-id']")) {
                 axios
@@ -168,7 +163,5 @@ const app = new Vue({
             }
 
         }
-=======
->>>>>>> 13a7f0d36e3df1adf1ac882d67cb89c1ece47266
     },
 });

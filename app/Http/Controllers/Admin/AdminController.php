@@ -91,12 +91,6 @@ class AdminController extends Controller
 
         return redirect()->route("welcome");
     }
-<<<<<<< HEAD
-    public function charts($id)
-    {
-        return view('admin.statistics');
-    }
-=======
     public function charts($id){
         return view('admin.statistics');
     }
@@ -109,5 +103,4 @@ class AdminController extends Controller
         ];
         return view('admin.sponsorPlan', $data);
     }
->>>>>>> 13a7f0d36e3df1adf1ac882d67cb89c1ece47266
 }

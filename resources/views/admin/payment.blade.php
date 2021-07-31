@@ -65,68 +65,6 @@
                 @endguest
             </ul>
         </div>
-    </nav>
-
-    <div class="d-flex">
-        <div>
-            @include('components.dashboard')
-        </div>
-        <div class="flex-grow-1 p-3">
-            <form class="mt-5" action="{{route('sponsorization.payment',Auth::user()->id)}}" method="post" id="formId">
-                @csrf @method('PUT')
-                <h2> Scegli la sponsorizzazione</h2>
-                <p>Applica un piano per sponsorizzare il tuo profilo e apparire prima nelle ricerche</p>
-                @foreach($sponsorizations as $sponsorization)
-                <div class="custom-control custom-radio custom-control-inline">
-                    <input type="radio" id="{{$sponsorization->id}}" name="sponsorization" class="custom-control-input">
-                    <label class="custom-control-label" for="{{$sponsorization->id}}"> {{$sponsorization->name_plan}} - {{$sponsorization->price}} $ </label>
-                </div>
-                @endforeach
-
-                <div>
-                    <div class="row">
-                        <div class="col-md-8 col-md-offset-2">
-                            <div id="dropin-container"></div>
-                            <button class="btn btn-primary" type="submit" id="submit-button">Request payment method</button>
-                        </div>
-                    </div>
-                </div>
-                <script>
-                    var button = document.querySelector('#submit-button');
-
-                    braintree.dropin.create({
-                        authorization: "{{ Braintree\ClientToken::generate() }}"
-                        , container: '#dropin-container'
-                    }, function(createErr, instance) {
-                        button.addEventListener('click', function(event) {
-                            event.preventDefault();
-                            instance.requestPaymentMethod(function(err, payload) {
-                                {
-                                    {
-                                        $amount = '5'
-                                    }
-                                }
-                                $.get('{{route('payment.process') }}', {
-                                        payload
-                                    }
-                                    , function(response) {
-                                        console.log(response.amount);
-                                        if (response.success && confirm('Sei sicuro di proseguire')) {
-                                            alert('Payment successfull!');
-                                            document.getElementById('formId').submit()
-
-                                        } else {
-                                            alert('Payment failed');
-                                            document.getElementById('formId').submit()
-                                        }
-                                    }, 'json');
-                            });
-                        });
-                    });
-
-                </script>
-            </form>
-        </div>
     </div>
 </nav>
 <div class="d-flex">
