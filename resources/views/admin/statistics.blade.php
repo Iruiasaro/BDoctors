@@ -93,13 +93,17 @@
 
       <div class="charts-container">
 
-          <div class="mb-3">
+          <div class="mb-5 p-3">
               <h3> Voti ricevuti: </h3>
               <canvas id="voteMonths"></canvas>
           </div>
-          <div class="mb-3">
+          <div class="mb-5 p-3">
               <h3> Recensioni per mese: </h3>
               <canvas id="reviewsMonths"></canvas>
+          </div>
+          <div class="mb-5 p-3">
+              <h3> Messaggi per mese: </h3>
+              <canvas id="messagesMonths"></canvas>
           </div>
       </div>
 

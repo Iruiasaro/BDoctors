@@ -97,18 +97,22 @@ window.addEventListener("load", function () {
   var myChart = new Vue({
     el: '#charts',
     data: {
+      monthsForQuery: ['2021-01', '2021-02', '2021-03', '2021-04', '2021-05', '2021-06', '2021-07'],
+      months: ['Gen', 'Feb', 'Mar', 'Apr', 'Mag', 'Giu', 'Lug'],
       userId: '',
       datesReviewArray: [],
       dataX_1: [],
       dataY_1: [],
       dataX_2: [],
       dataY_2: [],
-      reviewsCounts: []
+      dataY_3: [],
+      reviewsCounts: [],
+      messagesChart: {}
     },
     methods: {
       chart1: function chart() {
         var myChart = document.getElementById('reviewsMonths').getContext('2d');
-        var doctorChart = new Chart(myChart, {
+        var reviewsChart = new Chart(myChart, {
           type: 'bar',
           data: {
             labels: this.dataX_1,
@@ -125,7 +129,7 @@ window.addEventListener("load", function () {
       },
       chart2: function chart() {
         var myChart = document.getElementById('voteMonths').getContext('2d');
-        var doctorChart = new Chart(myChart, {
+        var votesChart = new Chart(myChart, {
           type: 'bar',
           data: {
             labels: this.dataX_2,
@@ -133,6 +137,23 @@ window.addEventListener("load", function () {
               label: 'vote',
               data: this.dataY_2,
               backgroundColor: ["#28B0ee90"]
+            }]
+          },
+          options: {}
+        });
+      },
+      chart3: function chart() {
+        var myChart = document.getElementById('messagesMonths').getContext('2d');
+        this.messagesChart = new Chart(myChart, {
+          type: 'bar',
+          data: {
+            labels: this.months,
+            datasets: [{
+              label: 'messages',
+              data: this.dataY_3,
+              backgroundColor: ["#347ede90"],
+              responsive: true,
+              maintainAspectRatio: false
             }]
           },
           options: {}
@@ -150,6 +171,8 @@ window.addEventListener("load", function () {
           _this.getDates(resp.data.results);
 
           _this.getDates2(resp.data.results);
+
+          _this.getMessagesByDate();
 
           _this.chart1(_this.dataX_1, _this.dataY_1);
 
@@ -197,12 +220,29 @@ window.addEventListener("load", function () {
 
           _this3.dataY_2.push(element.vote);
         });
+      },
+      getMessagesByDate: function getMessagesByDate() {
+        var _this4 = this;
+
+        this.monthsForQuery.forEach(function (month) {
+          axios.get("http://127.0.0.1:8000/api/messages?user_id=".concat(_this4.userId, "&date=").concat(month)).then(function (resp) {
+            console.log(resp.data.results);
+
+            _this4.dataY_3.push(resp.data.results.message_count);
+
+            _this4.messagesChart.update();
+          })["catch"](function (er) {
+            console.error(er);
+            alert("Errore in fase di filtraggio dati.");
+          });
+        });
       }
     },
     mounted: function mounted() {
       console.log("CHART!");
       this.userId = document.querySelector("meta[name='user-id']").getAttribute('content');
       this.getReviews();
+      this.chart3();
     }
   });
 });

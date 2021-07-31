@@ -11,6 +11,6 @@ $factory->define(Message::class, function (Faker $faker) {
         'sender_name' => $faker->name(),
         'content' => $faker->text(),
         'user_id' => rand(1,1010),
-        'created_at'=> $faker->date('2021-01-01','now')
+        'created_at'=> $faker->dateTimeBetween('-210 days', 'now', 'Europe/Berlin'),
     ];
 });
