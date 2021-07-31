@@ -33,6 +33,10 @@ const app = new Vue({
     el: '#app',
     mounted() {
         console.log("Component mounted.");
+        if (document.querySelector("meta[name='user-id']")) {
+            this.userId = document.querySelector("meta[name='user-id']").getAttribute('content');
+        }
+
         axios
             .get("http://127.0.0.1:8000/api/specializations")
             .then((resp) => {
@@ -43,8 +47,11 @@ const app = new Vue({
                 alert("Non posso recuperare i tag");
             });
         this.getCities();
+        this.getReviews();
     },
     data: {
+        reviews: '',
+        userId: '',
         isLoading: false,
         isSearched: false,
         searchResult: [],
@@ -129,6 +136,21 @@ const app = new Vue({
                     console.error(er);
                     alert("Errore in fase di filtraggio dati.");
                 });
-        }
+        },
+        getReviews() {
+            if (document.querySelector("meta[name='user-id']")) {
+                axios
+                    .get(`http://127.0.0.1:8000/api/reviews?user_id=${this.userId}`)
+                    .then((resp) => {
+                        console.log(resp.data.results)
+                        this.reviews = resp.data.results.reviews;
+                    })
+                    .catch((er) => {
+                        console.error(er);
+                        alert("Errore in fase di filtraggio dati.");
+                    });
+            }
+
+        },
     },
 });

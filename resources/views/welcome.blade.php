@@ -34,8 +34,7 @@
                         <label class="form-check-label" for="all"> Tutti i Dottori </label>
                     </div>
                     <input class="form-check-input" type="radio" v-model="selectedStar" :id="index" :value="index">
-                    <label class="form-check-label" :for="index"><span v-for="item in index"><i
-                                class="fa fa-star color-primary" aria-hidden="true"></i> </span> </label>
+                    <label class="form-check-label" :for="index"><span v-for="item in index"><i class="fa fa-star color-primary" aria-hidden="true"></i> </span> </label>
                 </div>
             </form>
 
@@ -46,8 +45,11 @@
     <div class="">
         <div v-if="!isLoading" class="suggested-doctors d-flex flex-wrap">
             <div v-for="doctor in filterResult" class="card" style="">
-                <img class="card-img-top" :src="doctor.image" alt="Card image cap" />
-                <div class="card-body">
+                <div class="card-img-top overflow-hidden">
+                    <img v-if="!doctor.image" src="{{asset('imgs/avatar.png')}}" alt="" style="width:100%">
+                    <img v-else :src="doctor.image.includes('random')?doctor.image:'storage/' + doctor.image" alt="Card image cap" style="width:100%">
+                </div>
+                <div class=" card-body">
                     <h5 class="card-title">@{{doctor.name}}</h5>
                     <p class="card-text">
                         Lorem ipsum dolor sit, amet consectetur adipisicing elit.

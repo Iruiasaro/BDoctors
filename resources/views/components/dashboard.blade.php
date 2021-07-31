@@ -14,7 +14,7 @@
                 <span class="text-dashboard"> Messaggi </span> </a>
         </li>
         <li class="pt-3">
-            <a href=""><i class="fa fa-bar-chart" aria-hidden="true"></i><span class="text-dashboard"> Statistiche
+            <a href="{{route('admin.charts',Auth::user()->id,)}}"><i class="fa fa-bar-chart" aria-hidden="true"></i><span class="text-dashboard"> Statistiche
                 </span> </a>
         </li>
         <li class="pt-3">
@@ -24,12 +24,11 @@
         <li class="pt-3">
             <a href="{{route('password.request')}}"> <i class="fa fa-key" aria-hidden="true"></i> <span class="text-dashboard"> Modifica password</span> </a>
         </li>
-        <li class="pt-3">
+        <li class="p-0">
             <ul class="p-0" style="list-style: none">
                 <li class="pt-3">
-                    <a href="{{route('payment')}}">
-                        <i class="fa fa-handshake-o" aria-hidden="true"></i> <span class="text-dashboard"> Pagamento (Da
-                            implementare) </span>
+                    <a href="{{route('admin.sponsorPlan')}}">
+                        <i class="fa fa-handshake-o" aria-hidden="true"></i> <span class="text-dashboard"> Pagamento sponsorizzazioni </span>
                     </a>
                 </li>
             </ul>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Message;
 use App\SpecializationUser;
+use App\Sponsor;
 use Illuminate\Http\Request;
 use App\User;
 use Illuminate\Support\Facades\Hash;
@@ -15,15 +16,6 @@ class AdminController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
-    }
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
     }
 
     public function messages($id)
@@ -38,43 +30,7 @@ class AdminController extends Controller
             abort('403', 'Azione non autorizzata');
         }
     }
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
         if (auth()->user()->id == $id) {
@@ -102,7 +58,6 @@ class AdminController extends Controller
 
         $request->validate(
             [
-
                 "name" => 'max:50',
                 "lastname" => 'max:50',
                 "email" => "email:rfc,dns|max:255|",
@@ -115,7 +70,6 @@ class AdminController extends Controller
         foreach ($formData['specializations'] as $specializationId) {
                $user->specializations()->attach($specializationId);
         }
-     
         $user->update($formData);
         return redirect()->route("doctor.show", $user->id);
     }
@@ -133,6 +87,16 @@ class AdminController extends Controller
 
         return redirect()->route("welcome");
     }
+    public function charts($id){
+        return view('admin.statistics');
+    }
 
-    
+    public function sponsorPlan()
+    {
+        $sponsorizations = Sponsor::all();
+        $data = [
+            'sponsorizations' => $sponsorizations,
+        ];
+        return view('admin.sponsorPlan', $data);
+    }
 }

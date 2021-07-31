@@ -15,6 +15,7 @@ class CreateReviewsTable extends Migration
     {
         Schema::create('reviews', function (Blueprint $table) {
             $table->id();
+            $table->string("reviewer")->default("Anonimo");
             $table->integer('vote');
             $table->string("title");
             $table->longText("content");

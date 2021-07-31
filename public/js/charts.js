@@ -81,41 +81,142 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 1);
+/******/ 	return __webpack_require__(__webpack_require__.s = 2);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./resources/js/script.js":
+/***/ "./resources/js/charts.js":
 /*!********************************!*\
-  !*** ./resources/js/script.js ***!
+  !*** ./resources/js/charts.js ***!
   \********************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
 window.addEventListener("load", function () {
-  console.log("LOADED");
-  deleteButton = document.getElementById('delete');
+  var myChart = new Vue({
+    el: '#charts',
+    data: {
+      userId: '',
+      datesReviewArray: [],
+      dataX_1: [],
+      dataY_1: [],
+      dataX_2: [],
+      dataY_2: [],
+      reviewsCounts: []
+    },
+    methods: {
+      chart1: function chart() {
+        var myChart = document.getElementById('reviewsMonths').getContext('2d');
+        var doctorChart = new Chart(myChart, {
+          type: 'bar',
+          data: {
+            labels: this.dataX_1,
+            datasets: [{
+              label: 'reviews',
+              data: this.dataY_1,
+              backgroundColor: ["#347ede90"],
+              responsive: true,
+              maintainAspectRatio: false
+            }]
+          },
+          options: {}
+        });
+      },
+      chart2: function chart() {
+        var myChart = document.getElementById('voteMonths').getContext('2d');
+        var doctorChart = new Chart(myChart, {
+          type: 'bar',
+          data: {
+            labels: this.dataX_2,
+            datasets: [{
+              label: 'vote',
+              data: this.dataY_2,
+              backgroundColor: ["#28B0ee90"]
+            }]
+          },
+          options: {}
+        });
+      },
+      getReviews: function getReviews() {
+        var _this = this;
 
-  if (deleteButton) {
-    deleteButton.addEventListener("click", function (event) {
-      if (!confirm('Sei sicuro di voler eliminare il profilo?')) {
-        event.preventDefault();
+        axios.get("http://127.0.0.1:8000/api/reviews?user_id=".concat(this.userId)).then(function (resp) {
+          resp.data.results.reviews.sort(function (a, b) {
+            return moment(a.created_at).format('YYYYMMDD') - moment(b.created_at).format('YYYYMMDD');
+          });
+          console.log(resp.data.results);
+
+          _this.getDates(resp.data.results);
+
+          _this.getDates2(resp.data.results);
+
+          _this.chart1(_this.dataX_1, _this.dataY_1);
+
+          _this.chart2(_this.dataX_2, _this.dataY_2);
+        })["catch"](function (er) {
+          console.error(er);
+          alert("Errore in fase di filtraggio dati.");
+        });
+      },
+      getDates: function getDates(data) {
+        var _this2 = this;
+
+        reviews = data.reviews;
+        reviews.forEach(function (review) {
+          data = moment(review.created_at).format('M-y');
+
+          _this2.datesReviewArray.push(data);
+        });
+
+        for (var i = 0; i < this.datesReviewArray.length; i++) {
+          count = 0;
+
+          for (var j = 0; j < this.datesReviewArray.length; j++) {
+            if (this.datesReviewArray[i] == this.datesReviewArray[j]) {
+              count++;
+            }
+          }
+
+          if (!this.dataY_1.includes(count)) {
+            this.dataY_1.push(count);
+            this.dataX_1.push(this.datesReviewArray[i]);
+          }
+        }
+      },
+      getElementsCount: function getElementsCount(array, value) {
+        return array.filter(function (v) {
+          return v === value;
+        }).length;
+      },
+      getDates2: function getDates2(data) {
+        var _this3 = this;
+
+        data.reviews.forEach(function (element) {
+          _this3.dataX_2.push(moment(element.created_at).format('D-M-y'));
+
+          _this3.dataY_2.push(element.vote);
+        });
       }
-    });
-  }
+    },
+    mounted: function mounted() {
+      console.log("CHART!");
+      this.userId = document.querySelector("meta[name='user-id']").getAttribute('content');
+      this.getReviews();
+    }
+  });
 });
 
 /***/ }),
 
-/***/ 1:
+/***/ 2:
 /*!**************************************!*\
-  !*** multi ./resources/js/script.js ***!
+  !*** multi ./resources/js/charts.js ***!
   \**************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/ale/PhpstormProjects/BDoctors/resources/js/script.js */"./resources/js/script.js");
+module.exports = __webpack_require__(/*! /Users/ale/PhpstormProjects/BDoctors/resources/js/charts.js */"./resources/js/charts.js");
 
 
 /***/ })

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSpecializationUserTable extends Migration
+class CreateSponsorizationUserTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreateSpecializationUserTable extends Migration
      */
     public function up()
     {
-        Schema::create('specialization_user', function (Blueprint $table) {
+        Schema::create('sponsorization_user', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger("specialization_id");
-            $table->foreign("specialization_id")
+            $table->unsignedBigInteger("sponsorization_id");
+            $table->foreign("sponsorization_id")
                 ->references("id")
-                ->on("specializations")
+                ->on("sponsors")
                 ->onDelete('cascade');
 
             $table->unsignedBigInteger("user_id");
@@ -38,6 +38,6 @@ class CreateSpecializationUserTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('specialization_user');
+        Schema::dropIfExists('sponsorization_user');
     }
 }

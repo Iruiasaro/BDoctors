@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Message;
 use App\Specialization;
 use App\User;
 use Illuminate\Http\Request;
@@ -92,5 +93,20 @@ class GuestController extends Controller
     public function payment()
     {
         return view('admin.payment');
+    }
+    public function sendMessage($id,Request $request)
+    {
+        $formData=$request->all();
+        $user = User::findOrFail($id);
+        $message= new Message();
+        $message->sender_name = $formData['sender_name'];
+        $message->content = $formData['content'];
+        $message->user_id = $user->id;
+        $user->messages()->save($message);
+        $data = [
+            'user' => $user,
+        ];       
+        
+         return view('doctor.show', $data);
     }
 }
