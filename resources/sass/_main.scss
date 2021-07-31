@@ -11,12 +11,15 @@ main{
     background-position: center ;
     transition: all 0.5s ease-in-out
 }
-
+.navbar{
+    box-shadow: 5px 10px 10px #8686862a ;
+}
 header{
     nav{
         justify-content: space-between;
         padding: 25px;
         align-items: center;
+        box-shadow: 1px 1px 5px;
     }
     .logo{
         max-width: 200px;

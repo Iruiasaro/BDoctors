@@ -59,7 +59,7 @@ window.addEventListener("load", () => {
                         datasets: [{
                             label: 'messages',
                             data: this.dataY_3,
-                            backgroundColor: ["#347ede90"],
+                            backgroundColor: ["#00C3A5"],
                             responsive: true,
                             maintainAspectRatio: false,
 
