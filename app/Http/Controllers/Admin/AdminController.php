@@ -103,4 +103,11 @@ class AdminController extends Controller
         ];
         return view('admin.sponsorPlan', $data);
     }
+    public function reviews($id){
+        $user = User::findOrFail($id);
+        $data = [
+           'user' => $user
+        ];
+        return view('admin.reviews',$data);
+    }
 }

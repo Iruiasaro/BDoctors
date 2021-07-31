@@ -40,6 +40,7 @@ Route::prefix('admin')
         Route::get("/messages/{id}", "AdminController@messages")->name('messages');
         Route::delete("/delete/{user}", "AdminController@destroy")->name('destroy');
         Route::get('/sponsor_plan', 'AdminController@sponsorPlan')->name('sponsorPlan');
+        Route::get('/reviews/{id}', 'AdminController@reviews')->name('reviews');
     });
 
 Route::get('/show/{id}', 'DoctorController@show')->name('doctor.show');

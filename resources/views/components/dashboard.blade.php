@@ -14,11 +14,11 @@
                 <span class="text-dashboard"> Messaggi </span> </a>
         </li>
         <li class="pt-3">
-            <a href="{{route('admin.charts',Auth::user()->id,)}}"><i class="fa fa-bar-chart" aria-hidden="true"></i><span class="text-dashboard"> Statistiche
+            <a href="{{route('admin.charts',Auth::user()->id)}}"><i class="fa fa-bar-chart" aria-hidden="true"></i><span class="text-dashboard"> Statistiche
                 </span> </a>
         </li>
         <li class="pt-3">
-            <a href=""> <i class="fa fa-star-half-o" aria-hidden="true"></i> <span class="text-dashboard"> Recensioni
+            <a href="{{route('admin.reviews',Auth::user()->id)}}"> <i class="fa fa-star-half-o" aria-hidden="true"></i> <span class="text-dashboard"> Recensioni
                 </span> </a>
         </li>
         <li class="pt-3">

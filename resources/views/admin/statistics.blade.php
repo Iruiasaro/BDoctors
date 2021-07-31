@@ -91,18 +91,18 @@
           @include('components.dashboard')
       </div>
 
-      <div class="charts-container">
-
+      <div class="charts-container m-auto">
+          <h1 class="mb-5 mt-5"> Statistiche </h1>
           <div class="mb-5 p-3">
-              <h3> Voti ricevuti: </h3>
+              <h3> <i class="fa fa-star-half-o" aria-hidden="true"></i> Voti ricevuti: </h3>
               <canvas id="voteMonths"></canvas>
           </div>
           <div class="mb-5 p-3">
-              <h3> Recensioni per mese: </h3>
+              <h3> <i class="fa fa-list-alt" aria-hidden="true"></i> Recensioni per mese: </h3>
               <canvas id="reviewsMonths"></canvas>
           </div>
           <div class="mb-5 p-3">
-              <h3> Messaggi per mese: </h3>
+              <h3> <i class="fa fa-comments" aria-hidden="true"></i> Messaggi per mese: </h3>
               <canvas id="messagesMonths"></canvas>
           </div>
       </div>

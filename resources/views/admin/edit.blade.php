@@ -57,27 +57,16 @@
                     <input class="" type="file" name="cv" id="cv">
                 </div> --}}
                 <div class="form-group">
-                    <label for="file" class="control-label col-sm-3">Carica il tuo CV</label>
-                    <div class="col-sm-9">
-                        <input class="form-control" type="file" name="cv" id="cv" accept="application/pdf" />
+                    <label for="file">Carica il tuo CV: </label>
+                    <div>
+                        <input type="file" name="cv" id="cv" accept="application/pdf" />
                     </div>
+
+
                 </div>
-                <div class="form-group row">
-                    <label for="city" class="col-md-4 col-form-label text-md-right">{{ __('Città')  }} </label>
-                    <div class="col-md-6">
-                        <select id="city" type="text" class="form-control @error('city') is-invalid @enderror" name="city_id" value="{{ old('city_id') }}" required autocomplete="city">
-                            <option v-for="city in cities" :value="city.id">@{{city.name}}</option>
-                        </select>
-                        @error('city')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                        @enderror
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label for="city" class="col-md-4 col-form-label text-md-right">{{ __('Città')  }} </label>
-                    <div class="col-md-6">
+                <div class="form-group">
+                    <label for="city">{{ __('Città')  }}:</label>
+                    <div class="">
                         <select id="city" type="text" class="form-control @error('city') is-invalid @enderror" name="city_id" value="{{ old('city_id') }}" required autocomplete="city">
                             <option v-for="city in cities" :value="city.id">@{{city.name}}</option>
                         </select>
