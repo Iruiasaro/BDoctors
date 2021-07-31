@@ -75,8 +75,8 @@
     <section>
         <div class="bg-white show-card p-4">
             <h2>Recensioni:</h2>
-            <div v-for="review in reviews" class="mt-3 mb-3">
-                <div>
+            <div v-for="review in reviews" class="mt-3 mb-3 shadow">
+                <div class="p-4">
                     <i>@{{review.reviewer}} </i>
                     <h5>@{{review.title}}</h5>
                     <p>@{{review.content}}</p>
