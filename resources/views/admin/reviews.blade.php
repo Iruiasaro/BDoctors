@@ -6,7 +6,7 @@
     <div class="dashboard-container">
         @include('components.dashboard')
     </div>
-    <div class="container">
+    <div class="container my-scroll">
         <div class="p-4 mt-5">
             <h1>Recensioni:</h1>
             <div v-for="review in reviews" class="mt-3 mb-3 shadow">

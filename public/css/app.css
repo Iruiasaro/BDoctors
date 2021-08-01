@@ -77,6 +77,11 @@
   border: 1px solid rgba(0, 0, 0, 0.125);
 }
 
+.my-scroll {
+  max-height: calc(100vh - 100px);
+  overflow-y: scroll;
+}
+
 aside {
   padding: 20px;
   min-height: calc(100vh - 79px);

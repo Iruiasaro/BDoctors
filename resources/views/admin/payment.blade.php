@@ -17,7 +17,7 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-md navbar-light bg-color-primary">
-        <div class="container">
+        <div class="container my-scroll">
             <a class="animate__bounce navbar-brand my-navbar-brand" href="{{ url('/') }}">
                 <img src="{{asset('imgs/logo-white2.png')}}" class="logo img-fluid p-3" alt="">
             </a>

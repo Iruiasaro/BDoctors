@@ -4,7 +4,7 @@
         <div class="dashboard-container">
             @include('components.dashboard')
         </div>
-        <div class="container ">
+        <div class="container my-scroll">
             <div class="flex-grow-1 p-3">
                     @csrf @method( 'PUT' )
                     <h2> Scegli la sponsorizzazione</h2>

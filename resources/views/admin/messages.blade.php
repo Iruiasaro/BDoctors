@@ -4,13 +4,13 @@
     <div class="dashboard-container">
         @include('components.dashboard')
     </div>
-    <div class="container">
+    <div class="container" >
         <h3 class="mt-5 mb-3">
             I tuoi messaggi
         </h3>
         <div class="scroll-layout">
             @foreach($messages as $message)
-            <div class="mb-5" role="alert" style="opacity:100%; width:100%" aria-live="assertive" aria-atomic="true">
+            <div class="" role="alert" style="opacity:100%; width:100%" aria-live="assertive" aria-atomic="true">
                 <div class="toast-header">
                    <i class="fa fa-user" aria-hidden="true"></i>
                     <strong class="ml-3 mr-auto"> Da: <span>{{$message->sender_name}}</span></strong>

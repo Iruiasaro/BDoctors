@@ -11,7 +11,7 @@
     @endif
     @endauth
     <div class="ml-auto mr-auto">
-        <div class="container mb-5" style="justify-self:center">
+        <div class="container mb-5 @auth my-scroll @endauth" style="justify-self:center">
             <div class="bg-white show-card p-2 rounded mt-5 d-flex">
                 <div class="profile-img overflow-hidden h-100" style="min-width:100px"> <img src="{{ str_contains(asset('storage/' . $user->image),"random") ? $user->image : asset('storage/' . $user->image) }}" class="img-fluid rounded" alt=""></div>
                 <div class="ml-4 p-2">
