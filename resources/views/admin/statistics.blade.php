@@ -18,8 +18,8 @@
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
       <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-      
-      
+
+
       {{-- Scripts --}}
       <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -40,7 +40,7 @@
   </html>
 
   <nav class="navbar navbar-expand-md navbar-light bg-color-primary">
-      <div class="container my-scroll">
+      <div class="container">
           <a class="animate__bounce navbar-brand my-navbar-brand" href="{{ url('/') }}">
               <img src="{{asset('imgs/logo-white2.png')}}" class="logo img-fluid p-3" alt="">
           </a>
@@ -97,21 +97,23 @@
       <div>
           @include('components.dashboard')
       </div>
-
-      <div class="charts-container m-auto">
-          <h1 class="mb-5 mt-5"> Statistiche </h1>
-          <div class="mb-5 p-3">
-              <h3> <i class="fa fa-star-half-o" aria-hidden="true"></i> Voti ricevuti: </h3>
-              <canvas id="voteMonths"></canvas>
-          </div>
-          <div class="mb-5 p-3">
-              <h3> <i class="fa fa-list-alt" aria-hidden="true"></i> Recensioni per mese: </h3>
-              <canvas id="reviewsMonths"></canvas>
-          </div>
-          <div class="mb-5 p-3">
-              <h3> <i class="fa fa-comments" aria-hidden="true"></i> Messaggi per mese: </h3>
-              <canvas id="messagesMonths"></canvas>
+      <div>
+          <div class="charts-container m-auto my-scroll">
+              <h1 class="mb-5 mt-5"> Statistiche </h1>
+              <div class="mb-5 p-3">
+                  <h3> <i class="fa fa-star-half-o" aria-hidden="true"></i> Voti ricevuti: </h3>
+                  <canvas id="voteMonths"></canvas>
+              </div>
+              <div class="mb-5 p-3">
+                  <h3> <i class="fa fa-list-alt" aria-hidden="true"></i> Recensioni per mese: </h3>
+                  <canvas id="reviewsMonths"></canvas>
+              </div>
+              <div class="mb-5 p-3">
+                  <h3> <i class="fa fa-comments" aria-hidden="true"></i> Messaggi per mese: </h3>
+                  <canvas id="messagesMonths"></canvas>
+              </div>
           </div>
       </div>
+
 
   </div>

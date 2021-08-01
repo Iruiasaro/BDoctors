@@ -4,7 +4,7 @@
     <div class="dashboard-container">
         @include('components.dashboard')
     </div>
-    <div class="container my-scroll">
+    <div class=" my-scroll">
         <h3 class="mt-5 mb-3">
             Modifica i tuoi dati
         </h3>

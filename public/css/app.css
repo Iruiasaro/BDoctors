@@ -78,8 +78,11 @@
 }
 
 .my-scroll {
+  padding: 25px;
+  width: 100%;
   max-height: calc(100vh - 100px);
-  overflow-y: scroll;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 aside {
