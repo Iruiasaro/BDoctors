@@ -99,7 +99,7 @@
                     <button type="submit" class="btn btn-primary"> Modifica</button>
                 </div>
             </form>
-            <form action="{{ route('admin.destroy', $user->id) }}" class="d-inline-block mt-2" method="post">
+            <form action="{{ route('admin.destroy', $user->id) }}" class="d-inline-block mt-2 mb-5" method="post">
                 @csrf
                 @method('DELETE')
                 <input type="submit" class="btn btn-danger" id="delete" value="Elimina profilo">
