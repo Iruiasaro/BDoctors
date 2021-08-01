@@ -7,8 +7,8 @@
         @include('components.dashboard')
     </div>
     <div class="container">
-        <div class="bg-white show-card p-4 mt-5">
-            <h2>Recensioni:</h2>
+        <div class="p-4 mt-5">
+            <h1>Recensioni:</h1>
             <div v-for="review in reviews" class="mt-3 mb-3 shadow">
                 <div class="p-4">
                     <i>@{{review.reviewer}} </i>
