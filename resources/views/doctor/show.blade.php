@@ -46,8 +46,10 @@
                                     </div>
                                 </div>
                             </div>
+                            @if(Auth::user())
                             @if(Auth::user()->id!=$user->id)
                             <a class="btn btn-primary" data-bs-toggle="modal" href="#exampleModalToggle" role="button" type="submit" id="send-message">Invia un messaggio al dottore</a>
+                            @endif
                             @endif
 
                             <script type="application/javascript">
