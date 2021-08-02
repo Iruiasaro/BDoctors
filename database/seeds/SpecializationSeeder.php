@@ -15,7 +15,7 @@ class SpecializationSeeder extends Seeder
 
         App\Specialization::truncate();
 
-        $specialization = ["Medicina interna", "Geriatria", "Medicina dello sport", "Medicina termale", "Oncologia medica", "Medicina di comunità", "Allergologia ed Immunologia clinica", "Dermatologia e Venereologia",  "Pediatria"];
+        $specialization = [ "Allergologia ed Immunologia clinica","Cardiologia","Chirurgia generale","Dermatologia e Venereologia","Endocrinologia","Geriatria","Medicina dello sport","Medicina di comunità","Medicina interna","Medicina legale","Medicina termale","Nefrologia","Oculistica","Odontoiatria","Oncologia medica","Ortopedia","Otorinolaringoiatria","Pediatria","Urologia",];
 
         foreach ($specialization as $spec) {
             $spec_obj = new Specialization();
