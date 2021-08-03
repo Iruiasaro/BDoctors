@@ -175,7 +175,7 @@ main {
   min-height: 80vh;
   display: flex;
   align-items: center;
-  background-image: url("https://platform.docplanner.com/img/it/homepage/homepage-bg-it.jpg?v=2");
+  background-image: url(/images/T6_1.png?7a1464b5785791101b48400e1acddc59);
   background-size: cover;
   background-position: center;
   transition: all 0.5s ease-in-out;
