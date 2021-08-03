@@ -32,6 +32,7 @@ class SpecializationUserController extends Controller
 
             $specializations = $user->specializations;
             $user->specializationsArray = $specializations;
+            
             $city = $user->city->name;
             $user->cityName = $city;
         }

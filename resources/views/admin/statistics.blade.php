@@ -26,7 +26,7 @@
       <script src="https://js.braintreegateway.com/web/dropin/1.8.1/js/dropin.min.js"></script>
       <script src="{{asset("js/script.js")}}"></script>
       <script src="{{ asset('js/app.js') }}" defer></script>
-      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+      {{-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> --}}
       <!-- SCRIPTS -->
       <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" crossorigin="anonymous"></script>
       <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -93,13 +93,13 @@
           </div>
       </div>
   </nav>
-  <div class="d-flex flex-wrap" id="charts">
+  <div class="d-flex " id="charts">
       <div>
           @include('components.dashboard')
       </div>
-      <div>
-          <div class="charts-container m-auto my-scroll">
-              <h1 class="mb-5 mt-5"> Statistiche </h1>
+      <div style="position:relative; height:70vh; width:100%;">
+          <div class="charts-container m-auto my-scroll" >
+              <h1 class="mb-5 mt-5"> Statistiche: </h1>
               <div class="mb-5 p-3">
                   <h3> <i class="fa fa-star-half-o" aria-hidden="true"></i> Voti ricevuti: </h3>
                   <canvas id="voteMonths"></canvas>

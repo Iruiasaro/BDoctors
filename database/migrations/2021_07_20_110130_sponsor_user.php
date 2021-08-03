@@ -14,7 +14,7 @@ class SponsorUser extends Migration
     public function up()
     {
         Schema::create('sponsor_user', function (Blueprint $table) {
-
+            $table->id();
             $table->unsignedBigInteger("sponsor_id");
             $table->foreign("sponsor_id")
                 ->references("id")
@@ -25,8 +25,7 @@ class SponsorUser extends Migration
                 ->references("id")
                 ->on("users");
 
-            //quali sono le chiavi primarie?
-            $table->primary(["sponsor_id", "user_id"]);
+            $table->timestamps();
         });
     }
 
