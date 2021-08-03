@@ -256,7 +256,7 @@ window.addEventListener("load", function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\franc\OneDrive\Desktop\BDoctors\resources\js\charts.js */"./resources/js/charts.js");
+module.exports = __webpack_require__(/*! C:\Users\Saro\Desktop\Boolean\BDoctors\resources\js\charts.js */"./resources/js/charts.js");
 
 
 /***/ })

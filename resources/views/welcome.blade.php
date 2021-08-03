@@ -85,7 +85,7 @@
 
 
     <section class="my-wrap p-5">
-        <div class="d-flex  justify-content-between ">
+        <div class="justify-content-between ">
             <div>
                 <h2 class="mb-4"> Dottori consigliati </h2>
                 <div class="suggested-doctors d-flex flex-wrap">
