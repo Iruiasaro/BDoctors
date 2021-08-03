@@ -47,6 +47,7 @@ const app = new Vue({
                 alert("Non posso recuperare i tag");
             });
         this.getCities();
+        this.getSponsporizedUsers();
         this.getReviews();
         this.getUserSpecializations();
     },
@@ -67,6 +68,7 @@ const app = new Vue({
         link: '',
         selectedStar: 'all',
         selectedCity: 'all',
+        sponsorizedUsers: [],
     },
     methods: {
         resetFilters(data) {
@@ -162,6 +164,17 @@ const app = new Vue({
                 this.filterResult = this.filterResult.sort((a, b) => b.reviews.length - a.reviews.length);
             }
 
-        }
+        },
+        getSponsporizedUsers() {
+            axios
+                .get(`http://127.0.0.1:8000/api/sponsorizedUsers`)
+                .then((resp) => {
+                    this.sponsorizedUsers = resp.data.results;
+                })
+                .catch((er) => {
+                    console.error(er);
+                    alert("Errore in fase di get users.");
+                });
+        },
     },
 });

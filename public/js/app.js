@@ -48170,6 +48170,7 @@ var app = new Vue({
       alert("Non posso recuperare i tag");
     });
     this.getCities();
+    this.getSponsporizedUsers();
     this.getReviews();
     this.getUserSpecializations();
   },
@@ -48189,7 +48190,8 @@ var app = new Vue({
     name: '',
     link: '',
     selectedStar: 'all',
-    selectedCity: 'all'
+    selectedCity: 'all',
+    sponsorizedUsers: []
   },
   methods: {
     resetFilters: function resetFilters(data) {
@@ -48286,6 +48288,16 @@ var app = new Vue({
           return b.reviews.length - a.reviews.length;
         });
       }
+    },
+    getSponsporizedUsers: function getSponsporizedUsers() {
+      var _this7 = this;
+
+      axios.get("http://127.0.0.1:8000/api/sponsorizedUsers").then(function (resp) {
+        _this7.sponsorizedUsers = resp.data.results;
+      })["catch"](function (er) {
+        console.error(er);
+        alert("Errore in fase di get users.");
+      });
     }
   }
 });
@@ -48594,8 +48606,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\salva\Desktop\Boolean\BDoctors\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\salva\Desktop\Boolean\BDoctors\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\salva\OneDrive\Desktop\Boolean\BDoctors\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\salva\OneDrive\Desktop\Boolean\BDoctors\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

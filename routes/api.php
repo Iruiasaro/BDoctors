@@ -27,3 +27,4 @@ Route::get('reviews/', 'api\ReviewController@getReviewsByUser');
 Route::get('users/', 'api\UserController@getUsers');
 Route::get('cities/', 'api\CityController@getCities');
 Route::get('messages/', 'api\MessageController@getMessagesByDate');
+Route::get('sponsorizedUsers/', 'api\SponsorizedUser@getSponsorizedUsers');
