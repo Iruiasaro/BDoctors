@@ -59,3 +59,13 @@
     overflow-y:auto;
     overflow-x:hidden;
 }
+
+ .my-hover:hover{
+    padding: 10px;
+    box-shadow:5px 5px 8px rgba(128, 128, 128, 0.651);
+    border-radius: 10px;
+}
+
+.navbar-brand.my-navbar-brand:hover{
+    width: 210px;
+}

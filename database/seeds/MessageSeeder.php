@@ -12,6 +12,6 @@ class MessageSeeder extends Seeder
     public function run()
     {
         App\Message::truncate();
-        factory(App\Message::class, 8500)->create();
+        factory(App\Message::class, 2900)->create();
     }
 }

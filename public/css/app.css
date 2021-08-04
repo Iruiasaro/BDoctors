@@ -85,6 +85,16 @@
   overflow-x: hidden;
 }
 
+.my-hover:hover {
+  padding: 10px;
+  box-shadow: 5px 5px 8px rgba(128, 128, 128, 0.651);
+  border-radius: 10px;
+}
+
+.navbar-brand.my-navbar-brand:hover {
+  width: 210px;
+}
+
 aside {
   padding: 20px;
   min-height: calc(100vh - 79px);
@@ -175,7 +185,7 @@ main {
   min-height: 80vh;
   display: flex;
   align-items: center;
-  background-image: url(/images/T6_1.png?7a1464b5785791101b48400e1acddc59);
+  background-image: url(/images/T6_5.png?82ffed552784be74623f76c46c252458);
   background-size: cover;
   background-position: center;
   transition: all 0.5s ease-in-out;

@@ -12,6 +12,6 @@ class SpecializationUserSeeder extends Seeder
     public function run()
     {
         App\SpecializationUser::truncate();
-        factory(App\SpecializationUser::class, 3900)->create();
+        factory(App\SpecializationUser::class, 3200)->create();
     }
 }
