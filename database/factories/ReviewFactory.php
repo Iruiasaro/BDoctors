@@ -8,7 +8,7 @@ use App\Review;
 
 $factory->define(Review::class, function (Faker $faker) {
     return [
-        'user_id' => rand(1,15008),
+        'user_id' => rand(1,5210),
         'content' => $faker->text(),
         'vote'=>rand(1,5),
         'title'=>$faker->text(50),
