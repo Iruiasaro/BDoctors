@@ -10,7 +10,7 @@ $factory->define(Message::class, function (Faker $faker) {
     return [
         'sender_name' => $faker->name(),
         'content' => $faker->text(),
-        'user_id' => rand(1,5210),
+        'user_id' => rand(1,3210),
         'created_at'=> $faker->dateTimeBetween('-210 days', 'now', 'Europe/Berlin'),
     ];
 });
