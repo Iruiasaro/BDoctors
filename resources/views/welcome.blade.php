@@ -10,7 +10,6 @@
                         @{{ specialization . specs_type }}
                     </option>
                 </select>
-
                 <select v-model="selectedCity" class="my-select" name="citta" id="">
                     <option value="all">Tutta Italia</option>
                     <option v-for="city in cities" :value="city.id">@{{ city . name }}</option>
@@ -19,7 +18,6 @@
             </form>
         </div>
     </main>
-
     <section v-if="!isLoading && isSearched==true" class="my-wrap p-5">
         <div class="d-flex justify-content-between responsive-flex">
             <div class="m-2">
@@ -35,17 +33,16 @@
                         </div>
                         <input class="form-check-input" type="radio" v-model="selectedStar" :id="index" :value="index">
                         <label class="form-check-label" :for="index"><span v-for="item in index"><i
-                                    class="fa fa-star color-primary" aria-hidden="true"></i> </span> </label>
+                                    class="fa fa-star third-color" aria-hidden="true"></i> </span> </label>
                     </div>
                 </form>
             </div>
             <div class="m-2">
-                <button class="btn" v-on:click="sortByReviewsNumber()"> <i class="fa m-2"
+                <button class="btn btn-outline-primary p-1" v-on:click="sortByReviewsNumber()"> <i class="fa m-2"
                         :class="!sortValue ? 'fa-sort-amount-asc':'fa-sort-amount-desc'" aria-hidden="true"></i>Filtra per
                     numero di recensioni</button>
             </div>
         </div>
-
         <div class="">
             <div v-if="!isLoading" class="suggested-doctors d-flex flex-wrap">
                 <div v-for="doctor in filterResult" class="card" style="">
@@ -58,8 +55,8 @@
                         <h5 class="card-title">@{{ doctor . name }}</h5>
                         <p class="card-text">
                         <div>
-                            <ul style="list-style-position: inside">
-                                <li v-for="specialization in doctor.specializationsArray"><i>
+                            <ul class="list-unstyled ">
+                                <li   style="margin-top:5px;border:1px solid black;border-radius:15px" v-for="specialization in doctor.specializationsArray"><i style="padding:3px; ">
                                         @{{ specialization . specs_type }} </i></li>
                             </ul>
                         </div>
@@ -82,8 +79,6 @@
             <img class="loading" src="{{ asset('/imgs/loading.gif') }}" alt="">
         </div>
     </section>
-
-
     <section class="my-wrap p-5">
         <div class="justify-content-between ">
             <div>
@@ -115,16 +110,11 @@
                                 Profilo</a>
                         </div>
                     </div>
-
-
                 </div>
-
-
             </div>
         </div>
         <p> Prenota una visita da un dottore consigliato da <span class="color-primary">BDoctors</span> .</p>
         <div class="suggested-doctors d-flex flex-wrap ">
         </div>
     </section>
-
 @endsection
