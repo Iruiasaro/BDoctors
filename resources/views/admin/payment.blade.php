@@ -76,11 +76,13 @@
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2">
                         <div id="dropin-container"></div>
-                        <button class="btn btn-primary" type="submit" id="submit-button">Request payment method</button>
+                        <button data-bs-dismiss="modal" aria-label="Close" class="btn btn-primary" type="submit" id="submit-button">Procedi al pagamento</button>
                     </div>
                 </div>
             </div>
+
             <form action="{{route('admin.home')}}" id="formId">
+
                 <script>
                     var button = document.querySelector('#submit-button');
                     braintree.dropin.create({
@@ -100,11 +102,9 @@
                                     }
                                     , function(response) {
                                         console.log(response.amount);
-                                        if (response.success && confirm('Sei sicuro di proseguire')) {
-                                            alert('Payment successfull!');
+                                        if (response.success) {
                                             document.getElementById('formId').submit()
                                         } else {
-                                            alert('Payment failed');
                                             document.getElementById('formId').submit()
                                         }
                                     }, 'json');
